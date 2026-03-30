@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkdd5yhgratsa"]
+
+[ext_resource type="PackedScene" uid="uid://d02qcalccvy2y" path="res://scenes/characters/dumbert_1_leg.tscn" id="1_o5qli"]
+
+[sub_resource type="GDScript" id="GDScript_o5qli"]
+resource_name = "camera"
+script/source = "
+
+extends Camera2D
+
+@export var player: Node2D
+
+func _process(_delta: float) -> void:
+	if player:
+		global_position = player.global_position
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
+radius = 129.13947
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
+size = Vector2(241, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
+size = Vector2(69.5, 15676)
+
+[node name="main" type="Node2D"]
+
+[node name="camera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+zoom = Vector2(0.3, 0.3)
+limit_left = 0
+limit_right = 0
+limit_bottom = 1300
+position_smoothing_enabled = true
+script = SubResource("GDScript_o5qli")
+player = NodePath("../dumbert_1_leg")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(8, 345)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor"]
+polygon = PackedVector2Array(-1897, 690, -756, 632, -586, 341, -15, 471, 1161, 88, 1166, -186, 1904, -200, 1901, 745, -1891, 970)
+
+[node name="collision3" type="CollisionShape2D" parent="floor"]
+position = Vector2(741, -374)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_0wfyh")
+
+[node name="collision4" type="CollisionShape2D" parent="floor"]
+position = Vector2(248.99997, -520)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_0wfyh")
+
+[node name="collision5" type="CollisionShape2D" parent="floor"]
+position = Vector2(-261.00003, -676)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_0wfyh")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="floor"]
+polygon = PackedVector2Array(-1871, -239, -705, -658, -1329, -940, -1847, -831)
+
+[node name="collision" type="CollisionShape2D" parent="floor"]
+position = Vector2(741.5, -461)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="collision2" type="CollisionShape2D" parent="floor"]
+position = Vector2(250, -610)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="collision6" type="CollisionShape2D" parent="floor"]
+position = Vector2(-262, -764)
+shape = SubResource("RectangleShape2D_0wfyh")
+
+[node name="walls" type="StaticBody2D" parent="."]
+position = Vector2(8, 345)
+
+[node name="left" type="CollisionShape2D" parent="walls"]
+position = Vector2(-1912.25, -6441)
+shape = SubResource("RectangleShape2D_o5qli")
+
+[node name="right" type="CollisionShape2D" parent="walls"]
+position = Vector2(1915, -6413)
+shape = SubResource("RectangleShape2D_o5qli")
+
+[node name="dumbert_1_leg" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(-1526, 822)

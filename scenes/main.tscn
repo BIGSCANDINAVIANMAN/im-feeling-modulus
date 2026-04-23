@@ -20,8 +20,7 @@ extends Camera2D
 func _process(_delta: float) -> void:
 	var player = get_parent().player
 	if player:
-		#global_position = player.global_position
-		global_position.x += 20
+		global_position = player.global_position
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]

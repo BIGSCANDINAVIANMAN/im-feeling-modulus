@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b6ongvcbul4ah"]
+
+[ext_resource type="Script" uid="uid://cq11lh7olhqfs" path="res://pause_menu.gd" id="1_hfklj"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1670165525]
+
+[node name="pauseMenu" type="Control" parent="." unique_id=895029684]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1149.0
+offset_bottom = 648.0
+script = ExtResource("1_hfklj")
+
+[node name="Panel" type="Panel" parent="pauseMenu" unique_id=1924090587]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 644.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pauseMenu/Panel" unique_id=842768969]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.5
+offset_right = 20.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="pauseMenu/Panel/VBoxContainer" unique_id=1094975277]
+layout_mode = 2
+text = "Game Paused"
+
+[node name="Resume" type="Button" parent="pauseMenu/Panel/VBoxContainer" unique_id=327394245]
+layout_mode = 2
+text = "Resume"
+
+[node name="Quit" type="Button" parent="pauseMenu/Panel/VBoxContainer" unique_id=185239693]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="pauseMenu/Panel/VBoxContainer/Resume" to="pauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="pauseMenu/Panel/VBoxContainer/Quit" to="pauseMenu" method="_on_quit_pressed"]

@@ -1,28 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://d02qcalccvy2y"]
+[gd_scene format=3 uid="uid://d02qcalccvy2y"]
+
+[ext_resource type="Script" uid="uid://dpgkm7d5vrsx8" path="res://scenes/characters/arm_rigid_body.gd" id="1_0fgq2"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
 script/source = "extends RigidBody2D
 
-var charge_time = 0.0
+@export var charge_time = 0.5
+@export var direction = 0
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_released(\"space\"):
-		apply_impulse(Vector2(0, -1).rotated(rotation) * 1400 * charge_time)
+	if not get_tree().paused:
+		if Input.is_action_just_released(\"space\") and is_on_floor():
+			apply_impulse(Vector2(0, -1).rotated(rotation) * 1650 * charge_time)
+		
+		if Input.is_action_pressed(\"space\") and is_on_floor():
+			if charge_time < 1:
+				charge_time += delta * 1
+			if charge_time > 1:
+				charge_time = 1
+		else:
+			charge_time = 0.5
+		
+		var x = Input.get_axis(\"left\", \"right\")
+		apply_torque(-rotation * 200000) # remains balanced
+		apply_torque(x * 150000) # lean
 	
-	if Input.is_action_pressed(\"space\") and is_on_floor():
-		if charge_time < 1.5:
-			charge_time += delta * 2
-	else:
-		charge_time = 0.0
-	
-	var x = Input.get_axis(\"left\", \"right\")
-	apply_torque(-rotation * 200000); # remains balanced
-	apply_torque(x * 150000) # lean
-
 func is_on_floor():
-	return $floorRay.is_colliding()
-	
+	#print($Area2D.get_overlapping_bodies())
+	for body in $Area2D.get_overlapping_bodies():
+		if body.is_in_group(\"FLOOR\"):
+			return true
+	return false
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tckc"]
@@ -33,7 +42,13 @@ size = Vector2(117, 280)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_urr16"]
 
-[node name="dumbert_1_leg" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm0je"]
+size = Vector2(216.875, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fgq2"]
+radius = 29.427877
+
+[node name="dumbert_1_leg_1_arm" type="RigidBody2D" unique_id=643951474]
 gravity_scale = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
@@ -41,16 +56,45 @@ contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
-[node name="collision2" type="CollisionShape2D" parent="."]
+[node name="collision2" type="CollisionShape2D" parent="." unique_id=1847327758]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1951203041]
 shape = SubResource("RectangleShape2D_5tckc")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=609655118]
 sprite_frames = SubResource("SpriteFrames_urr16")
 
-[node name="floorRay" type="RayCast2D" parent="."]
+[node name="floorRay" type="RayCast2D" parent="." unique_id=2083159510]
 position = Vector2(0, 143)
 target_position = Vector2(-1, 125)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1958517377]
+position = Vector2(0, -36)
+node_a = NodePath("..")
+node_b = NodePath("../arm rigid body")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=876811584]
+
+[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=502775180]
+position = Vector2(-1, 140)
+shape = SubResource("CircleShape2D_5tckc")
+
+[node name="arm rigid body" type="RigidBody2D" parent="." unique_id=1737878152]
+mass = 0.104
+angular_damp = 1.0
+script = ExtResource("1_0fgq2")
+
+[node name="arm" type="CollisionShape2D" parent="arm rigid body" unique_id=1659180458]
+position = Vector2(-105.5625, -36)
+shape = SubResource("RectangleShape2D_lm0je")
+
+[node name="hand hitbox" type="Area2D" parent="arm rigid body" unique_id=1602129654]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arm rigid body/hand hitbox" unique_id=486350865]
+position = Vector2(-199, -37)
+shape = SubResource("CircleShape2D_0fgq2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

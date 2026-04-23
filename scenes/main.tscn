@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkdd5yhgratsa"]
+[gd_scene format=3 uid="uid://bkdd5yhgratsa"]
 
 [ext_resource type="PackedScene" uid="uid://d02qcalccvy2y" path="res://scenes/characters/dumbert_1_leg.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b6ongvcbul4ah" path="res://pauseMenu.tscn" id="2_jyhfs"]
 
 [sub_resource type="GDScript" id="GDScript_o5qli"]
 resource_name = "camera"
@@ -24,9 +26,11 @@ size = Vector2(241, 79)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(69.5, 15676)
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" unique_id=711109927]
+process_mode = 3
+script = ExtResource("1_sugp2")
 
-[node name="camera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+[node name="camera" type="Camera2D" parent="." unique_id=1647716526 node_paths=PackedStringArray("player")]
 zoom = Vector2(0.3, 0.3)
 limit_left = 0
 limit_right = 0
@@ -35,52 +39,57 @@ position_smoothing_enabled = true
 script = SubResource("GDScript_o5qli")
 player = NodePath("../dumbert_1_leg")
 
-[node name="floor" type="StaticBody2D" parent="."]
+[node name="floor" type="StaticBody2D" parent="." unique_id=1869620096 groups=["FLOOR"]]
 position = Vector2(8, 345)
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor" unique_id=468330121]
 polygon = PackedVector2Array(-1897, 690, -756, 632, -586, 341, -15, 471, 1161, 88, 1166, -186, 1904, -200, 1901, 745, -1891, 970)
 
-[node name="collision3" type="CollisionShape2D" parent="floor"]
+[node name="collision3" type="CollisionShape2D" parent="floor" unique_id=129752588]
 position = Vector2(741, -374)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_0wfyh")
 
-[node name="collision4" type="CollisionShape2D" parent="floor"]
+[node name="collision4" type="CollisionShape2D" parent="floor" unique_id=1997682047]
 position = Vector2(248.99997, -520)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_0wfyh")
 
-[node name="collision5" type="CollisionShape2D" parent="floor"]
+[node name="collision5" type="CollisionShape2D" parent="floor" unique_id=852778789]
 position = Vector2(-261.00003, -676)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_0wfyh")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="floor"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="floor" unique_id=901026538]
 polygon = PackedVector2Array(-1871, -239, -705, -658, -1329, -940, -1847, -831)
 
-[node name="collision" type="CollisionShape2D" parent="floor"]
+[node name="collision" type="CollisionShape2D" parent="floor" unique_id=1445949942]
 position = Vector2(741.5, -461)
 shape = SubResource("RectangleShape2D_0wfyh")
 
-[node name="collision2" type="CollisionShape2D" parent="floor"]
+[node name="collision2" type="CollisionShape2D" parent="floor" unique_id=194252020]
 position = Vector2(250, -610)
 shape = SubResource("RectangleShape2D_0wfyh")
 
-[node name="collision6" type="CollisionShape2D" parent="floor"]
+[node name="collision6" type="CollisionShape2D" parent="floor" unique_id=1727785020]
 position = Vector2(-262, -764)
 shape = SubResource("RectangleShape2D_0wfyh")
 
-[node name="walls" type="StaticBody2D" parent="."]
+[node name="walls" type="StaticBody2D" parent="." unique_id=968524793]
 position = Vector2(8, 345)
 
-[node name="left" type="CollisionShape2D" parent="walls"]
+[node name="left" type="CollisionShape2D" parent="walls" unique_id=214651240]
 position = Vector2(-1912.25, -6441)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="right" type="CollisionShape2D" parent="walls"]
+[node name="right" type="CollisionShape2D" parent="walls" unique_id=1215563111]
 position = Vector2(1915, -6413)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="dumbert_1_leg" parent="." instance=ExtResource("1_o5qli")]
+[node name="dumbert_1_leg" parent="." unique_id=963346072 instance=ExtResource("1_o5qli")]
 position = Vector2(-1526, 822)
+collision_mask = 2
+
+[node name="pauseMenu" parent="." unique_id=1670165525 instance=ExtResource("2_jyhfs")]

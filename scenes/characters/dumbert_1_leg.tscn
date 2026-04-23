@@ -1,6 +1,4 @@
-[gd_scene format=3 uid="uid://d02qcalccvy2y"]
-
-[ext_resource type="Script" uid="uid://dpgkm7d5vrsx8" path="res://scenes/characters/arm_rigid_body.gd" id="1_0fgq2"]
+[gd_scene load_steps=5 format=3 uid="uid://d02qcalccvy2y"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
@@ -42,13 +40,7 @@ size = Vector2(117, 280)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_urr16"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm0je"]
-size = Vector2(216.875, 30)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0fgq2"]
-radius = 29.427877
-
-[node name="dumbert_1_leg_1_arm" type="RigidBody2D" unique_id=643951474]
+[node name="dumbert_1_leg_1_arm" type="RigidBody2D"]
 gravity_scale = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
@@ -56,45 +48,25 @@ contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
-[node name="collision2" type="CollisionShape2D" parent="." unique_id=1847327758]
+[node name="collision2" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="collision" type="CollisionShape2D" parent="." unique_id=1951203041]
+[node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5tckc")
 
-[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=609655118]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_urr16")
 
-[node name="floorRay" type="RayCast2D" parent="." unique_id=2083159510]
+[node name="floorRay" type="RayCast2D" parent="."]
 position = Vector2(0, 143)
 target_position = Vector2(-1, 125)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1958517377]
-position = Vector2(0, -36)
-node_a = NodePath("..")
-node_b = NodePath("../arm rigid body")
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=876811584]
-
-[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=502775180]
+[node name="collision2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
-
-[node name="arm rigid body" type="RigidBody2D" parent="." unique_id=1737878152]
-mass = 0.104
-angular_damp = 1.0
-script = ExtResource("1_0fgq2")
-
-[node name="arm" type="CollisionShape2D" parent="arm rigid body" unique_id=1659180458]
-position = Vector2(-105.5625, -36)
-shape = SubResource("RectangleShape2D_lm0je")
-
-[node name="hand hitbox" type="Area2D" parent="arm rigid body" unique_id=1602129654]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="arm rigid body/hand hitbox" unique_id=486350865]
-position = Vector2(-199, -37)
-shape = SubResource("CircleShape2D_0fgq2")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

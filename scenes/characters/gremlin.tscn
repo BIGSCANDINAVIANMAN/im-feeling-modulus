@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bapt8edq2kle3"]
+
+[ext_resource type="Script" uid="uid://betowsvsj1jwn" path="res://gremlin.gd" id="1_ovdqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovdqa"]
+size = Vector2(183, 298)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx1g4"]
+size = Vector2(448.5, 274)
+
+[node name="gremlin" type="CharacterBody2D"]
+script = ExtResource("1_ovdqa")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ovdqa")
+
+[node name="hit_area" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="hit_area"]
+shape = SubResource("RectangleShape2D_yx1g4")
+
+[connection signal="body_entered" from="hit_area" to="." method="_on_hit_area_body_entered"]

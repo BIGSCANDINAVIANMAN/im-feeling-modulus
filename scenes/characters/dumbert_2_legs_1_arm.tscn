@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkkfa3jxdxgux"]
+
+[ext_resource type="Script" uid="uid://cujyyocmkgmfl" path="res://scenes/characters/dumbert_2_legs_1_arm.gd" id="1_e1mxe"]
+[ext_resource type="PackedScene" uid="uid://btsesth5oov6t" path="res://scenes/characters/arm_rigid_body.tscn" id="2_0x06i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1mxe"]
+size = Vector2(117, 280)
+
+[node name="dumbert_2_legs_1_arm" type="RigidBody2D"]
+script = ExtResource("1_e1mxe")
+
+[node name="arm rigid body" parent="." instance=ExtResource("2_0x06i")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, -36)
+node_a = NodePath("..")
+node_b = NodePath("../arm rigid body")
+
+[node name="bodyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e1mxe")

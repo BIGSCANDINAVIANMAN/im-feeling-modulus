@@ -37,6 +37,7 @@ func _on_hit_area_body_entered(body: Node2D) -> void:
 
 func steal_limb():
 	var main = get_parent()
+	if main.limbs.size() == 0: return
 	var stolen_limb = main.limbs.pick_random()
 	main.remove_limb(stolen_limb)
 	limb_holding = stolen_limb

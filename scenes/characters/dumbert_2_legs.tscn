@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8li44o7n0tb5"]
+
+[ext_resource type="Script" uid="uid://c48b5mnwt1cb2" path="res://scenes/characters/dumbert_2_legs.gd" id="1_cme88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cme88"]
+size = Vector2(117, 280)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cme88"]
+radius = 59.03389
+
+[node name="dumbert_2_legs" type="RigidBody2D"]
+gravity_scale = 2.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_cme88")
+
+[node name="sprite" type="Sprite2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cme88")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="collision2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 140)
+shape = SubResource("CircleShape2D_cme88")

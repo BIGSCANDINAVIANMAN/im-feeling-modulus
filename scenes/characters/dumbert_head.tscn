@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxn04h8uygwvu"]
+
+[ext_resource type="Script" uid="uid://dhrrmnjupx447" path="res://scenes/characters/dumbert_head.gd" id="1_886t1"]
+[ext_resource type="Texture2D" uid="uid://cnxqfeia8shm7" path="res://assets/leaning back and forth/Untitled_Artwork-1.png" id="2_m87v2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkkup"]
+atlas = ExtResource("2_m87v2")
+region = Rect2(3160.038, 1872.7332, 777.8242, 793.2268)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p03q1"]
+radius = 263.0
+height = 646.0
+
+[node name="dumbert_head" type="RigidBody2D"]
+gravity_scale = 2.5
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_886t1")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(2, -14)
+scale = Vector2(0.2, 0.2)
+texture = SubResource("AtlasTexture_wkkup")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CapsuleShape2D_p03q1")

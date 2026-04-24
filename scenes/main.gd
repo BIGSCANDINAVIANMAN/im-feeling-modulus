@@ -2,13 +2,15 @@ extends Node2D
 @onready var main = $"."
 @onready var pauseMenu = $pauseMenu
 
-@onready var player = $dumbert_1_leg_1_arm
-var limbs = ["arm", "leg"]
+@onready var player = $dumbert_1_leg
+var limbs = ["leg"]
 var dumbert_files = {
+	[]: "res://scenes/characters/dumbert_head.tscn",
+	["arm"]: "res://scenes/characters/dumbert_1_arm.tscn",
 	["leg"]: "res://scenes/characters/dumbert_1_leg.tscn",
 	["arm", "leg"]: "res://scenes/characters/dumbert_1_leg_1_arm.tscn",
-	["leg", "leg"]: "",
-	["arm", "leg", "leg"]: ""
+	["leg", "leg"]: "res://scenes/characters/dumbert_2_legs.tscn",
+	["arm", "leg", "leg"]: "res://scenes/characters/dumbert_2_legs_1_arm.tscn"
 }
 
 func _process(delta):
@@ -24,6 +26,10 @@ func remove_limb(limb_name):
 		limbs.erase(limb_name)
 		limbs.sort()
 	else:
+		return
+	if !dumbert_files.keys().has(limbs):
+		limbs.append(limb_name)
+		limbs.sort()
 		return
 	var player_pos = player.global_position
 	player.queue_free()

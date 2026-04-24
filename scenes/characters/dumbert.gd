@@ -2,7 +2,6 @@ extends RigidBody2D
 
 @export var charge_time = 0.5
 @export var direction = 0
-@onready var hurtBox = $bodyCollision
 static var inventory: InventoryClass = preload("res://inventoryManagement/playerInventory.tres")
 
 

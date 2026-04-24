@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://btsesth5oov6t"]
+
+[ext_resource type="Script" path="res://scenes/characters/arm_rigid_body.gd" id="1_p18ul"]
+[ext_resource type="Texture2D" uid="uid://bahds4xcd1m3g" path="res://assets/armrmmr.png" id="2_ln8gk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm0je"]
+size = Vector2(193.875, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0fgq2"]
+radius = 32.003338
+
+[node name="arm rigid body" type="RigidBody2D"]
+mass = 0.104
+angular_damp = 1.0
+script = ExtResource("1_p18ul")
+
+[node name="arm" type="CollisionShape2D" parent="."]
+position = Vector2(-101.99927, -54.510498)
+shape = SubResource("RectangleShape2D_lm0je")
+
+[node name="hand hitbox" type="Area2D" parent="."]
+position = Vector2(-12.999268, -17.510498)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hand hitbox"]
+position = Vector2(-184.00073, -41.489502)
+shape = SubResource("CircleShape2D_0fgq2")
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(-15.99927, -86.5105)
+rotation = -4.209734
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ln8gk")

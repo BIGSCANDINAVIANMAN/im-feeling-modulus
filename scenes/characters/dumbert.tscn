@@ -1,6 +1,8 @@
-[gd_scene format=3 uid="uid://cm5au21hercse"]
+[gd_scene load_steps=2 format=3 uid="uid://cm5au21hercse"]
 
 [ext_resource type="Script" uid="uid://dhwb15kmuclgg" path="res://scenes/characters/dumbert.gd" id="1_5gl1g"]
 
-[node name="RigidBody2D" type="RigidBody2D" unique_id=1279212641]
+[node name="RigidBody2D" type="RigidBody2D"]
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("1_5gl1g")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cpwaoe8x2hwy6"]
+
+[ext_resource type="Script" uid="uid://cmd1q28tdh0xo" path="res://body_part_arm.gd" id="1_t7o15"]
+[ext_resource type="Resource" uid="uid://bk4f7xaegpxda" path="res://inventoryManagement/items/arm.tres" id="2_the53"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd5yy"]
+radius = 16.0
+height = 226.0
+
+[node name="bodyPartArm" type="RigidBody2D" unique_id=1914880098]
+script = ExtResource("1_t7o15")
+itemType = "arm"
+itemRes = ExtResource("2_the53")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699918215]
+shape = SubResource("CapsuleShape2D_kd5yy")

@@ -24,5 +24,10 @@ func takeItem():
 
 	return item
 	
+func getItem():
+	if itemStackGui:
+		return itemStackGui.inventorySlot.item
+	return null
+	
 func isEmpty():
 	return !itemStackGui

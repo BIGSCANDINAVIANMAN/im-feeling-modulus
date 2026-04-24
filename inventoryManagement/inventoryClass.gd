@@ -9,6 +9,11 @@ func insert(item: InventoryItem):
 		if !slots[i].item:
 			slots[i].item = item
 			updated.emit()
+			
+			if i < 6:
+				pass
+				#send signal to add limb
+				
 			return
 	
 func removeItemAtIndex(index: int):
@@ -19,3 +24,9 @@ func insertSlot(index: int, inventorySlot: InventorySlot):
 	removeItemAtIndex(oldIndex)
 	
 	slots[index] = inventorySlot
+	
+func contains(s: InventorySlot):
+	for i in range(slots.size()):
+		if slots[i] == s:
+			return i
+	return -1

@@ -22,6 +22,7 @@ func pause():
 func remove_limb(limb_name):
 	if limbs.has(limb_name):
 		limbs.erase(limb_name)
+		limbs.sort()
 	else:
 		return
 	var player_pos = player.global_position
@@ -29,3 +30,14 @@ func remove_limb(limb_name):
 	player = load(dumbert_files[limbs]).instantiate()
 	call_deferred("add_child", player)
 	player.global_position = player_pos
+	
+func add_limb(limb_name):
+	limbs.append(limb_name)
+	limbs.sort()
+	var player_pos = player.global_position
+	player.queue_free()
+	player = load(dumbert_files[limbs]).instantiate()
+	call_deferred("add_child", player)
+	player.global_position = player_pos
+	
+	

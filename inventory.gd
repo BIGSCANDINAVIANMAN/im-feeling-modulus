@@ -6,6 +6,8 @@ extends Control
 @onready var ItemStackGuiClass = preload("res://inventoryManagement/itemStackGui.tscn")
 
 var itemInHand: ItemStackGui
+signal removePart(part: String)
+signal addPart(part: String)
 
 func _ready():
 	connectSlots()
@@ -42,14 +44,24 @@ func toggle():
 func onSlotClicked(slot):
 	if slot.isEmpty() && itemInHand:
 		insertItemInSlot(slot)
+		if slot.index >= 0 && slot.index < 6:
+			owner.add_limb(slot.getItem().getType())
 		return
 	if !itemInHand:
 		takeItemFromSlot(slot)
 	
 func takeItemFromSlot(slot):
+	
+	if slot.index >= 0 && slot.index < 6:
+		if slot.getItem():
+			print(slot.getItem().getType())
+			owner.remove_limb(slot.getItem().getType())
+		
 	itemInHand = slot.takeItem()
 	add_child(itemInHand)
 	updateItemInHand()
+	
+	
 	
 func insertItemInSlot(slot):
 	var item = itemInHand

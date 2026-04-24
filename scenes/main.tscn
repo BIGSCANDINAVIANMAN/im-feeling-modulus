@@ -9,11 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4- ground(back).png" id="5_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://b8xravphpk7p7" path="res://assets/bg_leg_forest/3- Ground(maindirt).png" id="6_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2- treebunch-back (foreground).png" id="7_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://kl7x41cgxfqp" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront of main dirt).png" id="8_muem4"]
+[ext_resource type="Texture2D" uid="uid://bqf1lojtfqumh" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront of main dirt).png" id="8_muem4"]
 [ext_resource type="PackedScene" uid="uid://d02qcalccvy2y" path="res://scenes/characters/dumbert_1_leg.tscn" id="10_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b1hotyf8q5hrn" path="res://body_part.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://blxhbpu5fh2p7" path="res://inventory.tscn" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://djk50srokrkha" path="res://scenes/canvas_layer.gd" id="12_trceg"]
+[ext_resource type="PackedScene" uid="uid://cpwaoe8x2hwy6" path="res://body_part_arm.tscn" id="13_jkv2x"]
 
 [sub_resource type="GDScript" id="GDScript_o5qli"]
 resource_name = "camera"
@@ -177,11 +178,11 @@ visible = false
 [node name="dumbert_1_leg_1_arm" parent="." unique_id=1155034032 instance=ExtResource("3_jyhfs")]
 position = Vector2(-1655, 705)
 
-[node name="bodyPartLeg" parent="." unique_id=587871478 groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
-position = Vector2(-1242, 636)
-
 [node name="bodyPartLeg2" parent="." unique_id=1571143025 groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 position = Vector2(-948, 514)
+
+[node name="bodyPartArm" parent="." unique_id=1914880098 groups=["bodyParts"] instance=ExtResource("13_jkv2x")]
+position = Vector2(-1182, 601)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=505098852]
 script = ExtResource("12_trceg")

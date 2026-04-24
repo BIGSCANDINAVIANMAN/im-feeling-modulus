@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqf1lojtfqumh"
-path="res://.godot/imported/1-treebunch-fron(Infront of main dirt).png-5cc7ab0db31f916b6cf613bdc01ee2cd.ctex"
+uid="uid://cqqm3sudyfjoo"
+path="res://.godot/imported/pant.png-8ea8483043cfa0f2a7244a60105782ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bg_leg_forest/1-treebunch-fron(Infront of main dirt).png"
-dest_files=["res://.godot/imported/1-treebunch-fron(Infront of main dirt).png-5cc7ab0db31f916b6cf613bdc01ee2cd.ctex"]
+source_file="res://assets/random_obstacles/pant.png"
+dest_files=["res://.godot/imported/pant.png-8ea8483043cfa0f2a7244a60105782ca.ctex"]
 
 [params]
 

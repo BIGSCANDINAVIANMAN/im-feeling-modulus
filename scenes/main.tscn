@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkdd5yhgratsa"]
+[gd_scene load_steps=14 format=3 uid="uid://bkdd5yhgratsa"]
 
 [ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" path="res://pauseMenu.tscn" id="2_jyhfs"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4- ground(back).png" id="5_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://b8xravphpk7p7" path="res://assets/bg_leg_forest/3- Ground(maindirt).png" id="6_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2- treebunch-back (foreground).png" id="7_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://kl7x41cgxfqp" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront of main dirt).png" id="8_muem4"]
 
 [sub_resource type="GDScript" id="GDScript_o5qli"]
 resource_name = "camera"
@@ -102,11 +101,6 @@ scroll_offset = Vector2(-9092, -957)
 repeat_size = Vector2(8000, 0)
 repeat_times = 2
 
-[node name="1" type="Sprite2D" parent="bg/1"]
-z_index = 10
-position = Vector2(-908, 957)
-texture = ExtResource("8_muem4")
-
 [node name="camera" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
 limit_left = -3000
@@ -121,6 +115,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor"]
+position = Vector2(-131, -185)
 polygon = PackedVector2Array(-1897, 690, -756, 632, -586, 341, -15, 471, 1161, 88, 1166, -186, 1904, -200, 1901, 745, -1891, 970)
 
 [node name="collision3" type="CollisionShape2D" parent="floor"]
@@ -168,4 +163,4 @@ shape = SubResource("RectangleShape2D_o5qli")
 visible = false
 
 [node name="dumbert_1_leg_1_arm" parent="." instance=ExtResource("3_jyhfs")]
-position = Vector2(-1655, 705)
+position = Vector2(-1510, 517)

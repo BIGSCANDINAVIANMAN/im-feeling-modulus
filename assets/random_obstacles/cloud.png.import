@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqf1lojtfqumh"
-path="res://.godot/imported/1-treebunch-fron(Infront of main dirt).png-5cc7ab0db31f916b6cf613bdc01ee2cd.ctex"
+uid="uid://bcsdi0kgbtj1i"
+path="res://.godot/imported/cloud.png-eac7f84111ee0fdd9894934e84f583d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bg_leg_forest/1-treebunch-fron(Infront of main dirt).png"
-dest_files=["res://.godot/imported/1-treebunch-fron(Infront of main dirt).png-5cc7ab0db31f916b6cf613bdc01ee2cd.ctex"]
+source_file="res://assets/random_obstacles/cloud.png"
+dest_files=["res://.godot/imported/cloud.png-eac7f84111ee0fdd9894934e84f583d4.ctex"]
 
 [params]
 

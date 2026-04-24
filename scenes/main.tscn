@@ -1,20 +1,19 @@
-[gd_scene format=3 uid="uid://bkdd5yhgratsa"]
+[gd_scene load_steps=19 format=3 uid="uid://bkdd5yhgratsa"]
 
 [ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://b6ongvcbul4ah" path="res://pauseMenu.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" path="res://pauseMenu.tscn" id="2_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://cfjuq0jc50h6c" path="res://assets/bg_leg_forest/7-bgcolor grad.png" id="2_ya4ey"]
-[ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6-backback (wait trustttt ts looks so chopped individually, when its layered its hopefully better) and omg why is it 50mb....its like only 6k res its okay.png" id="3_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6.png" id="3_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://mrewxbijjkr7" path="res://scenes/characters/dumbert_1_leg_1_arm.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://d3q80a00yr2oj" path="res://assets/bg_leg_forest/5-bgtree 1.png" id="4_trceg"]
 [ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4- ground(back).png" id="5_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://b8xravphpk7p7" path="res://assets/bg_leg_forest/3- Ground(maindirt).png" id="6_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2- treebunch-back (foreground).png" id="7_jbj1t"]
 [ext_resource type="Texture2D" uid="uid://bqf1lojtfqumh" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront of main dirt).png" id="8_muem4"]
-[ext_resource type="PackedScene" uid="uid://d02qcalccvy2y" path="res://scenes/characters/dumbert_1_leg.tscn" id="10_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://b1hotyf8q5hrn" path="res://body_part.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://blxhbpu5fh2p7" path="res://inventory.tscn" id="12_eb6dy"]
-[ext_resource type="Script" uid="uid://djk50srokrkha" path="res://scenes/canvas_layer.gd" id="12_trceg"]
-[ext_resource type="PackedScene" uid="uid://cpwaoe8x2hwy6" path="res://body_part_arm.tscn" id="13_jkv2x"]
+[ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="12_trceg"]
+[ext_resource type="PackedScene" path="res://body_part_arm.tscn" id="13_jkv2x"]
 
 [sub_resource type="GDScript" id="GDScript_o5qli"]
 resource_name = "camera"
@@ -37,82 +36,82 @@ size = Vector2(241, 79)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
 size = Vector2(69.5, 15676)
 
-[node name="main" type="Node2D" unique_id=1928715086]
+[node name="main" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_sugp2")
 
-[node name="bg" type="Node2D" parent="." unique_id=1397219374]
+[node name="bg" type="Node2D" parent="."]
 position = Vector2(531, -915)
 
-[node name="7" type="Parallax2D" parent="bg" unique_id=1028264265]
+[node name="7" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.2, 0.2)
 scroll_offset = Vector2(908, -957)
 repeat_size = Vector2(5690, 0)
 repeat_times = 2
 
-[node name="7" type="Sprite2D" parent="bg/7" unique_id=1918733474]
+[node name="7" type="Sprite2D" parent="bg/7"]
 texture = ExtResource("2_ya4ey")
 
-[node name="6" type="Parallax2D" parent="bg" unique_id=1929348872]
+[node name="6" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.3, 0.3)
 scroll_offset = Vector2(908, -957)
 repeat_size = Vector2(5690, 0)
 repeat_times = 2
 
-[node name="6" type="Sprite2D" parent="bg/6" unique_id=1311704548]
+[node name="6" type="Sprite2D" parent="bg/6"]
 position = Vector2(-908, 957)
 texture = ExtResource("3_eb6dy")
 
-[node name="5" type="Parallax2D" parent="bg" unique_id=1134855679]
+[node name="5" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.4, 0.4)
 scroll_offset = Vector2(908, -957)
 repeat_size = Vector2(5690, 0)
 repeat_times = 2
 
-[node name="5" type="Sprite2D" parent="bg/5" unique_id=1289556134]
+[node name="5" type="Sprite2D" parent="bg/5"]
 position = Vector2(-908, 957)
 texture = ExtResource("4_trceg")
 
-[node name="4" type="Parallax2D" parent="bg" unique_id=1914893977]
+[node name="4" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.5, 0.5)
 scroll_offset = Vector2(908, -957)
 repeat_size = Vector2(5690, 0)
 repeat_times = 2
 
-[node name="4" type="Sprite2D" parent="bg/4" unique_id=208485457]
+[node name="4" type="Sprite2D" parent="bg/4"]
 position = Vector2(-908, 957)
 texture = ExtResource("5_a8y0u")
 
-[node name="2" type="Parallax2D" parent="bg" unique_id=562013406]
+[node name="2" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.6, 0.6)
 scroll_offset = Vector2(908, -957)
 repeat_size = Vector2(5690, 0)
 repeat_times = 2
 
-[node name="2" type="Sprite2D" parent="bg/2" unique_id=110112538]
+[node name="2" type="Sprite2D" parent="bg/2"]
 position = Vector2(-908, 957)
 texture = ExtResource("7_jbj1t")
 
-[node name="3" type="Parallax2D" parent="bg" unique_id=847212911]
+[node name="3" type="Parallax2D" parent="bg"]
 scroll_offset = Vector2(908, -957)
 repeat_size = Vector2(5690, 0)
 repeat_times = 2
 
-[node name="3" type="Sprite2D" parent="bg/3" unique_id=150649862]
+[node name="3" type="Sprite2D" parent="bg/3"]
 position = Vector2(-908, 957)
 texture = ExtResource("6_jkv2x")
 
-[node name="1" type="Parallax2D" parent="bg" unique_id=7541760]
+[node name="1" type="Parallax2D" parent="bg"]
 scroll_offset = Vector2(-9092, -957)
 repeat_size = Vector2(8000, 0)
 repeat_times = 2
 
-[node name="1" type="Sprite2D" parent="bg/1" unique_id=97717484]
+[node name="1" type="Sprite2D" parent="bg/1"]
 z_index = 10
 position = Vector2(-908, 957)
 texture = ExtResource("8_muem4")
 
-[node name="camera" type="Camera2D" parent="." unique_id=1749769301]
+[node name="camera" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
 limit_left = -3000
 limit_right = 10000
@@ -120,74 +119,71 @@ limit_bottom = 1300
 position_smoothing_enabled = true
 script = SubResource("GDScript_o5qli")
 
-[node name="floor" type="StaticBody2D" parent="." unique_id=1094249794 groups=["FLOOR"]]
+[node name="floor" type="StaticBody2D" parent="." groups=["FLOOR"]]
 position = Vector2(8, 345)
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor" unique_id=265045103]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor"]
 polygon = PackedVector2Array(-1897, 690, -756, 632, -586, 341, -15, 471, 1161, 88, 1166, -186, 1904, -200, 1901, 745, -1891, 970)
 
-[node name="collision3" type="CollisionShape2D" parent="floor" unique_id=1880830247]
+[node name="collision3" type="CollisionShape2D" parent="floor"]
 position = Vector2(741, -374)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_0wfyh")
 
-[node name="collision4" type="CollisionShape2D" parent="floor" unique_id=2129083416]
+[node name="collision4" type="CollisionShape2D" parent="floor"]
 position = Vector2(248.99997, -520)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_0wfyh")
 
-[node name="collision5" type="CollisionShape2D" parent="floor" unique_id=1126930058]
+[node name="collision5" type="CollisionShape2D" parent="floor"]
 position = Vector2(-261.00003, -676)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_0wfyh")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="floor" unique_id=1272169527]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="floor"]
 polygon = PackedVector2Array(-1871, -239, -705, -658, -1329, -940, -1847, -831)
 
-[node name="collision" type="CollisionShape2D" parent="floor" unique_id=1714477852]
+[node name="collision" type="CollisionShape2D" parent="floor"]
 position = Vector2(741.5, -461)
 shape = SubResource("RectangleShape2D_0wfyh")
 
-[node name="collision2" type="CollisionShape2D" parent="floor" unique_id=806124425]
+[node name="collision2" type="CollisionShape2D" parent="floor"]
 position = Vector2(250, -610)
 shape = SubResource("RectangleShape2D_0wfyh")
 
-[node name="collision6" type="CollisionShape2D" parent="floor" unique_id=1658562692]
+[node name="collision6" type="CollisionShape2D" parent="floor"]
 position = Vector2(-262, -764)
 shape = SubResource("RectangleShape2D_0wfyh")
 
-[node name="walls" type="StaticBody2D" parent="." unique_id=676316503]
+[node name="walls" type="StaticBody2D" parent="."]
 position = Vector2(8, 345)
 
-[node name="left" type="CollisionShape2D" parent="walls" unique_id=583745075]
+[node name="left" type="CollisionShape2D" parent="walls"]
 position = Vector2(-1912.25, -6441)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="right" type="CollisionShape2D" parent="walls" unique_id=1389890002]
+[node name="right" type="CollisionShape2D" parent="walls"]
 position = Vector2(1915, -6413)
 shape = SubResource("RectangleShape2D_o5qli")
 
-[node name="pauseMenu" parent="." unique_id=1480892355 instance=ExtResource("2_jyhfs")]
+[node name="pauseMenu" parent="." instance=ExtResource("2_jyhfs")]
 visible = false
 
-[node name="dumbert_1_leg" parent="." unique_id=388310564 instance=ExtResource("10_a8y0u")]
-visible = false
-
-[node name="dumbert_1_leg_1_arm" parent="." unique_id=1155034032 instance=ExtResource("3_jyhfs")]
+[node name="dumbert_1_leg_1_arm" parent="." instance=ExtResource("3_jyhfs")]
 position = Vector2(-1655, 705)
 
-[node name="bodyPartLeg2" parent="." unique_id=1571143025 groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
+[node name="bodyPartLeg2" parent="." groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 position = Vector2(-948, 514)
 
-[node name="bodyPartArm" parent="." unique_id=1914880098 groups=["bodyParts"] instance=ExtResource("13_jkv2x")]
+[node name="bodyPartArm" parent="." groups=["bodyParts"] instance=ExtResource("13_jkv2x")]
 position = Vector2(-1182, 601)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=505098852]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("12_trceg")
 
-[node name="inventory" parent="CanvasLayer" unique_id=590551117 instance=ExtResource("12_eb6dy")]
+[node name="inventory" parent="CanvasLayer" instance=ExtResource("12_eb6dy")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

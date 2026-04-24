@@ -7,6 +7,8 @@
 size = Vector2(117, 280)
 
 [node name="dumbert_2_legs_1_arm" type="RigidBody2D"]
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_e1mxe")
 
 [node name="arm rigid body" parent="." instance=ExtResource("2_0x06i")]

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cpwaoe8x2hwy6"]
+[gd_scene load_steps=0 format=3 uid="uid://cpwaoe8x2hwy6"]
 
 [ext_resource type="Script" uid="uid://cmd1q28tdh0xo" path="res://body_part_arm.gd" id="1_t7o15"]
 [ext_resource type="Resource" uid="uid://bk4f7xaegpxda" path="res://inventoryManagement/items/arm.tres" id="2_the53"]

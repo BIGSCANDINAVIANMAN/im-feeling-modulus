@@ -13,6 +13,8 @@ radius = 263.0
 height = 646.0
 
 [node name="dumbert_1_arm" type="RigidBody2D"]
+contact_monitor = true
+max_contacts_reported = 5
 script = ExtResource("1_gucfg")
 
 [node name="sprite" type="Sprite2D" parent="."]

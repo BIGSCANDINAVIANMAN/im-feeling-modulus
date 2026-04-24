@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bajgh7wo6ksco"]
+[gd_scene load_steps=21 format=3 uid="uid://b3mfvf6p67u63"]
 
 [ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_kxs5y"]
 [ext_resource type="Texture2D" uid="uid://cfjuq0jc50h6c" path="res://assets/bg_leg_forest/7-bgcolor grad.png" id="2_f31b2"]
-[ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6-backback (wait trustttt ts looks so chopped individually, when its layered its hopefully better) and omg why is it 50mb....its like only 6k res its okay.png" id="3_lhxgd"]
+[ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6.png" id="3_lhxgd"]
 [ext_resource type="Texture2D" uid="uid://d3q80a00yr2oj" path="res://assets/bg_leg_forest/5-bgtree 1.png" id="4_r8a5h"]
 [ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4- ground(back).png" id="5_pmkxm"]
 [ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2- treebunch-back (foreground).png" id="6_ueikh"]

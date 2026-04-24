@@ -2,8 +2,8 @@ extends Node2D
 @onready var main = $"."
 @onready var pauseMenu = $pauseMenu
 
-@onready var player = $dumbert_1_leg
-var limbs = ["leg"]
+@onready var player = $dumbert_1_leg_1_arm
+var limbs = ["arm", "leg"]
 var dumbert_files = {
 	[]: "res://scenes/characters/dumbert_head.tscn",
 	["arm"]: "res://scenes/characters/dumbert_1_arm.tscn",
@@ -16,6 +16,7 @@ var dumbert_files = {
 func _process(delta):
 	if Input.is_action_just_pressed("esc"):
 		pause()
+	print(limbs)
 		
 func pause():
 	get_tree().paused = !get_tree().paused

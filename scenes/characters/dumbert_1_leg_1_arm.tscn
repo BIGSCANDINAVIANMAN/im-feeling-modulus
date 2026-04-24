@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://mrewxbijjkr7"]
+[gd_scene format=3 uid="uid://mrewxbijjkr7"]
 
-[ext_resource type="Script" path="res://scenes/characters/arm_rigid_body.gd" id="1_af6as"]
+[ext_resource type="Script" uid="uid://dpgkm7d5vrsx8" path="res://scenes/characters/arm_rigid_body.gd" id="1_af6as"]
+[ext_resource type="Resource" uid="uid://dbrscamtuvcp6" path="res://inventoryManagement/playerInventory.tres" id="1_c782e"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
-script/source = "extends RigidBody2D
-
-@export var charge_time = 0.5
-@export var direction = 0
+script/source = "extends \"res://scenes/characters/dumbert.gd\"
 
 func _physics_process(delta: float) -> void:
 	if not get_tree().paused:
@@ -25,7 +23,10 @@ func _physics_process(delta: float) -> void:
 		var x = Input.get_axis(\"left\", \"right\")
 		apply_torque(-rotation * 200000) # remains balanced
 		apply_torque(x * 150000) # lean
-	
+		
+		collectItems()
+				
+		
 func is_on_floor():
 	#print($Area2D.get_overlapping_bodies())
 	for body in $Area2D.get_overlapping_bodies():
@@ -51,52 +52,54 @@ radius = 29.427877
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c782e"]
 gradient = SubResource("Gradient_af6as")
 
-[node name="dumbert_1_leg_1_arm" type="RigidBody2D"]
+[node name="dumbert_1_leg_1_arm" type="RigidBody2D" unique_id=891921205]
 gravity_scale = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
 contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
+inventory = ExtResource("1_c782e")
 
-[node name="collision2" type="CollisionShape2D" parent="."]
+[node name="ballCollision" type="CollisionShape2D" parent="." unique_id=813805758]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="bodyCollision" type="CollisionShape2D" parent="." unique_id=1974838687]
 shape = SubResource("RectangleShape2D_5tckc")
 
-[node name="floorRay" type="RayCast2D" parent="."]
+[node name="floorRay" type="RayCast2D" parent="." unique_id=1322921711]
 position = Vector2(0, 143)
 target_position = Vector2(-1, 125)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1774124658]
 position = Vector2(0, -36)
 node_a = NodePath("..")
 node_b = NodePath("../arm rigid body")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1686926180]
 
-[node name="collision2" type="CollisionShape2D" parent="Area2D"]
+[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=1986732467]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="arm rigid body" type="RigidBody2D" parent="."]
+[node name="arm rigid body" type="RigidBody2D" parent="." unique_id=826098915]
 mass = 0.104
 angular_damp = 1.0
 script = ExtResource("1_af6as")
 
-[node name="arm" type="CollisionShape2D" parent="arm rigid body"]
+[node name="arm" type="CollisionShape2D" parent="arm rigid body" unique_id=1622211501]
 position = Vector2(-105.5625, -36)
 shape = SubResource("RectangleShape2D_lm0je")
 
-[node name="hand hitbox" type="Area2D" parent="arm rigid body"]
+[node name="hand hitbox" type="Area2D" parent="arm rigid body" unique_id=104946264]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="arm rigid body/hand hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arm rigid body/hand hitbox" unique_id=1045997608]
 position = Vector2(-199, -37)
 shape = SubResource("CircleShape2D_0fgq2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1723218417]
+visible = false
 position = Vector2(-1.999999, 27.500008)
 scale = Vector2(1.625, 5.203125)
 texture = SubResource("GradientTexture2D_c782e")

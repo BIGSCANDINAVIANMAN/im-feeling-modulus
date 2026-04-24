@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="InventoryClass" format=3 uid="uid://dbrscamtuvcp6"]
+
+[ext_resource type="Script" uid="uid://c5wqcbosr4n4k" path="res://inventorySlot.gd" id="2_7ovpt"]
+[ext_resource type="Script" uid="uid://dctxoyqidxg5s" path="res://inventoryManagement/inventoryClass.gd" id="3_mprb6"]
+
+[sub_resource type="Resource" id="Resource_7ovpt"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_pnkld"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_nlwwy"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_mprb6"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_g3ero"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_wk241"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_cnnbq"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_vd62u"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_0jp2u"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_6x0hb"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_nlwoj"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[sub_resource type="Resource" id="Resource_3e8jj"]
+script = ExtResource("2_7ovpt")
+metadata/_custom_type_script = "uid://c5wqcbosr4n4k"
+
+[resource]
+script = ExtResource("3_mprb6")
+slots = Array[ExtResource("2_7ovpt")]([SubResource("Resource_7ovpt"), SubResource("Resource_pnkld"), SubResource("Resource_nlwwy"), SubResource("Resource_mprb6"), SubResource("Resource_g3ero"), SubResource("Resource_wk241"), SubResource("Resource_cnnbq"), SubResource("Resource_vd62u"), SubResource("Resource_0jp2u"), SubResource("Resource_6x0hb"), SubResource("Resource_nlwoj"), SubResource("Resource_3e8jj")])
+metadata/_custom_type_script = "uid://dctxoyqidxg5s"

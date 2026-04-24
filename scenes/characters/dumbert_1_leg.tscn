@@ -1,11 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d02qcalccvy2y"]
+[gd_scene format=3 uid="uid://d02qcalccvy2y"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
-script/source = "extends RigidBody2D
+script/source = "extends \"res://scenes/characters/dumbert.gd\"
 
-@export var charge_time = 0.5
-@export var direction = 0
 
 func _physics_process(delta: float) -> void:
 	if not get_tree().paused:
@@ -23,6 +21,8 @@ func _physics_process(delta: float) -> void:
 		var x = Input.get_axis(\"left\", \"right\")
 		apply_torque(-rotation * 200000) # remains balanced
 		apply_torque(x * 150000) # lean
+		
+		collectItems()
 	
 func is_on_floor():
 	#print($Area2D.get_overlapping_bodies())
@@ -40,7 +40,7 @@ size = Vector2(117, 280)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_urr16"]
 
-[node name="dumbert_1_leg_1_arm" type="RigidBody2D"]
+[node name="dumbert_1_leg" type="RigidBody2D" unique_id=388310564]
 gravity_scale = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
@@ -48,23 +48,23 @@ contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
-[node name="collision2" type="CollisionShape2D" parent="."]
+[node name="collision2" type="CollisionShape2D" parent="." unique_id=1679165699]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=504109583]
 shape = SubResource("RectangleShape2D_5tckc")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=461057610]
 sprite_frames = SubResource("SpriteFrames_urr16")
 
-[node name="floorRay" type="RayCast2D" parent="."]
+[node name="floorRay" type="RayCast2D" parent="." unique_id=480556061]
 position = Vector2(0, 143)
 target_position = Vector2(-1, 125)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=213763982]
 
-[node name="collision2" type="CollisionShape2D" parent="Area2D"]
+[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=1867123100]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
 

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7q6p164w5j2s"]
+
+[ext_resource type="Texture2D" uid="uid://c25orjb6vlp67" path="res://assets/menus/inventorySlot.png" id="1_c24ra"]
+[ext_resource type="Script" uid="uid://415c4ot14ss1" path="res://slot.gd" id="1_khion"]
+
+[node name="slot" type="Button" unique_id=1089368480]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(60, 60)
+offset_right = 60.0
+offset_bottom = 60.0
+script = ExtResource("1_khion")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1005619546]
+scale = Vector2(3, 3)
+texture = ExtResource("1_c24ra")
+centered = false
+vframes = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=261943622]
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0

@@ -1,11 +1,105 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxn04h8uygwvu"]
+[gd_scene load_steps=11 format=3 uid="uid://cxn04h8uygwvu"]
 
 [ext_resource type="Script" uid="uid://dhrrmnjupx447" path="res://scenes/characters/dumbert_head.gd" id="1_886t1"]
-[ext_resource type="Texture2D" uid="uid://cnxqfeia8shm7" path="res://assets/leaning back and forth/Untitled_Artwork-1.png" id="2_m87v2"]
+[ext_resource type="Texture2D" uid="uid://bukot5g8s5aym" path="res://assets/blink/Blinking-1.png" id="2_24ipr"]
+[ext_resource type="Texture2D" uid="uid://hx16fnv4h231" path="res://assets/blink/Blinking-2.png" id="3_n4e11"]
+[ext_resource type="Texture2D" uid="uid://c0so65tkrd5ry" path="res://assets/blink/Blinking-3.png" id="4_323gd"]
+[ext_resource type="Texture2D" uid="uid://cjlwrybv47mv0" path="res://assets/blink/Blinking-4.png" id="5_gl8vw"]
+[ext_resource type="Texture2D" uid="uid://b8mghabe3e8i0" path="res://assets/blink/Blinking-5.png" id="6_ivj2m"]
+[ext_resource type="Texture2D" uid="uid://bu5s2wncgtruv" path="res://assets/blink/Blinking-6.png" id="7_tsonr"]
+[ext_resource type="Texture2D" uid="uid://sd7bgrd6sgna" path="res://assets/blink/Blinking-7.png" id="8_3ke2n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wkkup"]
-atlas = ExtResource("2_m87v2")
-region = Rect2(3160.038, 1872.7332, 777.8242, 793.2268)
+[sub_resource type="SpriteFrames" id="SpriteFrames_24ipr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n4e11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_323gd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gl8vw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ivj2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tsonr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3ke2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ivj2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_24ipr")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 20.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p03q1"]
 radius = 263.0
@@ -17,10 +111,13 @@ contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_886t1")
 
-[node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(2, -14)
-scale = Vector2(0.2, 0.2)
-texture = SubResource("AtlasTexture_wkkup")
+[node name="sprite2" type="AnimatedSprite2D" parent="."]
+position = Vector2(34.999996, 68.99999)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_24ipr")
+animation = &"blink"
+autoplay = "blink"
+frame_progress = 0.6429054
 
 [node name="collision" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

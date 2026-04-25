@@ -1,26 +1,115 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxwdsrnpnrpx5"]
+[gd_scene load_steps=12 format=3 uid="uid://cxwdsrnpnrpx5"]
 
 [ext_resource type="Script" uid="uid://bbmly21lfitgn" path="res://scenes/characters/dumbert_1_arm.gd" id="1_gucfg"]
-[ext_resource type="Texture2D" uid="uid://cnxqfeia8shm7" path="res://assets/leaning back and forth/Untitled_Artwork-1.png" id="1_n3w1r"]
+[ext_resource type="Texture2D" uid="uid://bukot5g8s5aym" path="res://assets/blink/Blinking-1.png" id="2_jvb8i"]
 [ext_resource type="PackedScene" uid="uid://btsesth5oov6t" path="res://scenes/characters/arm_rigid_body.tscn" id="2_u1htu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1htu"]
-atlas = ExtResource("1_n3w1r")
-region = Rect2(3160.038, 1872.7332, 777.8242, 793.2268)
+[ext_resource type="Texture2D" uid="uid://hx16fnv4h231" path="res://assets/blink/Blinking-2.png" id="3_dusr5"]
+[ext_resource type="Texture2D" uid="uid://c0so65tkrd5ry" path="res://assets/blink/Blinking-3.png" id="4_2nlfy"]
+[ext_resource type="Texture2D" uid="uid://cjlwrybv47mv0" path="res://assets/blink/Blinking-4.png" id="5_ueqak"]
+[ext_resource type="Texture2D" uid="uid://b8mghabe3e8i0" path="res://assets/blink/Blinking-5.png" id="6_hohn0"]
+[ext_resource type="Texture2D" uid="uid://bu5s2wncgtruv" path="res://assets/blink/Blinking-6.png" id="7_7ag1x"]
+[ext_resource type="Texture2D" uid="uid://sd7bgrd6sgna" path="res://assets/blink/Blinking-7.png" id="8_j68jj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gucfg"]
 radius = 263.0
 height = 646.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_jvb8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dusr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2nlfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ueqak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hohn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ag1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j68jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hohn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvb8i")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 20.0
+}]
+
 [node name="dumbert_1_arm" type="RigidBody2D"]
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_gucfg")
-
-[node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(2, -14)
-scale = Vector2(0.2, 0.2)
-texture = SubResource("AtlasTexture_u1htu")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
@@ -29,6 +118,14 @@ shape = SubResource("CapsuleShape2D_gucfg")
 
 [node name="arm rigid body" parent="." instance=ExtResource("2_u1htu")]
 position = Vector2(0, 36)
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(34.999996, 68.99999)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_jvb8i")
+animation = &"blink"
+autoplay = "blink"
+frame_progress = 0.44298238
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 node_a = NodePath("..")

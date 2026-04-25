@@ -1,22 +1,21 @@
-[gd_scene load_steps=20 format=3 uid="uid://b3mfvf6p67u63"]
+[gd_scene load_steps=21 format=3 uid="uid://b3mfvf6p67u63"]
 
 [ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_kxs5y"]
-[ext_resource type="Texture2D" uid="uid://d3q80a00yr2oj" path="res://assets/bg_leg_forest/5-bgtree 1.png" id="4_r8a5h"]
-[ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4- ground(back).png" id="5_pmkxm"]
-[ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2- treebunch-back (foreground).png" id="6_ueikh"]
-[ext_resource type="Texture2D" uid="uid://b8xravphpk7p7" path="res://assets/bg_leg_forest/3- Ground(maindirt).png" id="7_1fhlo"]
-[ext_resource type="Texture2D" uid="uid://bqf1lojtfqumh" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront of main dirt).png" id="8_how18"]
-[ext_resource type="Texture2D" uid="uid://ckunol1gvq1a3" path="res://assets/bg_leg_forest/grass layer.png" id="8_r8a5h"]
+[ext_resource type="Texture2D" uid="uid://cfjuq0jc50h6c" path="res://assets/bg_leg_forest/7-bgcolor_grad.png" id="2_1fhlo"]
+[ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6-backback.png" id="3_how18"]
+[ext_resource type="Texture2D" uid="uid://d3q80a00yr2oj" path="res://assets/bg_leg_forest/5-bgtree_1.png" id="4_7oi8n"]
+[ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4-ground(back).png" id="5_gs8qe"]
+[ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2-treebunch-back(foreground).png" id="6_pr66g"]
+[ext_resource type="Texture2D" uid="uid://b8xravphpk7p7" path="res://assets/bg_leg_forest/3-Ground(maindirt).png" id="7_2jfmm"]
 [ext_resource type="PackedScene" path="res://pauseMenu.tscn" id="9_7oi8n"]
 [ext_resource type="Texture2D" uid="uid://bfhsed7ecdcjm" path="res://assets/bg_leg_forest/rocklayer.png" id="9_pmkxm"]
+[ext_resource type="Texture2D" uid="uid://ckunol1gvq1a3" path="res://assets/bg_leg_forest/grasslayer.png" id="10_7obif"]
 [ext_resource type="Texture2D" uid="uid://e0tkl1u7fa33" path="res://assets/bg_leg_forest/groundlayer.png" id="10_pmkxm"]
+[ext_resource type="Texture2D" uid="uid://bqf1lojtfqumh" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront_of_main_dirt).png" id="11_1reov"]
 [ext_resource type="Texture2D" uid="uid://cc6kch3d4rdbm" path="res://assets/random_obstacles/shoe.png" id="11_f31b2"]
 [ext_resource type="Texture2D" uid="uid://b0xwei7bej1m1" path="res://assets/random_obstacles/shorts.png" id="14_1fhlo"]
 [ext_resource type="Texture2D" uid="uid://cqqm3sudyfjoo" path="res://assets/random_obstacles/pant.png" id="14_pmkxm"]
 [ext_resource type="PackedScene" uid="uid://d02qcalccvy2y" path="res://scenes/characters/dumbert_1_leg.tscn" id="14_ueikh"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eb6dy"]
-load_path = "res://.godot/imported/7-bgcolor grad.png-4f529ca9dac8c779f3a5aec0055b7baf.ctex"
 
 [sub_resource type="GDScript" id="GDScript_o5qli"]
 resource_name = "camera"
@@ -31,7 +30,7 @@ func _process(_delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxs5y"]
-size = Vector2(9557.75, 601)
+size = Vector2(12004.75, 601)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmkxm"]
 size = Vector2(154.25, 131)
@@ -46,168 +45,165 @@ script = ExtResource("1_kxs5y")
 [node name="bg" type="Node2D" parent="."]
 position = Vector2(3234, -904)
 
-[node name="7" type="Parallax2D" parent="bg"]
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(-4414, -957)
-repeat_size = Vector2(5690, 0)
-repeat_times = 2
+[node name="8" type="Sprite2D" parent="bg"]
+position = Vector2(-4400, -957)
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("2_1fhlo")
 
-[node name="7" type="Sprite2D" parent="bg/7"]
-texture = SubResource("CompressedTexture2D_eb6dy")
+[node name="9" type="Sprite2D" parent="bg"]
+position = Vector2(1305, -957)
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("2_1fhlo")
 
 [node name="6a" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(-4782, -957)
-repeat_size = Vector2(11380, 0)
+repeat_size = Vector2(11414, 0)
 repeat_times = 2
 
 [node name="6" type="Sprite2D" parent="bg/6a"]
-position = Vector2(-908, 957)
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("3_how18")
 
 [node name="6b" type="Parallax2D" parent="bg"]
+scale = Vector2(-1, 1)
 scroll_scale = Vector2(0.3, 0.3)
-scroll_offset = Vector2(-10460, -957)
-repeat_size = Vector2(11380, 0)
+scroll_offset = Vector2(5671, 15)
+repeat_size = Vector2(11414, 0)
 repeat_times = 2
 
 [node name="6" type="Sprite2D" parent="bg/6b"]
-position = Vector2(-908, 957)
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("3_how18")
 
 [node name="5" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(-4782, -957)
-repeat_size = Vector2(5690, 0)
+scroll_offset = Vector2(1157, 432)
+repeat_size = Vector2(5707, 0)
 repeat_times = 2
 
 [node name="5" type="Sprite2D" parent="bg/5"]
-position = Vector2(-908, 957)
-texture = ExtResource("4_r8a5h")
+scale = Vector2(4.233, 4.233)
+texture = ExtResource("4_7oi8n")
 
 [node name="4a" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(-4782, -957)
-repeat_size = Vector2(11400, 0)
+scroll_offset = Vector2(683, 0)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="4" type="Sprite2D" parent="bg/4a"]
-position = Vector2(-908, 957)
-texture = ExtResource("5_pmkxm")
+scale = Vector2(4.233, 4.233)
+texture = ExtResource("5_gs8qe")
 
 [node name="4b" type="Parallax2D" parent="bg"]
 scale = Vector2(-1, 1)
 scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(-900, -957)
-repeat_size = Vector2(11400, 0)
+scroll_offset = Vector2(5698, 0)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="4" type="Sprite2D" parent="bg/4b"]
-position = Vector2(-908, 957)
-texture = ExtResource("5_pmkxm")
+scale = Vector2(4.233, 4.233)
+texture = ExtResource("5_gs8qe")
 
 [node name="2" type="Parallax2D" parent="bg"]
 scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(-4847, -957)
+scroll_offset = Vector2(-4340, -456)
 repeat_size = Vector2(5700, 0)
 repeat_times = 2
 
 [node name="2" type="Sprite2D" parent="bg/2"]
-position = Vector2(-908, 957)
-texture = ExtResource("6_ueikh")
+scale = Vector2(4.233, 4.233)
+texture = ExtResource("6_pr66g")
 
 [node name="3a-back" type="Parallax2D" parent="bg"]
 scale = Vector2(-1, 1)
-scroll_offset = Vector2(11390, -957)
-repeat_size = Vector2(11390, 0)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-back"]
-position = Vector2(-908, 957)
-texture = ExtResource("7_1fhlo")
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("7_2jfmm")
 
 [node name="3b-back" type="Parallax2D" parent="bg"]
-scroll_offset = Vector2(-3877, -957)
-repeat_size = Vector2(11390, 0)
+scroll_offset = Vector2(-5697, 0)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-back"]
-position = Vector2(-908, 957)
-texture = ExtResource("7_1fhlo")
+scale = Vector2(4.24, 4.24)
+texture = ExtResource("7_2jfmm")
 
 [node name="3a-ground" type="Parallax2D" parent="bg"]
 z_index = 9
-rotation = 3.1415925
-scale = Vector2(1, -1)
-scroll_offset = Vector2(-27, -953)
-repeat_size = Vector2(11390, 0)
+scale = Vector2(-1, 1)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-ground"]
-position = Vector2(-908, 957)
+scale = Vector2(4.233, 4.233)
 texture = ExtResource("10_pmkxm")
 
 [node name="3b-ground" type="Parallax2D" parent="bg"]
 z_index = 9
-scroll_offset = Vector2(-3853, -950)
-repeat_size = Vector2(11390, 0)
+scroll_offset = Vector2(-5697, 0)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-ground"]
-position = Vector2(-908, 957)
+scale = Vector2(4.233, 4.233)
 texture = ExtResource("10_pmkxm")
 
 [node name="3a-rocks" type="Parallax2D" parent="bg"]
 z_index = 9
 rotation = 3.1415925
 scale = Vector2(1, -1)
-scroll_offset = Vector2(-11392, -958)
-repeat_size = Vector2(11390, 0)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-rocks"]
-position = Vector2(-908, 957)
+scale = Vector2(4.233, 4.233)
 texture = ExtResource("9_pmkxm")
 
 [node name="3b-rocks" type="Parallax2D" parent="bg"]
 z_index = 9
-scroll_offset = Vector2(-3881, -958)
-repeat_size = Vector2(11390, 0)
+scroll_offset = Vector2(-5697, 0)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-rocks"]
-position = Vector2(-908, 957)
+scale = Vector2(4.233, 4.233)
 texture = ExtResource("9_pmkxm")
 
 [node name="3a-grass" type="Parallax2D" parent="bg"]
 z_index = 9
-rotation = 3.1415925
-scale = Vector2(1, -1)
-scroll_offset = Vector2(-27, -929)
-repeat_size = Vector2(11390, 0)
+scale = Vector2(-1, 1)
+scroll_offset = Vector2(-30, 32)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-grass"]
-position = Vector2(-908, 957)
-texture = ExtResource("8_r8a5h")
+scale = Vector2(4.233, 4.233)
+texture = ExtResource("10_7obif")
 
 [node name="3b-grass" type="Parallax2D" parent="bg"]
 z_index = 9
-scroll_offset = Vector2(-3853, -926)
-repeat_size = Vector2(11390, 0)
+scroll_offset = Vector2(-5667, 32)
+repeat_size = Vector2(11395, 0)
 repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-grass"]
-position = Vector2(-908, 957)
-texture = ExtResource("8_r8a5h")
+scale = Vector2(4.233, 4.233)
+texture = ExtResource("10_7obif")
 
 [node name="1" type="Parallax2D" parent="bg"]
-scroll_offset = Vector2(-1092, -900)
 repeat_size = Vector2(8000, 0)
 repeat_times = 2
 
 [node name="1" type="Sprite2D" parent="bg/1"]
 z_index = 10
-position = Vector2(-908, 957)
-texture = ExtResource("8_how18")
+scale = Vector2(4.233, 4.233)
+texture = ExtResource("11_1reov")
 
 [node name="camera" type="Camera2D" parent="."]
 zoom = Vector2(0.3, 0.3)
@@ -219,12 +215,12 @@ script = SubResource("GDScript_o5qli")
 
 [node name="floor" type="StaticBody2D" parent="." groups=["FLOOR"]]
 z_index = 20
-position = Vector2(-522, 348)
+position = Vector2(-1430, 347)
 collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
-position = Vector2(2901.125, 782)
+position = Vector2(4124.625, 782)
 shape = SubResource("RectangleShape2D_kxs5y")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="floor"]

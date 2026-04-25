@@ -1,16 +1,23 @@
-[gd_scene load_steps=0 format=3 uid="uid://b1hotyf8q5hrn"]
+[gd_scene load_steps=5 format=3 uid="uid://b1hotyf8q5hrn"]
 
-[ext_resource type="Script" uid="uid://kke2o4fel0hq" path="res://body_part_leg.gd" id="1_lcuup"]
+[ext_resource type="Script" path="res://body_part_leg.gd" id="1_lcuup"]
 [ext_resource type="Resource" uid="uid://cui8s37vat8g8" path="res://inventoryManagement/items/leg.tres" id="2_n6fsy"]
+[ext_resource type="Texture2D" uid="uid://ukrr18751yqi" path="res://assets/legegegeg.png" id="3_o7njo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12r4b"]
-size = Vector2(225, 32)
+size = Vector2(160, 41)
 
-[node name="bodyPartLeg" type="RigidBody2D" unique_id=587871478]
+[node name="bodyPartLeg" type="RigidBody2D"]
 script = ExtResource("1_lcuup")
 itemType = "leg"
 itemRes = ExtResource("2_n6fsy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1781596441]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(21, -77)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_o7njo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 4)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_12r4b")

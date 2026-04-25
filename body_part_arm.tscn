@@ -1,16 +1,23 @@
-[gd_scene format=3 uid="uid://cpwaoe8x2hwy6"]
+[gd_scene load_steps=5 format=3 uid="uid://cpwaoe8x2hwy6"]
 
-[ext_resource type="Script" uid="uid://cmd1q28tdh0xo" path="res://body_part_arm.gd" id="1_t7o15"]
+[ext_resource type="Script" path="res://body_part_arm.gd" id="1_t7o15"]
 [ext_resource type="Resource" uid="uid://bk4f7xaegpxda" path="res://inventoryManagement/items/arm.tres" id="2_the53"]
+[ext_resource type="Texture2D" uid="uid://bahds4xcd1m3g" path="res://assets/armrmmr.png" id="3_lhfnq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kd5yy"]
 radius = 16.0
 height = 226.0
 
-[node name="bodyPartArm" type="RigidBody2D" unique_id=1914880098]
+[node name="bodyPartArm" type="RigidBody2D"]
 script = ExtResource("1_t7o15")
 itemType = "arm"
 itemRes = ExtResource("2_the53")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1699918215]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kd5yy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-32, -89)
+rotation = 0.51836276
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_lhfnq")

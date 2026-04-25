@@ -117,7 +117,7 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_24ipr")
 animation = &"blink"
 autoplay = "blink"
-frame_progress = 0.6429054
+frame_progress = 0.5654946
 
 [node name="collision" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

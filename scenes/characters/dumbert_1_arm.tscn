@@ -107,6 +107,7 @@ animations = [{
 }]
 
 [node name="dumbert_1_arm" type="RigidBody2D"]
+gravity_scale = 2.5
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_gucfg")
@@ -125,7 +126,7 @@ scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_jvb8i")
 animation = &"blink"
 autoplay = "blink"
-frame_progress = 0.44298238
+frame_progress = 0.3790023
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 node_a = NodePath("..")

@@ -9,4 +9,5 @@ func _integrate_forces(state):
 	var current = state.transform.get_rotation()
 	var diff = wrapf(target_angle - current, -PI, PI)
 
-	state.angular_velocity = diff * tracking_speed
+	if !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		state.angular_velocity = diff * tracking_speed

@@ -134,6 +134,8 @@
 [ext_resource type="Texture2D" uid="uid://bryi1f7xti7y8" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-6.png" id="132_glc30"]
 [ext_resource type="Texture2D" uid="uid://vbpji86vmm7w" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-7.png" id="133_51yoi"]
 [ext_resource type="Texture2D" uid="uid://dfoci2m0k071u" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-8.png" id="134_7tuqc"]
+[ext_resource type="Texture2D" uid="uid://b1et6tot45nvu" path="res://assets/rocketlauncher_temp.png" id="135_htn4k"]
+[ext_resource type="Script" uid="uid://dddfy10g5j8gc" path="res://scenes/characters/weapon.gd" id="136_hkrxj"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
@@ -178,7 +180,7 @@ size = Vector2(117, 280)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c782e"]
 gradient = SubResource("Gradient_af6as")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_21m3u"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_htn4k"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -754,7 +756,7 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_rawvl"]
+[sub_resource type="GDScript" id="GDScript_hkrxj"]
 resource_name = "1_leg_animations"
 script/source = "extends AnimatedSprite2D
 
@@ -830,13 +832,19 @@ position = Vector2(-1.999999, 27.500008)
 scale = Vector2(1.625, 5.203125)
 texture = SubResource("GradientTexture2D_c782e")
 
-[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1072697698]
-visible = false
-position = Vector2(24, -48)
-scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_21m3u")
+[node name="weapon" type="Sprite2D" parent="." unique_id=935391428]
+position = Vector2(86, 7)
+texture = ExtResource("135_htn4k")
+script = ExtResource("136_hkrxj")
+
+[node name="Marker2D" type="Marker2D" parent="weapon" unique_id=1658633610]
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=17790022]
+position = Vector2(28, -27)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_htn4k")
 animation = &"lean-90"
-script = SubResource("GDScript_rawvl")
+script = SubResource("GDScript_hkrxj")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

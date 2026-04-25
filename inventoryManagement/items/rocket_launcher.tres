@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://c3t200kllafhx"]
+
+[ext_resource type="Script" uid="uid://yvfewopk7mmr" path="res://inventoryManagement/inventory_item.gd" id="1_v70mg"]
+[ext_resource type="Texture2D" uid="uid://b1et6tot45nvu" path="res://assets/rocketlauncher_temp.png" id="2_y8g3i"]
+
+[resource]
+script = ExtResource("1_v70mg")
+name = "rocket_launcher"
+texture = ExtResource("2_y8g3i")
+metadata/_custom_type_script = "uid://yvfewopk7mmr"

@@ -1,18 +1,24 @@
 extends Node2D
 @onready var main = $"."
 @onready var pauseMenu = $pauseMenu
+@onready var player = $dumbert_head
+@export var inventory: InventoryClass = preload("res://inventoryManagement/playerInventory.tres")
 
-@onready var player = $dumbert_1_leg
-var limbs = ["leg"]
+var limbs = []
 var dumbert_files = {
 	[]: "res://scenes/characters/dumbert_head.tscn",
 	["arm"]: "res://scenes/characters/dumbert_1_arm.tscn",
 	["leg"]: "res://scenes/characters/dumbert_1_leg.tscn",
 	["arm", "leg"]: "res://scenes/characters/dumbert_1_leg_1_arm.tscn",
 	["leg", "leg"]: "res://scenes/characters/dumbert_2_legs.tscn",
-	["arm", "leg", "leg"]: "res://scenes/characters/dumbert_2_legs_1_arm.tscn"
+	["leg", "rocket_launcher"]: "res://scenes/characters/dumbert_1_leg_rocket.tscn",
+	["arm", "leg", "leg"]: "res://scenes/characters/dumbert_2_legs_1_arm.tscn",
+	["arm", "leg", "rocket_launcher"]: "res://scenes/characters/dumbert_1_leg_1_arm_rocket.tscn"
 }
 
+func _ready():
+	inventory.limb_addition.connect(add_limb)
+	
 func _process(delta):
 	if Input.is_action_just_pressed("esc"):
 		pause()

@@ -2,6 +2,7 @@ extends Resource
 
 class_name InventoryClass
 signal updated
+signal limb_addition(limb_type)
 @export var slots: Array[InventorySlot]
 
 func insert(item: InventoryItem):
@@ -11,7 +12,7 @@ func insert(item: InventoryItem):
 			updated.emit()
 			
 			if i < 6:
-				pass
+				limb_addition.emit(slots[i].item.getType())
 				#send signal to add limb
 				
 			return

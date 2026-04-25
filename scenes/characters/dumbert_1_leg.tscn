@@ -152,15 +152,21 @@ func _physics_process(delta: float) -> void:
 			charge_time = 0.5
 		
 		var x = Input.get_axis(\"left\", \"right\")
-		apply_torque(-rotation * 200000) # remains balanced
+		apply_torque(-rotation * 250000) # remains balanced
 		apply_torque(x * 150000) # lean
+		
+		if rotation > 0.6:
+			rotation = 0.6
+			apply_impulse(Vector2(-50, 0))
+		if rotation < -0.6:
+			rotation = -0.6
+			apply_impulse(Vector2(50, 0))
 		
 		collectItems()
 	
 func is_on_floor():
 	#print($Area2D.get_overlapping_bodies())
 	for body in $Area2D.get_overlapping_bodies():
-		print($Area2D.get_overlapping_bodies())
 		if body.is_in_group(\"FLOOR\"):
 			return true
 	return false
@@ -754,21 +760,21 @@ script/source = "extends AnimatedSprite2D
 
 @onready var d = get_parent()
 
-var x_offset = 24
+var x_offset = -25
 
 func _process(_delta: float) -> void:
 	global_rotation = 0
-	global_position = $\"../collision2\".global_position - Vector2(x_offset, 188)
+	global_position = $\"../Marker2D\".global_position + Vector2(x_offset, -205)
 	var rot = d.global_rotation_degrees
 	rot = round(rot / 5.0) * 5.0
 	if rot < 0:
 		rot = 90 + rot
 		flip_h = true
-		x_offset = 24
+		x_offset = -25
 	else:
 		rot = 90 - rot
 		flip_h = false
-		x_offset = -24
+		x_offset = 25
 	
 	if rot > 90:
 		rot = 90
@@ -804,7 +810,7 @@ shape = SubResource("CircleShape2D_5tckc")
 shape = SubResource("RectangleShape2D_5tckc")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(23, -22)
+position = Vector2(25, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_urr16")
 animation = &"lean-90"
@@ -816,6 +822,9 @@ position = Vector2(2, 2)
 [node name="collision2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_qh47k")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 200)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

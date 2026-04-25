@@ -1,4 +1,5 @@
 extends RigidBody2D
+@export var tracking_speed: float = 15.0
 
 func _integrate_forces(state):
 	var mouse_pos = get_global_mouse_position()
@@ -8,4 +9,4 @@ func _integrate_forces(state):
 	var current = state.transform.get_rotation()
 	var diff = wrapf(target_angle - current, -PI, PI)
 
-	state.angular_velocity = diff * 15.0
+	state.angular_velocity = diff * tracking_speed

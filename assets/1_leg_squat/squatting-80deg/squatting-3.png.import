@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cpv1jq2ypmorr"
-path="res://.godot/imported/squatting-3.png-9246585db3836ae59ae446fafcd4ca46.ctex"
+path="res://.godot/imported/squatting-3.png-0843fdc08a6e27fa4e78cacddbe5572e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/1_leg_squat/squatting-80deg/squatting-3.png"
-dest_files=["res://.godot/imported/squatting-3.png-9246585db3836ae59ae446fafcd4ca46.ctex"]
+source_file="res://assets/1_leg_squat/squatting - 80deg/squatting-3.png"
+dest_files=["res://.godot/imported/squatting-3.png-0843fdc08a6e27fa4e78cacddbe5572e.ctex"]
 
 [params]
 

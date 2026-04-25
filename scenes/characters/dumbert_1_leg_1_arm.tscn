@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://mrewxbijjkr7"]
+[gd_scene load_steps=141 format=3 uid="uid://mrewxbijjkr7"]
 
 [ext_resource type="PackedScene" uid="uid://btsesth5oov6t" path="res://scenes/characters/arm_rigid_body.tscn" id="1_af6as"]
 [ext_resource type="Texture2D" uid="uid://dii70d2fhnpj" path="res://assets/squat_hold/hold-55deg/Squat_Hold-1.png" id="2_0xxuq"]
@@ -153,8 +153,15 @@ func _physics_process(delta: float) -> void:
 			charge_time = 0.5
 		
 		var x = Input.get_axis(\"left\", \"right\")
-		apply_torque(-rotation * 200000) # remains balanced
+		apply_torque(-rotation * 250000) # remains balanced
 		apply_torque(x * 150000) # lean
+		
+		if rotation > 0.6:
+			rotation = 0.6
+			apply_impulse(Vector2(-50, 0))
+		if rotation < -0.6:
+			rotation = -0.6
+			apply_impulse(Vector2(50, 0))
 		
 		collectItems()
 				
@@ -172,6 +179,9 @@ radius = 59.03389
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tckc"]
 size = Vector2(117, 280)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0xxuq"]
+radius = 62.008064
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_21m3u"]
 animations = [{
@@ -755,21 +765,21 @@ script/source = "extends AnimatedSprite2D
 
 @onready var d = get_parent()
 
-var x_offset = 24
+var x_offset = -25
 
 func _process(_delta: float) -> void:
 	global_rotation = 0
-	global_position = $\"../collision2\".global_position - Vector2(x_offset, 188)
+	global_position = $\"../collision2\".global_position + Vector2(x_offset, -205)
 	var rot = d.global_rotation_degrees
 	rot = round(rot / 5.0) * 5.0
 	if rot < 0:
 		rot = 90 + rot
 		flip_h = true
-		x_offset = 24
+		x_offset = -25
 	else:
 		rot = 90 - rot
 		flip_h = false
-		x_offset = -24
+		x_offset = 25
 	
 	if rot > 90:
 		rot = 90
@@ -814,7 +824,7 @@ node_b = NodePath("../arm rigid body")
 
 [node name="collision2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 140)
-shape = SubResource("CircleShape2D_5tckc")
+shape = SubResource("CircleShape2D_0xxuq")
 
 [node name="arm rigid body" parent="." instance=ExtResource("1_af6as")]
 position = Vector2(0, 24)
@@ -825,6 +835,9 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_21m3u")
 animation = &"lean-90"
 script = SubResource("GDScript_rawvl")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 200)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

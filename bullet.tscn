@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
 size = Vector2(32, 22)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
+radius = 215.02094
+
 [node name="Bullet" type="Area2D" unique_id=1614028915]
 script = ExtResource("1_v8qja")
 
@@ -20,6 +23,11 @@ shape = SubResource("RectangleShape2D_2b2rl")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1085975002]
 position = Vector2(-1, 1)
 rect = Rect2(-9, -11, 19, 20)
+
+[node name="explosionRadius" type="Area2D" parent="." unique_id=1119423798]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius" unique_id=1930022260]
+shape = SubResource("CircleShape2D_v8qja")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

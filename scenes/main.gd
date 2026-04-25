@@ -47,7 +47,7 @@ func add_limb(limb_name):
 	limbs.append(limb_name)
 	limbs.sort()
 	if !dumbert_files.keys().has(limbs):
-		limbs.delete(limb_name)
+		limbs.erase(limb_name)
 		limbs.sort()
 		return
 	var player_pos = player.global_position

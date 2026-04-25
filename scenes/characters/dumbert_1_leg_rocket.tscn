@@ -1,4 +1,4 @@
-[gd_scene load_steps=142 format=3 uid="uid://brsnc6m2be4w"]
+[gd_scene format=3 uid="uid://brsnc6m2be4w"]
 
 [ext_resource type="Texture2D" uid="uid://dii70d2fhnpj" path="res://assets/squat_hold/hold-55deg/Squat_Hold-1.png" id="1_cbkvy"]
 [ext_resource type="Texture2D" uid="uid://cbnv4433fw0nq" path="res://assets/squat_hold/hold-55deg/Squat_Hold-2.png" id="2_lpj3a"]
@@ -134,7 +134,7 @@
 [ext_resource type="Texture2D" uid="uid://vbpji86vmm7w" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-7.png" id="132_epdls"]
 [ext_resource type="Texture2D" uid="uid://dfoci2m0k071u" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-8.png" id="133_j5b8a"]
 [ext_resource type="Texture2D" uid="uid://b1et6tot45nvu" path="res://assets/rocketlauncher_temp.png" id="134_6kb7i"]
-[ext_resource type="Script" path="res://scenes/characters/weapon.gd" id="135_r526q"]
+[ext_resource type="Script" uid="uid://dddfy10g5j8gc" path="res://scenes/characters/weapon.gd" id="135_r526q"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
@@ -169,7 +169,6 @@ func _physics_process(delta: float) -> void:
 func is_on_floor():
 	#print($Area2D.get_overlapping_bodies())
 	for body in $Area2D.get_overlapping_bodies():
-		print($Area2D.get_overlapping_bodies())
 		if body.is_in_group(\"FLOOR\"):
 			return true
 	return false
@@ -797,7 +796,7 @@ func _process(_delta: float) -> void:
 [sub_resource type="CircleShape2D" id="CircleShape2D_qh47k"]
 radius = 70.00714
 
-[node name="dumbert_1_leg" type="RigidBody2D"]
+[node name="dumbert_1_leg" type="RigidBody2D" unique_id=505362075]
 gravity_scale = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
@@ -805,37 +804,37 @@ contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
-[node name="collision2" type="CollisionShape2D" parent="."]
+[node name="collision2" type="CollisionShape2D" parent="." unique_id=1492171807]
 position = Vector2(0, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1995863759]
 position = Vector2(0, 11.5)
 shape = SubResource("RectangleShape2D_5tckc")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1493763733]
 position = Vector2(25, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_urr16")
 animation = &"lean-90"
 script = SubResource("GDScript_yevnl")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=801900713]
 position = Vector2(2, 2)
 
-[node name="collision2" type="CollisionShape2D" parent="Area2D"]
+[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=719156205]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_qh47k")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=293695218]
 position = Vector2(0, 200)
 
-[node name="weapon" type="Sprite2D" parent="."]
+[node name="weapon" type="Sprite2D" parent="." unique_id=237985984]
 position = Vector2(86, 7)
 texture = ExtResource("134_6kb7i")
 script = ExtResource("135_r526q")
 
-[node name="Marker2D" type="Marker2D" parent="weapon"]
+[node name="Marker2D" type="Marker2D" parent="weapon" unique_id=1117956424]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

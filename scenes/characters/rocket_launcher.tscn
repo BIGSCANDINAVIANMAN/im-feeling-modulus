@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://do38esqua1a8n"]
+
+[ext_resource type="Texture2D" uid="uid://b1et6tot45nvu" path="res://assets/rocketlauncher_temp.png" id="1_tjdju"]
+[ext_resource type="Script" uid="uid://dddfy10g5j8gc" path="res://scenes/characters/weapon.gd" id="2_chxwg"]
+
+[node name="weapon" type="Sprite2D" unique_id=1769990368]
+texture = ExtResource("1_tjdju")
+script = ExtResource("2_chxwg")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1512146625]

@@ -1,24 +1,27 @@
-extends CharacterBody2D
+extends RigidBody2D
 class_name gremlin_thief
 
 @export var health = 100
 var limb_holding = ""
-@export var speed = 200
-@export var walk_radius = 500
+@export var max_speed = 200
+@export var walk_radius = 500.0
+@export var move_impulse: float = 3000.0
 
+@onready var sprite = $sprite
+var direction: int = 1
 var initial_pos_x
 
 func _ready() -> void:
 	initial_pos_x = global_position.x
-	velocity = Vector2(speed, 0)
+	lock_rotation = true
 
 func _physics_process(delta: float) -> void:
 	if abs(global_position.x - initial_pos_x) >= walk_radius:
-		velocity.x = -velocity.x
-		scale.x = -scale.x
-	if not is_on_floor():
-		velocity.y += 200 # gravity
-	move_and_slide()
+		if sign(global_position.x - initial_pos_x) == sign(direction):
+			direction *= -1
+			sprite.scale.x = -sprite.scale.x
+	if abs(linear_velocity.x) < max_speed:
+		apply_central_impulse((Vector2(move_impulse*direction*delta, 0)))
 
 func hit(damage):
 	$sprite.modulate = Color(1, 0, 0)

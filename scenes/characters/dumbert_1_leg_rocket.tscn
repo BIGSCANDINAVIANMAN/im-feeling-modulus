@@ -179,7 +179,7 @@ func is_on_floor():
 radius = 59.03389
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tckc"]
-size = Vector2(117, 280)
+size = Vector2(117, 257)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_urr16"]
 animations = [{
@@ -810,6 +810,7 @@ position = Vector2(0, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.5)
 shape = SubResource("RectangleShape2D_5tckc")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]

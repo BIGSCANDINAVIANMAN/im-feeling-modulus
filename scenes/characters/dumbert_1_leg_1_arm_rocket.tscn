@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b1nmas2nmnvey"]
+[gd_scene load_steps=145 format=3 uid="uid://b1nmas2nmnvey"]
 
 [ext_resource type="PackedScene" uid="uid://btsesth5oov6t" path="res://scenes/characters/arm_rigid_body.tscn" id="1_tlcbm"]
 [ext_resource type="Texture2D" uid="uid://dii70d2fhnpj" path="res://assets/squat_hold/hold-55deg/Squat_Hold-1.png" id="2_enea1"]
@@ -135,7 +135,7 @@
 [ext_resource type="Texture2D" uid="uid://vbpji86vmm7w" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-7.png" id="133_51yoi"]
 [ext_resource type="Texture2D" uid="uid://dfoci2m0k071u" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-8.png" id="134_7tuqc"]
 [ext_resource type="Texture2D" uid="uid://b1et6tot45nvu" path="res://assets/rocketlauncher_temp.png" id="135_htn4k"]
-[ext_resource type="Script" uid="uid://dddfy10g5j8gc" path="res://scenes/characters/weapon.gd" id="136_hkrxj"]
+[ext_resource type="Script" path="res://scenes/characters/weapon.gd" id="136_hkrxj"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
@@ -174,6 +174,9 @@ radius = 59.03389
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tckc"]
 size = Vector2(117, 280)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htn4k"]
+radius = 77.00649
 
 [sub_resource type="Gradient" id="Gradient_af6as"]
 
@@ -793,7 +796,7 @@ func _process(_delta: float) -> void:
 		play(\"hold-\" + str(int(rot)))
 "
 
-[node name="dumbert_1_leg_1_arm" type="RigidBody2D" unique_id=396615315]
+[node name="dumbert_1_leg_1_arm" type="RigidBody2D"]
 gravity_scale = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
@@ -801,45 +804,45 @@ contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
-[node name="collision2" type="CollisionShape2D" parent="." unique_id=1032079707]
+[node name="collision2" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 140)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="bodyCollision" type="CollisionShape2D" parent="." unique_id=1081984330]
+[node name="bodyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5tckc")
 
-[node name="floorRay" type="RayCast2D" parent="." unique_id=624476576]
+[node name="floorRay" type="RayCast2D" parent="."]
 position = Vector2(0, 143)
 target_position = Vector2(-1, 125)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=223395315]
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
 position = Vector2(0, -36)
 node_a = NodePath("..")
 node_b = NodePath("../arm rigid body")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1869629548]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=443132152]
+[node name="collision2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-1, 140)
-shape = SubResource("CircleShape2D_5tckc")
+shape = SubResource("CircleShape2D_htn4k")
 
-[node name="arm rigid body" parent="." unique_id=1935197809 instance=ExtResource("1_tlcbm")]
+[node name="arm rigid body" parent="." instance=ExtResource("1_tlcbm")]
 position = Vector2(0, 24)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=980414162]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-1.999999, 27.500008)
 scale = Vector2(1.625, 5.203125)
 texture = SubResource("GradientTexture2D_c782e")
 
-[node name="weapon" type="Sprite2D" parent="." unique_id=935391428]
+[node name="weapon" type="Sprite2D" parent="."]
 position = Vector2(86, 7)
 texture = ExtResource("135_htn4k")
 script = ExtResource("136_hkrxj")
 
-[node name="Marker2D" type="Marker2D" parent="weapon" unique_id=1658633610]
+[node name="Marker2D" type="Marker2D" parent="weapon"]
 
-[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=17790022]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(28, -27)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_htn4k")

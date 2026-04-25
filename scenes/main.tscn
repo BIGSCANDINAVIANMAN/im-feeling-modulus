@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://cfjuq0jc50h6c" path="res://assets/bg_leg_forest/7-bgcolor_grad.png" id="2_gqmmt"]
 [ext_resource type="PackedScene" path="res://pauseMenu.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://mrewxbijjkr7" path="res://scenes/characters/dumbert_1_leg_1_arm.tscn" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6-backback.png" id="3_yc10j"]
 [ext_resource type="Texture2D" uid="uid://d3q80a00yr2oj" path="res://assets/bg_leg_forest/5-bgtree_1.png" id="4_trceg"]
 [ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4-ground(back).png" id="5_a8y0u"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cqqm3sudyfjoo" path="res://assets/random_obstacles/pant.png" id="13_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://cpwaoe8x2hwy6" path="res://body_part_arm.tscn" id="13_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://b0xwei7bej1m1" path="res://assets/random_obstacles/shorts.png" id="14_vxglm"]
+[ext_resource type="PackedScene" uid="uid://d02qcalccvy2y" path="res://scenes/characters/dumbert_1_leg.tscn" id="20_gqmmt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3dj"]
 size = Vector2(12004.75, 601)
@@ -323,9 +323,6 @@ script = SubResource("GDScript_o5qli")
 [node name="pauseMenu" parent="." instance=ExtResource("2_jyhfs")]
 visible = false
 
-[node name="dumbert_1_leg_1_arm" parent="." instance=ExtResource("3_jyhfs")]
-position = Vector2(-1655, 705)
-
 [node name="bodyPartLeg2" parent="." groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 position = Vector2(-948, 514)
 
@@ -347,3 +344,5 @@ offset_right = 78.5
 offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="dumbert_1_leg" parent="." instance=ExtResource("20_gqmmt")]

@@ -1,6 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8li44o7n0tb5"]
+[gd_scene load_steps=16 format=3 uid="uid://b8li44o7n0tb5"]
 
 [ext_resource type="Script" uid="uid://c48b5mnwt1cb2" path="res://scenes/characters/dumbert_2_legs.gd" id="1_cme88"]
+[ext_resource type="Texture2D" uid="uid://da3ei43epurnr" path="res://assets/walking two legs no arms/Untitled_Artwork-4.png" id="2_fnuj5"]
+[ext_resource type="Texture2D" uid="uid://c177wry0kax46" path="res://assets/walking two legs no arms/Untitled_Artwork-1.png" id="3_abkcl"]
+[ext_resource type="Texture2D" uid="uid://bu43dyqe2bm71" path="res://assets/walking two legs no arms/Untitled_Artwork-2.png" id="4_2j1pp"]
+[ext_resource type="Texture2D" uid="uid://b6vn7drlsb4w3" path="res://assets/walking two legs no arms/Untitled_Artwork-3.png" id="5_icmyi"]
+[ext_resource type="Texture2D" uid="uid://hwo5dqsrrbre" path="res://assets/walking two legs no arms/Untitled_Artwork-5.png" id="6_ttmie"]
+[ext_resource type="Texture2D" uid="uid://dvu3mmnlsei16" path="res://assets/walking two legs no arms/Untitled_Artwork-6.png" id="7_nt4bx"]
+[ext_resource type="Texture2D" uid="uid://pkht77h87fg5" path="res://assets/walking two legs no arms/Untitled_Artwork-7.png" id="8_kgdo7"]
+[ext_resource type="Texture2D" uid="uid://dap1ss65e1t8o" path="res://assets/walking two legs no arms/Untitled_Artwork-8.png" id="9_4ciwp"]
+[ext_resource type="Texture2D" uid="uid://2tmwoleproih" path="res://assets/walking two legs no arms/Untitled_Artwork-9.png" id="10_h7wx3"]
+[ext_resource type="Texture2D" uid="uid://bybh0bs1untcw" path="res://assets/walking two legs no arms/Untitled_Artwork-10.png" id="11_3x8rx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tjjc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fnuj5")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_abkcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2j1pp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_icmyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fnuj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ttmie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nt4bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kgdo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4ciwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_h7wx3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3x8rx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_lyjg0"]
+resource_name = "2_leg_animations"
+script/source = "extends AnimatedSprite2D
+
+@onready var d = get_parent()
+
+func _process(_delta: float) -> void:
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cme88"]
 size = Vector2(117, 280)
@@ -15,7 +81,14 @@ contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_cme88")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(42, -76)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5tjjc")
+animation = &"walk"
+frame = 5
+frame_progress = 0.33172995
+script = SubResource("GDScript_lyjg0")
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_cme88")

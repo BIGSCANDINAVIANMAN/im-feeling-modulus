@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bcwg3ephgnj4r"]
+
+[ext_resource type="Script" uid="uid://bg8hug0oau3er" path="res://inventoryManagement/items/item_rocket_launcher.gd" id="1_blnvm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wldj"]
+radius = 16.0
+height = 226.0
+
+[node name="item_rocket_launcher" type="RigidBody2D" unique_id=2117491583]
+script = ExtResource("1_blnvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2109164850]
+shape = SubResource("CapsuleShape2D_8wldj")

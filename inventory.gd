@@ -54,7 +54,6 @@ func takeItemFromSlot(slot):
 	
 	if slot.index >= 0 && slot.index < 6:
 		if slot.getItem():
-			print(slot.getItem().getType())
 			owner.remove_limb(slot.getItem().getType())
 		
 	itemInHand = slot.takeItem()

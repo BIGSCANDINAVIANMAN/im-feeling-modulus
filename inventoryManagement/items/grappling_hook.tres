@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://crhal7oyhlhjy"]
+
+[ext_resource type="Script" uid="uid://yvfewopk7mmr" path="res://inventoryManagement/inventory_item.gd" id="1_gu1cw"]
+[ext_resource type="Texture2D" uid="uid://b135squ2v8x8p" path="res://icon.svg" id="2_qg481"]
+
+[resource]
+script = ExtResource("1_gu1cw")
+name = "grappling_hook"
+texture = ExtResource("2_qg481")
+metadata/_custom_type_script = "uid://yvfewopk7mmr"

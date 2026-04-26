@@ -4,6 +4,7 @@ extends RigidBody2D
 @export var direction = 0
 static var inventory: InventoryClass = preload("res://inventoryManagement/playerInventory.tres")
 static var isDumbert = true
+static var dual_wielding = false
 
 func collectItems():
 	for body in get_colliding_bodies():

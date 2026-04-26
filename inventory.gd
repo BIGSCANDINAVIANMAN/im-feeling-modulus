@@ -43,11 +43,19 @@ func toggle():
 	
 func onSlotClicked(slot):
 	if slot.isEmpty() && itemInHand:
+		var itemType = itemInHand.inventorySlot.item.getType()
+		if (itemType == "rocket_launcher" || itemType == "grappling_hook" || itemType == "arm") and get_tree().current_scene.available_arms == 0 and slot.index >= 0 && slot.index < 6:
+			return
 		insertItemInSlot(slot)
 		if slot.index >= 0 && slot.index < 6:
 			owner.add_limb(slot.getItem().getType())
 		return
-	if !itemInHand:
+	elif !slot.isEmpty() && itemInHand:
+		inventory.swap(inventory.contains(itemInHand.inventorySlot), slot.index)
+		remove_child(itemInHand)
+		itemInHand = null
+		return
+	elif !itemInHand:
 		takeItemFromSlot(slot)
 	
 func takeItemFromSlot(slot):

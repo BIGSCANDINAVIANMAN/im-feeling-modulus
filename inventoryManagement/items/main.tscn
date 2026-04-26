@@ -1,28 +1,30 @@
-[gd_scene format=3 uid="uid://v8kkmx4c0vn3"]
+[gd_scene format=3 uid="uid://q3pa1frbc0xs"]
 
-[ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_sugp2"]
-[ext_resource type="Texture2D" uid="uid://cfjuq0jc50h6c" path="res://assets/bg_leg_forest/7-bgcolor_grad.png" id="2_gqmmt"]
-[ext_resource type="PackedScene" uid="uid://b6ongvcbul4ah" path="res://pauseMenu.tscn" id="2_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6-backback.png" id="3_yc10j"]
-[ext_resource type="Texture2D" uid="uid://d3q80a00yr2oj" path="res://assets/bg_leg_forest/5-bgtree_1.png" id="4_trceg"]
-[ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4-ground(back).png" id="5_a8y0u"]
-[ext_resource type="Texture2D" uid="uid://b8xravphpk7p7" path="res://assets/bg_leg_forest/3-Ground(maindirt).png" id="6_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2-treebunch-back(foreground).png" id="7_jbj1t"]
-[ext_resource type="Texture2D" uid="uid://e0tkl1u7fa33" path="res://assets/bg_leg_forest/groundlayer.png" id="8_jscy8"]
-[ext_resource type="Texture2D" uid="uid://bqf1lojtfqumh" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront_of_main_dirt).png" id="8_muem4"]
-[ext_resource type="Texture2D" uid="uid://bfhsed7ecdcjm" path="res://assets/bg_leg_forest/rocklayer.png" id="9_pm3ni"]
-[ext_resource type="Texture2D" uid="uid://ckunol1gvq1a3" path="res://assets/bg_leg_forest/grasslayer.png" id="10_y6deb"]
-[ext_resource type="PackedScene" uid="uid://b1hotyf8q5hrn" path="res://body_part.tscn" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://blxhbpu5fh2p7" path="res://inventory.tscn" id="12_eb6dy"]
-[ext_resource type="Texture2D" uid="uid://cc6kch3d4rdbm" path="res://assets/random_obstacles/shoe.png" id="12_og1vs"]
-[ext_resource type="Script" uid="uid://djk50srokrkha" path="res://scenes/canvas_layer.gd" id="12_trceg"]
-[ext_resource type="Texture2D" uid="uid://cqqm3sudyfjoo" path="res://assets/random_obstacles/pant.png" id="13_2wyq8"]
-[ext_resource type="PackedScene" uid="uid://cpwaoe8x2hwy6" path="res://body_part_arm.tscn" id="13_jkv2x"]
-[ext_resource type="Texture2D" uid="uid://b0xwei7bej1m1" path="res://assets/random_obstacles/shorts.png" id="14_vxglm"]
-[ext_resource type="PackedScene" uid="uid://bcwg3ephgnj4r" path="res://inventoryManagement/items/item_rocket_launcher.tscn" id="18_yc10j"]
-[ext_resource type="Resource" uid="uid://c3t200kllafhx" path="res://inventoryManagement/items/rocket_launcher.tres" id="19_jscy8"]
-[ext_resource type="PackedScene" uid="uid://cxn04h8uygwvu" path="res://scenes/characters/dumbert_head.tscn" id="22_jscy8"]
-[ext_resource type="Texture2D" uid="uid://dfmebqe61ixkt" path="res://assets/random_obstacles/Bigtree.png" id="23_pm3ni"]
+[ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_ovy5d"]
+[ext_resource type="Texture2D" uid="uid://cfjuq0jc50h6c" path="res://assets/bg_leg_forest/7-bgcolor_grad.png" id="2_k4sbf"]
+[ext_resource type="Texture2D" uid="uid://sjtv1yqh3tm5" path="res://assets/bg_leg_forest/6-backback.png" id="3_258hb"]
+[ext_resource type="Texture2D" uid="uid://d3q80a00yr2oj" path="res://assets/bg_leg_forest/5-bgtree_1.png" id="4_6sunv"]
+[ext_resource type="Texture2D" uid="uid://jwjctsl6o5wc" path="res://assets/bg_leg_forest/4-ground(back).png" id="5_2i3p6"]
+[ext_resource type="Texture2D" uid="uid://dx6u7b5jpsric" path="res://assets/bg_leg_forest/2-treebunch-back(foreground).png" id="6_cdpax"]
+[ext_resource type="Texture2D" uid="uid://b8xravphpk7p7" path="res://assets/bg_leg_forest/3-Ground(maindirt).png" id="7_lpkld"]
+[ext_resource type="Texture2D" uid="uid://e0tkl1u7fa33" path="res://assets/bg_leg_forest/groundlayer.png" id="8_i6bh8"]
+[ext_resource type="Texture2D" uid="uid://bfhsed7ecdcjm" path="res://assets/bg_leg_forest/rocklayer.png" id="9_yuila"]
+[ext_resource type="Texture2D" uid="uid://ckunol1gvq1a3" path="res://assets/bg_leg_forest/grasslayer.png" id="10_y7fuh"]
+[ext_resource type="Texture2D" uid="uid://bqf1lojtfqumh" path="res://assets/bg_leg_forest/1-treebunch-fron(Infront_of_main_dirt).png" id="11_faf3x"]
+[ext_resource type="Texture2D" uid="uid://cc6kch3d4rdbm" path="res://assets/random_obstacles/shoe.png" id="12_rbky7"]
+[ext_resource type="Texture2D" uid="uid://cqqm3sudyfjoo" path="res://assets/random_obstacles/pant.png" id="13_srv2o"]
+[ext_resource type="Texture2D" uid="uid://b0xwei7bej1m1" path="res://assets/random_obstacles/shorts.png" id="14_5ic28"]
+[ext_resource type="PackedScene" uid="uid://b6ongvcbul4ah" path="res://pauseMenu.tscn" id="15_bshxg"]
+[ext_resource type="PackedScene" uid="uid://bcwg3ephgnj4r" path="res://inventoryManagement/items/item_rocket_launcher.tscn" id="16_4y1cb"]
+[ext_resource type="Resource" uid="uid://c3t200kllafhx" path="res://inventoryManagement/items/rocket_launcher.tres" id="17_uw2lt"]
+[ext_resource type="PackedScene" uid="uid://cd2dvjkip34dk" path="res://inventoryManagement/items/item_grappling_hook.tscn" id="18_w4efc"]
+[ext_resource type="Resource" uid="uid://crhal7oyhlhjy" path="res://inventoryManagement/items/grappling_hook.tres" id="19_k4sbf"]
+[ext_resource type="Script" uid="uid://djk50srokrkha" path="res://scenes/canvas_layer.gd" id="19_ldmuc"]
+[ext_resource type="PackedScene" uid="uid://blxhbpu5fh2p7" path="res://inventory.tscn" id="20_6f6sd"]
+[ext_resource type="Texture2D" uid="uid://dfmebqe61ixkt" path="res://assets/random_obstacles/Bigtree.png" id="21_o1hdc"]
+[ext_resource type="PackedScene" uid="uid://cxn04h8uygwvu" path="res://scenes/characters/dumbert_head.tscn" id="22_6k3ga"]
+[ext_resource type="PackedScene" uid="uid://b1hotyf8q5hrn" path="res://body_part.tscn" id="23_ouf5y"]
+[ext_resource type="PackedScene" uid="uid://cpwaoe8x2hwy6" path="res://body_part_arm.tscn" id="24_xlxiy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3dj"]
 size = Vector2(23885, 601)
@@ -53,7 +55,7 @@ func _process(_delta: float) -> void:
 
 [node name="main" type="Node2D" unique_id=143593912]
 process_mode = 3
-script = ExtResource("1_sugp2")
+script = ExtResource("1_ovy5d")
 
 [node name="bg" type="Node2D" parent="." unique_id=617826538]
 position = Vector2(3234, -904)
@@ -61,7 +63,7 @@ position = Vector2(3234, -904)
 [node name="10" type="Sprite2D" parent="bg" unique_id=117340831]
 position = Vector2(-1565, -2647)
 scale = Vector2(20, 20)
-texture = ExtResource("2_gqmmt")
+texture = ExtResource("2_k4sbf")
 
 [node name="6a" type="Parallax2D" parent="bg" unique_id=542095443]
 scroll_scale = Vector2(0.3, 0.3)
@@ -70,7 +72,7 @@ repeat_times = 2
 
 [node name="6" type="Sprite2D" parent="bg/6a" unique_id=1831882337]
 scale = Vector2(4.24, 4.24)
-texture = ExtResource("3_yc10j")
+texture = ExtResource("3_258hb")
 
 [node name="6b" type="Parallax2D" parent="bg" unique_id=1037305969]
 scale = Vector2(-1, 1)
@@ -81,7 +83,7 @@ repeat_times = 2
 
 [node name="6" type="Sprite2D" parent="bg/6b" unique_id=2056560620]
 scale = Vector2(4.24, 4.24)
-texture = ExtResource("3_yc10j")
+texture = ExtResource("3_258hb")
 
 [node name="5" type="Parallax2D" parent="bg" unique_id=801241470]
 scroll_scale = Vector2(0.4, 0.4)
@@ -91,7 +93,7 @@ repeat_times = 2
 
 [node name="5" type="Sprite2D" parent="bg/5" unique_id=34560221]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("4_trceg")
+texture = ExtResource("4_6sunv")
 
 [node name="4a" type="Parallax2D" parent="bg" unique_id=386767169]
 scroll_scale = Vector2(0.5, 0.5)
@@ -100,7 +102,7 @@ repeat_times = 2
 
 [node name="4" type="Sprite2D" parent="bg/4a" unique_id=2113485127]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("5_a8y0u")
+texture = ExtResource("5_2i3p6")
 
 [node name="4b" type="Parallax2D" parent="bg" unique_id=118563401]
 scale = Vector2(-1, 1)
@@ -111,7 +113,7 @@ repeat_times = 2
 
 [node name="4" type="Sprite2D" parent="bg/4b" unique_id=1757260773]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("5_a8y0u")
+texture = ExtResource("5_2i3p6")
 
 [node name="2" type="Parallax2D" parent="bg" unique_id=514256757]
 scroll_scale = Vector2(0.6, 0.6)
@@ -121,7 +123,7 @@ repeat_times = 2
 
 [node name="2" type="Sprite2D" parent="bg/2" unique_id=1824047064]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("7_jbj1t")
+texture = ExtResource("6_cdpax")
 
 [node name="3a-back" type="Parallax2D" parent="bg" unique_id=950976770]
 scale = Vector2(-1, 1)
@@ -130,7 +132,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-back" unique_id=529715211]
 scale = Vector2(4.24, 4.24)
-texture = ExtResource("6_jkv2x")
+texture = ExtResource("7_lpkld")
 
 [node name="3b-back" type="Parallax2D" parent="bg" unique_id=511333643]
 scroll_offset = Vector2(-5697, 0)
@@ -139,7 +141,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-back" unique_id=568435087]
 scale = Vector2(4.24, 4.24)
-texture = ExtResource("6_jkv2x")
+texture = ExtResource("7_lpkld")
 
 [node name="3a-ground" type="Parallax2D" parent="bg" unique_id=1857544882]
 z_index = 9
@@ -149,7 +151,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-ground" unique_id=1863372985]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("8_jscy8")
+texture = ExtResource("8_i6bh8")
 
 [node name="3b-ground" type="Parallax2D" parent="bg" unique_id=1559528181]
 z_index = 9
@@ -159,7 +161,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-ground" unique_id=1227244568]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("8_jscy8")
+texture = ExtResource("8_i6bh8")
 
 [node name="3a-rocks" type="Parallax2D" parent="bg" unique_id=1185291047]
 z_index = 9
@@ -170,7 +172,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-rocks" unique_id=368509071]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("9_pm3ni")
+texture = ExtResource("9_yuila")
 
 [node name="3b-rocks" type="Parallax2D" parent="bg" unique_id=1001992409]
 z_index = 9
@@ -180,7 +182,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-rocks" unique_id=1810363787]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("9_pm3ni")
+texture = ExtResource("9_yuila")
 
 [node name="3a-grass" type="Parallax2D" parent="bg" unique_id=569321194]
 z_index = 9
@@ -191,7 +193,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3a-grass" unique_id=51641378]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("10_y6deb")
+texture = ExtResource("10_y7fuh")
 
 [node name="3b-grass" type="Parallax2D" parent="bg" unique_id=452069824]
 z_index = 9
@@ -201,7 +203,7 @@ repeat_times = 2
 
 [node name="3" type="Sprite2D" parent="bg/3b-grass" unique_id=551932691]
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("10_y6deb")
+texture = ExtResource("10_y7fuh")
 
 [node name="1" type="Parallax2D" parent="bg" unique_id=981863268]
 repeat_size = Vector2(8000, 0)
@@ -210,7 +212,7 @@ repeat_times = 2
 [node name="1" type="Sprite2D" parent="bg/1" unique_id=1184969879]
 z_index = 10
 scale = Vector2(4.233, 4.233)
-texture = ExtResource("8_muem4")
+texture = ExtResource("11_faf3x")
 
 [node name="floor" type="StaticBody2D" parent="." unique_id=1692075422 groups=["FLOOR"]]
 z_index = 20
@@ -252,7 +254,7 @@ z_as_relative = false
 position = Vector2(5966.8325, 205.46802)
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="pant1" type="CollisionPolygon2D" parent="floor" unique_id=1676748128]
 position = Vector2(7136, -464)
@@ -264,7 +266,7 @@ z_as_relative = false
 position = Vector2(53.000008, -11.000013)
 rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_2wyq8")
+texture = ExtResource("13_srv2o")
 
 [node name="short1" type="CollisionPolygon2D" parent="floor" unique_id=812602564]
 position = Vector2(6454, -835.0002)
@@ -276,7 +278,7 @@ polygon = PackedVector2Array(201.33423, 171.87244, -214.58789, 254.70862, -229.3
 z_as_relative = false
 rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("14_vxglm")
+texture = ExtResource("14_5ic28")
 
 [node name="shoe3" type="CollisionPolygon2D" parent="floor" unique_id=1541659751]
 z_index = 9
@@ -290,7 +292,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe2" type="CollisionPolygon2D" parent="floor" unique_id=430356716]
 z_index = 9
@@ -304,7 +306,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe4" type="CollisionPolygon2D" parent="floor" unique_id=1670234338]
 z_index = 9
@@ -318,7 +320,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="pant2" type="CollisionPolygon2D" parent="floor" unique_id=346266070]
 position = Vector2(2467.9998, -2061.0002)
@@ -331,7 +333,7 @@ z_as_relative = false
 position = Vector2(53.000008, -11.000013)
 rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_2wyq8")
+texture = ExtResource("13_srv2o")
 
 [node name="pant3" type="CollisionPolygon2D" parent="floor" unique_id=796491626]
 position = Vector2(7486, -1837.9998)
@@ -344,7 +346,7 @@ z_as_relative = false
 position = Vector2(53.000008, -11.000013)
 rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_2wyq8")
+texture = ExtResource("13_srv2o")
 
 [node name="short2" type="CollisionPolygon2D" parent="floor" unique_id=552650292]
 position = Vector2(6517.0005, -2248.9998)
@@ -356,7 +358,7 @@ polygon = PackedVector2Array(201.33423, 171.87244, -214.58789, 254.70862, -229.3
 z_as_relative = false
 rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("14_vxglm")
+texture = ExtResource("14_5ic28")
 
 [node name="pant4" type="CollisionPolygon2D" parent="floor" unique_id=911660794]
 position = Vector2(586, -2802)
@@ -369,7 +371,7 @@ z_as_relative = false
 position = Vector2(53.000008, -11.000013)
 rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
-texture = ExtResource("13_2wyq8")
+texture = ExtResource("13_srv2o")
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="floor" unique_id=1395672229]
 position = Vector2(1438, -2)
@@ -399,7 +401,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe3" type="CollisionPolygon2D" parent="floor2" unique_id=1400079856]
 z_index = 9
@@ -413,7 +415,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe4" type="CollisionPolygon2D" parent="floor2" unique_id=2014206591]
 z_index = 9
@@ -427,7 +429,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe5" type="CollisionPolygon2D" parent="floor2" unique_id=42870566]
 z_index = 9
@@ -441,7 +443,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe6" type="CollisionPolygon2D" parent="floor2" unique_id=1646652264]
 z_index = 9
@@ -455,7 +457,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe7" type="CollisionPolygon2D" parent="floor2" unique_id=1008537022]
 z_index = 9
@@ -469,7 +471,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="shoe8" type="CollisionPolygon2D" parent="floor2" unique_id=1329315177]
 z_index = 9
@@ -483,7 +485,7 @@ z_index = 1
 z_as_relative = false
 rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
-texture = ExtResource("12_og1vs")
+texture = ExtResource("12_rbky7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor2" unique_id=2041788244]
 position = Vector2(-5482.8887, -3197.0073)
@@ -502,18 +504,22 @@ limit_bottom = 1300
 position_smoothing_enabled = true
 script = SubResource("GDScript_o5qli")
 
-[node name="pauseMenu" parent="." unique_id=890263515 instance=ExtResource("2_jyhfs")]
+[node name="pauseMenu" parent="." unique_id=890263515 instance=ExtResource("15_bshxg")]
 visible = false
 
-[node name="item_rocket_launcher" parent="." unique_id=1050744762 groups=["bodyParts"] instance=ExtResource("18_yc10j")]
-position = Vector2(3836, -2040)
+[node name="item_rocket_launcher" parent="." unique_id=1050744762 groups=["bodyParts"] instance=ExtResource("16_4y1cb")]
+position = Vector2(-4935, -1581)
 itemType = "rocket"
-itemRes = ExtResource("19_jscy8")
+itemRes = ExtResource("17_uw2lt")
+
+[node name="item_grappling_hook" parent="." unique_id=2117491583 groups=["bodyParts"] instance=ExtResource("18_w4efc")]
+position = Vector2(-6073, -1808)
+itemRes = ExtResource("19_k4sbf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1895666618]
-script = ExtResource("12_trceg")
+script = ExtResource("19_ldmuc")
 
-[node name="inventory" parent="CanvasLayer" unique_id=594920784 instance=ExtResource("12_eb6dy")]
+[node name="inventory" parent="CanvasLayer" unique_id=594920784 instance=ExtResource("20_6f6sd")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -529,22 +535,22 @@ grow_vertical = 2
 [node name="Bigtree" type="Sprite2D" parent="." unique_id=2097987501]
 position = Vector2(-3178.0002, -1838.0001)
 scale = Vector2(3.6, 3.6)
-texture = ExtResource("23_pm3ni")
+texture = ExtResource("21_o1hdc")
 
-[node name="dumbert_head" parent="." unique_id=553847154 instance=ExtResource("22_jscy8")]
+[node name="dumbert_head" parent="." unique_id=553847154 instance=ExtResource("22_6k3ga")]
 position = Vector2(-3532, -3341)
 
-[node name="bodyPartLeg" parent="." unique_id=1759127010 groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
+[node name="bodyPartLeg" parent="." unique_id=1759127010 groups=["bodyParts"] instance=ExtResource("23_ouf5y")]
 z_index = 14
-position = Vector2(-6177, -1586)
+position = Vector2(-6020, -1566)
 gravity_scale = 2.5
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = 0.87266463
 
-[node name="bodyPartArm" parent="." unique_id=2080424662 groups=["bodyParts"] instance=ExtResource("13_jkv2x")]
-position = Vector2(-3055, -2561)
+[node name="bodyPartArm" parent="." unique_id=2080424662 groups=["bodyParts"] instance=ExtResource("24_xlxiy")]
+position = Vector2(-3949, -2338)
 
 [node name="Bigtree2" type="Sprite2D" parent="." unique_id=537971238]
 position = Vector2(9328, -1766)
 scale = Vector2(3.6, 3.6)
-texture = ExtResource("23_pm3ni")
+texture = ExtResource("21_o1hdc")

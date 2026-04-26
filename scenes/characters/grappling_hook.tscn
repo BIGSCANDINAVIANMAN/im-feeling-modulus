@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c8f80iajkap40"]
+
+[ext_resource type="Texture2D" uid="uid://b1et6tot45nvu" path="res://assets/rocketlauncher_temp.png" id="1_6s4q1"]
+[ext_resource type="Script" uid="uid://di53vfusedr7i" path="res://scenes/characters/grappling_hook.gd" id="2_6s4q1"]
+
+[node name="grappling_hook" type="Sprite2D" unique_id=1769990368]
+texture = ExtResource("1_6s4q1")
+script = ExtResource("2_6s4q1")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1512146625]

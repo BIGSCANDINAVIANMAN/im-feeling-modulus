@@ -52,6 +52,7 @@ func steal_limb():
 	if main.limbs.size() == 0: return
 	var stolen_limb = main.limbs.pick_random()
 	main.remove_limb(stolen_limb)
+	main.stealLimbFromInv(stolen_limb)
 	limb_holding = stolen_limb
 	
 	dirRunning = sign(global_position.x - get_parent().player.global_position.x)

@@ -2,7 +2,10 @@ extends Node2D
 @onready var main = $"."
 @onready var pauseMenu = $pauseMenu
 @onready var player = $dumbert_head
+
 @export var inventory: InventoryClass = preload("res://inventoryManagement/playerInventory.tres")
+
+signal steal_limb(ind)
 
 var r_launcher = preload("res://scenes/characters/rocket_launcher.tscn")
 var g_hook = preload("res://scenes/characters/grappling_hook.tscn")
@@ -121,3 +124,10 @@ func updateArmCount(limb_name, add: bool):
 		if !(has_rocket and has_grapple):
 			player.dual_wielding = false
 		print(available_arms)
+		
+func stealLimbFromInv(limb_name):
+	for i in range(inventory.slots.size()):
+		if inventory.slots[i].item:
+			if inventory.slots[i].item.name == limb_name:
+				print("heyo")
+				steal_limb.emit(i)

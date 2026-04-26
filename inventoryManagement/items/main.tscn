@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://q3pa1frbc0xs"]
+[gd_scene load_steps=0 format=3 uid="uid://q3pa1frbc0xs"]
 
 [ext_resource type="Script" uid="uid://dajsk5jlgcq0u" path="res://scenes/main.gd" id="1_ovy5d"]
 [ext_resource type="Texture2D" uid="uid://cfjuq0jc50h6c" path="res://assets/bg_leg_forest/7-bgcolor_grad.png" id="2_k4sbf"]

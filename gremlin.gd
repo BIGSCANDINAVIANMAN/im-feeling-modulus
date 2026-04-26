@@ -11,15 +11,24 @@ var limb_holding = ""
 var direction: int = 1
 var initial_pos_x
 
+var dirRunning = 0 # for after you steal a limb
+
 func _ready() -> void:
 	initial_pos_x = global_position.x
 	lock_rotation = true
 
 func _physics_process(delta: float) -> void:
+	if dirRunning != 0:
+		if abs(linear_velocity.x) < max_speed * 2:
+			apply_central_impulse((Vector2(move_impulse*dirRunning*delta, 0)))
+		return
+	
 	if abs(global_position.x - initial_pos_x) >= walk_radius:
 		if sign(global_position.x - initial_pos_x) == sign(direction):
+			dirRunning = 0
 			direction *= -1
-			sprite.scale.x = -sprite.scale.x
+			scale.x *= -1
+			$sprite.flip_v = !$sprite.flip_v
 	if abs(linear_velocity.x) < max_speed:
 		apply_central_impulse((Vector2(move_impulse*direction*delta, 0)))
 
@@ -44,3 +53,8 @@ func steal_limb():
 	var stolen_limb = main.limbs.pick_random()
 	main.remove_limb(stolen_limb)
 	limb_holding = stolen_limb
+	
+	dirRunning = sign(global_position.x - get_parent().player.global_position.x)
+	await get_tree().create_timer(2).timeout
+	dirRunning = 0
+	

@@ -8,3 +8,10 @@ texture = ExtResource("1_6s4q1")
 script = ExtResource("2_6s4q1")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1512146625]
+
+[node name="gunTip" type="Marker2D" parent="." unique_id=1092637439]
+position = Vector2(83, -7)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1607855577]
+width = 4.0
+default_color = Color(0.9562219, 0.86518985, 0.71218, 1)

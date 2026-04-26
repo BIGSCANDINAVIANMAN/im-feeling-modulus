@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var speed = 2000
-@export var max_distance = 5000
+@export var max_distance = 2000
 signal grapple_latched(latch_pos)
 signal grapple_missed
 

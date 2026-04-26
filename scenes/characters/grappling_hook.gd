@@ -1,5 +1,8 @@
 extends Sprite2D
 
+@onready var rope_line: Line2D = $Line2D
+@onready var muzzle: Marker2D = $gunTip
+
 @export var angle_offset_degrees: float = 0.0
 @export var rotation_speed: float = 10.0
 
@@ -17,6 +20,13 @@ var current_rope_length: float = 0.0
 
 func _ready() -> void:
 	set_as_top_level(true)
+	
+	rope_line.top_level = true
+	rope_line.visible = false
+	
+	rope_line.clear_points()
+	rope_line.add_point(Vector2.ZERO)
+	rope_line.add_point(Vector2.ZERO)
 
 func fire_grapple():
 	break_grapple()
@@ -69,6 +79,20 @@ func _physics_process(delta: float) -> void:
 				
 				#friction
 				#player_body.linear_velocity *= 0.99 
+				
+	#draw rope
+	if is_swinging:
+		rope_line.visible = true
+		rope_line.set_point_position(0, muzzle.global_position)
+		rope_line.set_point_position(1, grapple_point)
+		
+	elif is_instance_valid(active_hook):
+		rope_line.visible = true
+		rope_line.set_point_position(0, muzzle.global_position)
+		rope_line.set_point_position(1, active_hook.global_position)
+		
+	else:
+		rope_line.visible = false
 		
 	if Input.is_action_just_pressed("space"):
 		if is_swinging:

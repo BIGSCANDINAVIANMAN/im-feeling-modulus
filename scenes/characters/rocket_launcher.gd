@@ -30,6 +30,6 @@ func _physics_process(delta: float) -> void:
 		get_parent().add_child(bullet_instance)
 
 		can_fire = false
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1).timeout
 		can_fire = true
 		

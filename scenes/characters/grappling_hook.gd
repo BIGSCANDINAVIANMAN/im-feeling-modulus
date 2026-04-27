@@ -11,6 +11,7 @@ var grapple = preload("res://grapple.tscn")
 
 @export var reel_speed: float = 400.0
 @export var min_rope_length: float = 50.0
+@export var max_rope_length: float = 1000.0
 
 var active_hook: Node2D = null
 var is_swinging: bool = false
@@ -68,18 +69,21 @@ func _physics_process(delta: float) -> void:
 			var rope_normal = to_anchor.normalized()
 			
 			var stretch_amount = distance - current_rope_length
-			player_body.global_position += rope_normal * stretch_amount
+			player_body.move_and_collide(rope_normal * stretch_amount)
 			
 			if player_body.linear_velocity.dot(-rope_normal) > 0:
 				player_body.linear_velocity = player_body.linear_velocity.slide(-rope_normal)
 				
 				#if we are falling downwards, multiply our speed slightly 
 				if player_body.linear_velocity.y > 0: 
-					player_body.linear_velocity *= (1+ (0.01*delta))
+					player_body.linear_velocity *= (1+ (0.02*delta))
 				
 				#friction
 				#player_body.linear_velocity *= 0.99 
-				
+	if is_instance_valid(active_hook) and not is_swinging:
+		var distance_flown = muzzle.global_position.distance_to(active_hook.global_position)
+		if distance_flown > max_rope_length:
+			break_grapple()		
 	#draw rope
 	if is_swinging:
 		rope_line.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://d02qcalccvy2y"]
+[gd_scene format=3 uid="uid://d02qcalccvy2y"]
 
 [ext_resource type="Texture2D" uid="uid://dii70d2fhnpj" path="res://assets/squat_hold/hold-55deg/Squat_Hold-1.png" id="1_qh47k"]
 [ext_resource type="Texture2D" uid="uid://dk5oeekiscicm" path="res://assets/leaning back and forth/Untitled_Artwork-8.png" id="1_u33n8"]
@@ -794,7 +794,7 @@ func _process(_delta: float) -> void:
 [sub_resource type="CircleShape2D" id="CircleShape2D_qh47k"]
 radius = 51.0
 
-[node name="dumbert_1_leg" type="RigidBody2D"]
+[node name="dumbert_1_leg" type="RigidBody2D" unique_id=792434564]
 gravity_scale = 2.5
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
@@ -802,29 +802,29 @@ contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
-[node name="collision2" type="CollisionShape2D" parent="."]
+[node name="collision2" type="CollisionShape2D" parent="." unique_id=337406110]
 position = Vector2(0, 172)
 shape = SubResource("CircleShape2D_5tckc")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=985201482]
 position = Vector2(-0.5, 36.5)
 shape = SubResource("RectangleShape2D_5tckc")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=2117864838]
 position = Vector2(25, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_urr16")
 animation = &"lean-90"
 script = SubResource("GDScript_yevnl")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1423035057]
 position = Vector2(2, 2)
 
-[node name="collision2" type="CollisionShape2D" parent="Area2D"]
+[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=677785990]
 position = Vector2(-2, 167)
 shape = SubResource("CircleShape2D_qh47k")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=361363623]
 position = Vector2(0, 200)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

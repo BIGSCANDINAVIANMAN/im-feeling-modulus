@@ -107,7 +107,7 @@ animations = [{
 }]
 
 [node name="dumbert_1_arm" type="RigidBody2D"]
-gravity_scale = 2.5
+gravity_scale = 3.0
 contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_gucfg")

@@ -65,17 +65,18 @@ script/source = "extends AnimatedSprite2D
 @onready var d = get_parent()
 
 func _process(_delta: float) -> void:
-	pass
+	var dir = d.direction
+	
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cme88"]
-size = Vector2(117, 280)
+size = Vector2(117, 258)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cme88"]
-radius = 59.03389
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnuj5"]
+size = Vector2(112, 11)
 
 [node name="dumbert_2_legs" type="RigidBody2D"]
-gravity_scale = 2.5
+gravity_scale = 3.0
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 3
@@ -90,10 +91,11 @@ frame_progress = 0.1572275
 script = SubResource("GDScript_lyjg0")
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_cme88")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="collision2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 140)
-shape = SubResource("CircleShape2D_cme88")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 142)
+shape = SubResource("RectangleShape2D_fnuj5")

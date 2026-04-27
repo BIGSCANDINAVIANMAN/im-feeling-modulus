@@ -696,7 +696,7 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("14_vxglm")
 
 [node name="pant2" type="CollisionPolygon2D" parent="floor3"]
-position = Vector2(14266.799, 1772.7744)
+position = Vector2(14195.197, 1927.8577)
 rotation = 2.3516634
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(398, -137, 359, 208, -254.90039, 199.46143, -264.14697, 24.777344, -212, 42, 172, 35, 172, 12, -214, -68, -257, -42, -296, -57, -304, -162, -273, -250, -236, -249, -212, -206)
@@ -784,7 +784,7 @@ scale = Vector2(3.6, 3.6)
 texture = ExtResource("23_pm3ni")
 
 [node name="dumbert_head" parent="." instance=ExtResource("22_jscy8")]
-position = Vector2(302, -1548)
+position = Vector2(355, -1214)
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = -34.906586
 
@@ -796,7 +796,7 @@ linear_velocity = Vector2(-1000, 0)
 angular_velocity = 0.87266463
 
 [node name="bodyPartArm" parent="." groups=["bodyParts"] instance=ExtResource("13_jkv2x")]
-position = Vector2(3225, -2017)
+position = Vector2(710, 235)
 
 [node name="Bigtree2" type="Sprite2D" parent="."]
 z_index = 1
@@ -811,7 +811,7 @@ itemRes = ExtResource("25_og1vs")
 
 [node name="bodyPartLeg2" parent="." groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 z_index = 14
-position = Vector2(-2316, -1356)
+position = Vector2(607, -520)
 gravity_scale = 2.5
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = 0.87266463

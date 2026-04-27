@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://d02qcalccvy2y"]
+[gd_scene load_steps=139 format=3 uid="uid://d02qcalccvy2y"]
 
 [ext_resource type="Texture2D" uid="uid://dii70d2fhnpj" path="res://assets/squat_hold/hold-55deg/Squat_Hold-1.png" id="1_qh47k"]
 [ext_resource type="Texture2D" uid="uid://dk5oeekiscicm" path="res://assets/leaning back and forth/Untitled_Artwork-8.png" id="1_u33n8"]
@@ -141,7 +141,7 @@ script/source = "extends \"res://scenes/characters/dumbert.gd\"
 func _physics_process(delta: float) -> void:
 	if not get_tree().paused:
 		if Input.is_action_just_released(\"space\") and is_on_floor():
-			apply_impulse(Vector2(0, -1).rotated(rotation) * 1650 * charge_time)
+			apply_impulse(Vector2(0, -1).rotated(rotation) * 2000 * charge_time)
 		
 		if Input.is_action_pressed(\"space\") and is_on_floor():
 			if charge_time < 1:
@@ -152,8 +152,10 @@ func _physics_process(delta: float) -> void:
 			charge_time = 0.5
 		
 		var x = Input.get_axis(\"left\", \"right\")
-		apply_torque(-rotation * 250000) # remains balanced
-		apply_torque(x * 150000) # lean
+		
+		if is_on_floor():
+			apply_torque(-rotation * 250000) # remains balanced
+			apply_torque(x * 150000) # lean
 		
 		if rotation > 0.6:
 			rotation = 0.6
@@ -173,7 +175,7 @@ func is_on_floor():
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tckc"]
-radius = 37.0
+radius = 30.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tckc"]
 size = Vector2(57, 301)
@@ -791,11 +793,8 @@ func _process(_delta: float) -> void:
 		play(\"hold-\" + str(int(rot)))
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qh47k"]
-radius = 51.0
-
 [node name="dumbert_1_leg" type="RigidBody2D"]
-gravity_scale = 2.5
+gravity_scale = 3.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
 contact_monitor = true
@@ -803,11 +802,11 @@ max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
 [node name="collision2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 172)
+position = Vector2(0, 184)
 shape = SubResource("CircleShape2D_5tckc")
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 36.5)
+position = Vector2(0, 36.5)
 shape = SubResource("RectangleShape2D_5tckc")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
@@ -818,11 +817,11 @@ animation = &"lean-90"
 script = SubResource("GDScript_yevnl")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(2, 2)
+position = Vector2(0, 8)
 
 [node name="collision2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 167)
-shape = SubResource("CircleShape2D_qh47k")
+position = Vector2(0, 192)
+shape = SubResource("CircleShape2D_5tckc")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 200)

@@ -13,6 +13,11 @@ func _ready():
 	connectSlots()
 	inventory.updated.connect(update)
 	update()
+	var main = owner
+	main.steal_limb.connect(stealAtInd)
+	
+func stealAtInd(i):
+	slots[i].takeItem()
 	
 func connectSlots():
 	for i in range(slots.size()):
@@ -59,14 +64,14 @@ func onSlotClicked(slot):
 		takeItemFromSlot(slot)
 	
 func takeItemFromSlot(slot):
-	
-	if slot.index >= 0 && slot.index < 6:
-		if slot.getItem():
-			owner.remove_limb(slot.getItem().getType())
-		
-	itemInHand = slot.takeItem()
-	add_child(itemInHand)
-	updateItemInHand()
+	if slot.itemStackGui:
+		if slot.index >= 0 && slot.index < 6:
+			if slot.getItem():
+				owner.remove_limb(slot.getItem().getType())
+			
+		itemInHand = slot.takeItem()
+		add_child(itemInHand)
+		updateItemInHand()
 	
 	
 	

@@ -6,13 +6,15 @@ signal limb_addition(limb_type)
 signal limb_removal(limb_type)
 @export var slots: Array[InventorySlot]
 
+
+
 func insert(item: InventoryItem, start: int = 0):
 
 	for i in range(start, slots.size()):
 		if !slots[i].item:
 			slots[i].item = item
 			updated.emit()
-			
+			print(slots[i].item)
 			if i < 6:
 				limb_addition.emit(slots[i].item.getType())
 				#send signal to add limb

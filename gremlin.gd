@@ -8,6 +8,10 @@ var limb_holding = ""
 @export var move_impulse: float = 3000.0
 
 @onready var sprite = $sprite
+@onready var arm = preload("res://body_part_arm.tscn")
+@onready var leg = preload("res://body_part.tscn")
+@onready var armRes = preload("res://inventoryManagement/items/arm.tres")
+@onready var legRes = preload("res://inventoryManagement/items/leg.tres")
 var direction: int = 1
 var initial_pos_x
 
@@ -41,6 +45,19 @@ func hit(damage):
 		die()
 
 func die():
+	if limb_holding == "arm":
+		var dropped_arm = arm.instantiate()
+		get_tree().current_scene.addChild(dropped_arm)
+		dropped_arm.itemRes = armRes
+		dropped_arm.global_position = global_position
+	if limb_holding == "leg":
+		var dropped_leg = leg.instantiate()
+		get_tree().current_scene.call_deferred("add_child", dropped_leg)
+		dropped_leg.global_position = global_position
+		dropped_leg.itemRes = legRes
+		print(dropped_leg.itemRes)
+		print("LEG DROPPED")
+		
 	queue_free()
 
 func _on_hit_area_body_entered(body: Node2D) -> void:

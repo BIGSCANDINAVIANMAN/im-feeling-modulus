@@ -29,7 +29,7 @@ func _ready():
 	inventory.limb_addition.connect(add_limb)
 	inventory.limb_removal.connect(remove_limb)
 	
-func _process(delta):
+func _process(delta):		
 	if Input.is_action_just_pressed("esc"):
 		pause()
 		
@@ -78,6 +78,9 @@ func remove_limb(limb_name):
 	player.global_position = player_pos
 	
 func add_limb(limb_name):
+	var headToLeg = false
+	if limbs == [] and limb_name == "leg":
+		headToLeg = true
 	#might have issues with removing nonexistent arms
 	if (limb_name == "rocket_launcher"):
 		if !player.has_node("rocket_launcher") && available_arms > 0:
@@ -111,6 +114,8 @@ func add_limb(limb_name):
 		player.add_child(g_hook.instantiate())
 	call_deferred("add_child", player)
 	player.global_position = player_pos
+	if (headToLeg):
+		player.global_position.y -= 150
 	
 func updateArmCount(limb_name, add: bool):
 	if "rocket_launcher, grappling_hook, arm".contains(limb_name):

@@ -13,11 +13,8 @@ func _ready():
 	connectSlots()
 	inventory.updated.connect(update)
 	update()
-	var main = owner
-	main.steal_limb.connect(stealAtInd)
-	
-func stealAtInd(i):
-	slots[i].takeItem()
+	var main = get_tree().current_scene
+	main.steal_limb.connect(stealItemAtIndex)
 	
 func connectSlots():
 	for i in range(slots.size()):
@@ -88,3 +85,9 @@ func updateItemInHand():
 	
 func _input(event):
 	updateItemInHand()
+	
+func stealItemAtIndex(index):
+	slots[index].takeItem()
+	inventory.removeItemAtIndex(index)
+
+	

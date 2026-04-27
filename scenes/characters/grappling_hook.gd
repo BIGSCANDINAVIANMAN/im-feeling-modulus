@@ -11,7 +11,7 @@ var grapple = preload("res://grapple.tscn")
 
 @export var reel_speed: float = 400.0
 @export var min_rope_length: float = 50.0
-@export var max_rope_length: float = 1000.0
+@export var max_rope_length: float = 1500.0
 
 var active_hook: Node2D = null
 var is_swinging: bool = false
@@ -100,7 +100,8 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("space"):
 		if is_swinging:
-			get_parent().apply_central_impulse(Vector2(0, -15))
+			print("yes")
+			get_parent().apply_impulse(Vector2(0, -1000))
 			break_grapple()
 		
 func _on_hook_latched(hook_pos: Vector2):

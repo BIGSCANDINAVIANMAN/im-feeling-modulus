@@ -55,7 +55,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 8.0
+"speed": 12.0
 }]
 
 [sub_resource type="GDScript" id="GDScript_lyjg0"]
@@ -65,7 +65,10 @@ script/source = "extends AnimatedSprite2D
 @onready var d = get_parent()
 
 func _process(_delta: float) -> void:
-	var dir = d.direction
+	if d.x:
+		play(\"walk\")
+	else:
+		play(\"idle\")
 	
 "
 
@@ -87,7 +90,7 @@ position = Vector2(42, -76)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_5tjjc")
 animation = &"walk"
-frame_progress = 0.1572275
+autoplay = "idle"
 script = SubResource("GDScript_lyjg0")
 
 [node name="collision" type="CollisionShape2D" parent="."]

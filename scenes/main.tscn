@@ -784,19 +784,19 @@ scale = Vector2(3.6, 3.6)
 texture = ExtResource("23_pm3ni")
 
 [node name="dumbert_head" parent="." instance=ExtResource("22_jscy8")]
-position = Vector2(355, -1214)
+position = Vector2(-1333, -4024)
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = -34.906586
 
 [node name="bodyPartLeg" parent="." groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 z_index = 14
-position = Vector2(1521, -934)
+position = Vector2(-1275, -4157)
 gravity_scale = 2.5
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = 0.87266463
 
 [node name="bodyPartArm" parent="." groups=["bodyParts"] instance=ExtResource("13_jkv2x")]
-position = Vector2(710, 235)
+position = Vector2(662, -1136)
 
 [node name="Bigtree2" type="Sprite2D" parent="."]
 z_index = 1
@@ -806,20 +806,20 @@ scale = Vector2(3.6, -3.6)
 texture = ExtResource("23_pm3ni")
 
 [node name="item_grappling_hook" parent="." groups=["bodyParts"] instance=ExtResource("24_y6deb")]
-position = Vector2(-3090, -2608)
+position = Vector2(-1507, -4100)
 itemRes = ExtResource("25_og1vs")
 
 [node name="bodyPartLeg2" parent="." groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 z_index = 14
-position = Vector2(607, -520)
+position = Vector2(958, -1134)
 gravity_scale = 2.5
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = 0.87266463
 
 [node name="item_rocket_launcher" parent="." groups=["bodyParts"] instance=ExtResource("18_yc10j")]
-position = Vector2(9148, -2536)
+position = Vector2(-7, -718)
 itemType = "rocket"
 itemRes = ExtResource("19_jscy8")
 
-[node name="gremlin" parent="." instance=ExtResource("26_2wyq8")]
+[node name="gremlin" parent="." groups=["enemy"] instance=ExtResource("26_2wyq8")]
 position = Vector2(2903, 660)

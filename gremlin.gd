@@ -39,15 +39,16 @@ func _physics_process(delta: float) -> void:
 func hit(damage):
 	$sprite.modulate = Color(1, 0, 0)
 	var tween = get_tree().create_tween()
-	tween.tween_property($Sprite, "modulate", Color(1, 1, 1), 1.0)
+	tween.tween_property($sprite, "modulate", Color(1, 1, 1), 0.3)
 	health -= damage
 	if health <= 0:
 		die()
 
 func die():
+	await get_tree().create_timer(0.25).timeout
 	if limb_holding == "arm":
 		var dropped_arm = arm.instantiate()
-		get_tree().current_scene.addChild(dropped_arm)
+		get_tree().current_scene.call_deferred("add_child", dropped_arm)
 		dropped_arm.itemRes = armRes
 		dropped_arm.global_position = global_position
 	if limb_holding == "leg":
@@ -76,3 +77,11 @@ func steal_limb():
 	await get_tree().create_timer(2).timeout
 	dirRunning = 0
 	
+
+
+
+func _on_jump_area_body_entered(body: Node2D) -> void:
+	if body.name.contains("dumbert"):
+		body.apply_impulse(Vector2(0, -1200))
+		hit(50)
+	pass # Replace with function body.

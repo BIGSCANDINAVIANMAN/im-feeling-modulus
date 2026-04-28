@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bapt8edq2kle3"]
+[gd_scene format=3 uid="uid://bapt8edq2kle3"]
 
 [ext_resource type="Script" uid="uid://betowsvsj1jwn" path="res://gremlin.gd" id="1_ovdqa"]
 [ext_resource type="Texture2D" uid="uid://7ref14bkltui" path="res://assets/GREMLIN no armleg/1-walk.png" id="2_mjwyp"]
@@ -32,23 +32,34 @@ size = Vector2(153.5, 319)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx1g4"]
 size = Vector2(288.25, 274)
 
-[node name="gremlin" type="RigidBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjwyp"]
+size = Vector2(145, 2)
+
+[node name="gremlin" type="RigidBody2D" unique_id=725487081]
 script = ExtResource("1_ovdqa")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1438855753]
 scale = Vector2(-0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_b2vol")
 animation = &"nolimb_walk"
 autoplay = "nolimb_walk"
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=946112142]
 position = Vector2(-14.75, 0)
 shape = SubResource("RectangleShape2D_ovdqa")
 
-[node name="hit_area" type="Area2D" parent="."]
+[node name="hit_area" type="Area2D" parent="." unique_id=1911842698]
 
-[node name="collision" type="CollisionShape2D" parent="hit_area"]
+[node name="collision" type="CollisionShape2D" parent="hit_area" unique_id=1731994775]
+visible = false
 position = Vector2(80.125, 0)
 shape = SubResource("RectangleShape2D_yx1g4")
 
+[node name="jump_area" type="Area2D" parent="." unique_id=15300565]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="jump_area" unique_id=263719259]
+position = Vector2(-14.5, -161)
+shape = SubResource("RectangleShape2D_mjwyp")
+
 [connection signal="body_entered" from="hit_area" to="." method="_on_hit_area_body_entered"]
+[connection signal="body_entered" from="jump_area" to="." method="_on_jump_area_body_entered"]

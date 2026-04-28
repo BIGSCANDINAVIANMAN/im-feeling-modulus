@@ -80,7 +80,7 @@ func remove_limb(limb_name):
 func add_limb(limb_name):
 	print(limb_name)
 	var headToLeg = false
-	if limbs == [] and limb_name == "leg":
+	if (limbs == [] or limbs == ["arm"]) and limb_name == "leg":
 		headToLeg = true
 	#might have issues with removing nonexistent arms
 	if (limb_name == "rocket_launcher"):

@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 		scale.x = dirFacing
 		rotation = 0
 		
-		if player_velocity.length() < max_speed:
+		if player_velocity.length() < max_speed || sign(player_velocity.x) != sign(x):
 			player_velocity += Vector2(x * accel, 0)
 		else:
 			player_velocity.x = max_speed * sign(player_velocity.x)
@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 				apply_impulse(Vector2(0, -jump_speed))
 		
 		global_position += player_velocity
+		
 
 func is_on_floor():
 	#print($Area2D.get_overlapping_bodies())

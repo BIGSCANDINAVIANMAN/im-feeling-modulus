@@ -10,3 +10,6 @@ func collectItems():
 	for body in get_colliding_bodies():
 		if (body.is_in_group("bodyParts")):
 			body.collect(inventory)
+
+func is_on_floor():
+	return false

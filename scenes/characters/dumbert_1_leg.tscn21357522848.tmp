@@ -139,54 +139,53 @@ resource_name = "dumbert"
 script/source = "extends \"res://scenes/characters/dumbert.gd\"
 
 func _physics_process(delta: float) -> void:
-	if not get_tree().paused:
-		if Input.is_action_just_released(\"space\") and is_on_floor():
-			apply_impulse(Vector2(0, -1).rotated(rotation) * 2000 * charge_time)
-		
-		if Input.is_action_pressed(\"space\") and is_on_floor():
-			if charge_time < 1:
-				charge_time += delta * 1
-			if charge_time > 1:
-				charge_time = 1
-		else:
-			charge_time = 0.5
-		
-		var x = Input.get_axis(\"left\", \"right\")
-		
-		if is_on_floor():
-			apply_torque(-rotation * 250000) # remains balanced
-			apply_torque(x * 150000) # lean
-		
-		if rotation > 0.6:
-			rotation = 0.6
-			apply_impulse(Vector2(-50, 0))
-		if rotation < -0.6:
-			rotation = -0.6
-			apply_impulse(Vector2(50, 0))
-			
-		if $RayCast2D.is_colliding():
-			var hit_object = $RayCast2D.get_collider()
-			if hit_object is Area2D:
-				print(\"Hit an area named: \", hit_object.name)
-		
-		collectItems()
+	if get_tree().paused:
+		return
+
+	handle_jumping(delta)
+	handle_leaning(delta)
+	collectItems()
+
+func handle_jumping(delta: float):
+	if Input.is_action_pressed(\"space\") and is_on_floor():
+		# Clamp is cleaner than multiple if/else statements
+		charge_time = min(charge_time + delta, 1.0)
 	
+	if Input.is_action_just_released(\"space\") and is_on_floor():
+		# Use the combined vector for the jump impulse
+		var jump_dir = Vector2.UP.rotated(rotation)
+		apply_impulse(jump_dir * 2000 * charge_time)
+		charge_time = 0.5 # Reset after jump
+	elif not Input.is_action_pressed(\"space\"):
+		charge_time = 0.5 # Reset if let go without jumping
+
+func handle_leaning(delta: float):
+	var x = Input.get_axis(\"left\", \"right\")
+	var max_rot = 0.6
+	
+	if x != 0:
+		# Tapping the key starts the rotation
+		angular_velocity = x * 2.0 
+	else:
+		# Tapping release stops the rotation instantly
+		# Using 1.0 here acts like a \"hard brake\"
+		angular_velocity = lerp(angular_velocity, 0.0, 1.0) 
+
+	# SMART LIMITER (Same as before)
+	if rotation > max_rot:
+		rotation = max_rot
+		if angular_velocity > 0:
+			angular_velocity = 0
+	elif rotation < -max_rot:
+		rotation = -max_rot
+		if angular_velocity < 0:
+			angular_velocity = 0
+			
 func is_on_floor():
 	#print($Area2D.get_overlapping_bodies())
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group(\"FLOOR\"):
 			return true
-		\"\"\"
-		could try this method
-		if body.is_in_group(\"enemy\"):
-			var body_shape = body.get_node(\"collision\").shape
-			var body_top_edge = body.global_position.y - (body_shape.size.y / 2.0)
-			var area_shape = $Area2D/CollisionShape2D.shape
-			var area_bottom_edge = $Area2D.global_position.y + (area_shape.size.y / 2.0)
-			var area_top_edge = $Area2D.global_position.y - (area_shape.size.y / 2.0)
-			if body_top_edge <= area_bottom_edge and body_top_edge >= area_top_edge:
-				apply_impulse(Vector2(0, -500))
-			\"\"\"
 	return false
 "
 
@@ -832,11 +831,6 @@ sprite_frames = SubResource("SpriteFrames_urr16")
 animation = &"lean-90"
 script = SubResource("GDScript_yevnl")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=509588208]
-position = Vector2(0, 180)
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1547325104]
 position = Vector2(0, 8)
 
@@ -847,5 +841,7 @@ shape = SubResource("CircleShape2D_5tckc")
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1677576193]
 position = Vector2(0, 200)
 
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

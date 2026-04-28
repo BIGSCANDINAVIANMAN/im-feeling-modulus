@@ -101,7 +101,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("space"):
 		if is_swinging:
 			print("yes")
-			get_parent().apply_impulse(Vector2(0, -1000))
+			if !get_parent().is_on_floor():
+				get_parent().apply_impulse(Vector2(0, -1000))
 			break_grapple()
 		
 func _on_hook_latched(hook_pos: Vector2):

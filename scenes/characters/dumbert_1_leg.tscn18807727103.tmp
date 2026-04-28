@@ -133,6 +133,7 @@
 [ext_resource type="Texture2D" uid="uid://dfoci2m0k071u" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-8.png" id="66_5uyj8"]
 [ext_resource type="Texture2D" uid="uid://vcg46vl58nsa" path="res://assets/squat_hold/hold-90deg/Untitled_Artwork-6.png" id="66_6ptto"]
 [ext_resource type="Texture2D" uid="uid://w6s0mg7ki6qo" path="res://assets/squat_hold/hold-90deg/Untitled_Artwork-7.png" id="67_duyqe"]
+[ext_resource type="Script" uid="uid://dg286q3gwlt23" path="res://scenes/characters/area_2d.gd" id="134_xmmra"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
@@ -163,11 +164,6 @@ func _physics_process(delta: float) -> void:
 		if rotation < -0.6:
 			rotation = -0.6
 			apply_impulse(Vector2(50, 0))
-			
-		if $RayCast2D.is_colliding():
-			var hit_object = $RayCast2D.get_collider()
-			if hit_object is Area2D:
-				print(\"Hit an area named: \", hit_object.name)
 		
 		collectItems()
 	
@@ -176,17 +172,6 @@ func is_on_floor():
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group(\"FLOOR\"):
 			return true
-		\"\"\"
-		could try this method
-		if body.is_in_group(\"enemy\"):
-			var body_shape = body.get_node(\"collision\").shape
-			var body_top_edge = body.global_position.y - (body_shape.size.y / 2.0)
-			var area_shape = $Area2D/CollisionShape2D.shape
-			var area_bottom_edge = $Area2D.global_position.y + (area_shape.size.y / 2.0)
-			var area_top_edge = $Area2D.global_position.y - (area_shape.size.y / 2.0)
-			if body_top_edge <= area_bottom_edge and body_top_edge >= area_top_edge:
-				apply_impulse(Vector2(0, -500))
-			\"\"\"
 	return false
 "
 
@@ -832,13 +817,9 @@ sprite_frames = SubResource("SpriteFrames_urr16")
 animation = &"lean-90"
 script = SubResource("GDScript_yevnl")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=509588208]
-position = Vector2(0, 180)
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1547325104]
 position = Vector2(0, 8)
+script = ExtResource("134_xmmra")
 
 [node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=1055254130]
 position = Vector2(0, 192)

@@ -78,6 +78,7 @@ func remove_limb(limb_name):
 	player.global_position = player_pos
 	
 func add_limb(limb_name):
+	print(limb_name)
 	var headToLeg = false
 	if limbs == [] and limb_name == "leg":
 		headToLeg = true
@@ -96,6 +97,7 @@ func add_limb(limb_name):
 		return
 		
 	if available_arms == 0 and limb_name == "arm":
+		print("no arms")
 		return
 	updateArmCount(limb_name, true)
 		
@@ -136,3 +138,4 @@ func stealLimbFromInv(limb_name):
 			if inventory.slots[i].item.name == limb_name:
 				print("heyo")
 				steal_limb.emit(i)
+				break

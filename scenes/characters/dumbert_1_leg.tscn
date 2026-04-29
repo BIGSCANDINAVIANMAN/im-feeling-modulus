@@ -155,19 +155,25 @@ func _physics_process(delta: float) -> void:
 		
 		if is_on_floor():
 			apply_torque(-rotation * 250000) # remains balanced
-			apply_torque(x * 150000) # lean
+
+		#if rotation > 0.6 and x > 0 or rotation < 0.6 and x < 0:
+		apply_torque(x * 150000) # lean
 		
 		if rotation > 0.6:
 			rotation = 0.6
-			apply_impulse(Vector2(-50, 0))
+			if is_on_floor():
+				apply_impulse(Vector2(-50, 0))
 		if rotation < -0.6:
 			rotation = -0.6
-			apply_impulse(Vector2(50, 0))
+			if is_on_floor():
+				apply_impulse(Vector2(50, 0))
 			
+		\"\"\"
 		if $RayCast2D.is_colliding():
 			var hit_object = $RayCast2D.get_collider()
 			if hit_object is Area2D:
 				print(\"Hit an area named: \", hit_object.name)
+		\"\"\"
 		
 		collectItems()
 	

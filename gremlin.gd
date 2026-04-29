@@ -82,6 +82,6 @@ func steal_limb():
 
 func _on_jump_area_body_entered(body: Node2D) -> void:
 	if body.name.contains("dumbert"):
-		body.apply_impulse(Vector2(0, -1200))
+		body.apply_central_impulse(Vector2(0, -1200))
 		hit(50)
 	pass # Replace with function body.

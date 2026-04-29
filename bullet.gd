@@ -32,7 +32,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		for target in explosion_hitbox.get_overlapping_bodies():
 			if target is RigidBody2D:
-				if (target.linear_velocity.y < 0):
+				if (target.linear_velocity.y != 0):
 					target.linear_velocity.y = 0
 				var direction = (target.global_position - explosion_hitbox.global_position)/(target.global_position - explosion_hitbox.global_position).length()
 				target.apply_central_impulse(30 * direction * knockback)

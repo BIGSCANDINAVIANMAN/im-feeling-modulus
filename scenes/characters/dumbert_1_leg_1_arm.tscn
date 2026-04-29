@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://mrewxbijjkr7"]
+[gd_scene format=3 uid="uid://mrewxbijjkr7"]
 
 [ext_resource type="PackedScene" uid="uid://btsesth5oov6t" path="res://scenes/characters/arm_rigid_body.tscn" id="1_af6as"]
 [ext_resource type="Texture2D" uid="uid://dii70d2fhnpj" path="res://assets/squat_hold/hold-55deg/Squat_Hold-1.png" id="2_0xxuq"]
@@ -796,7 +796,7 @@ radius = 30.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tksmq"]
 size = Vector2(57, 301)
 
-[node name="dumbert_1_leg_1_arm" type="RigidBody2D"]
+[node name="dumbert_1_leg_1_arm" type="RigidBody2D" unique_id=1785651501]
 gravity_scale = 3.0
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 150)
@@ -804,40 +804,41 @@ contact_monitor = true
 max_contacts_reported = 5
 script = SubResource("GDScript_5tckc")
 
-[node name="floorRay" type="RayCast2D" parent="."]
+[node name="floorRay" type="RayCast2D" parent="." unique_id=802839968]
 position = Vector2(0, 143)
 target_position = Vector2(-1, 125)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="."]
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1925562453]
 position = Vector2(0, -36)
 node_a = NodePath("..")
 node_b = NodePath("../arm rigid body")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=751706931]
 position = Vector2(0, 8)
 
-[node name="collision2" type="CollisionShape2D" parent="Area2D"]
+[node name="collision2" type="CollisionShape2D" parent="Area2D" unique_id=1708810133]
 position = Vector2(0, 192)
 shape = SubResource("CircleShape2D_0xxuq")
 
-[node name="arm rigid body" parent="." instance=ExtResource("1_af6as")]
+[node name="arm rigid body" parent="." unique_id=1109490300 instance=ExtResource("1_af6as")]
 position = Vector2(0, 24)
+mass = 0.1
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1918858120]
 position = Vector2(28, -27)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_21m3u")
 animation = &"lean-90"
 script = SubResource("GDScript_rawvl")
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1547071544]
 position = Vector2(0, 200)
 
-[node name="collision2" type="CollisionShape2D" parent="."]
+[node name="collision2" type="CollisionShape2D" parent="." unique_id=234312929]
 position = Vector2(0, 184)
 shape = SubResource("CircleShape2D_tp0o6")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1247176367]
 position = Vector2(0, 36.5)
 shape = SubResource("RectangleShape2D_tksmq")
 

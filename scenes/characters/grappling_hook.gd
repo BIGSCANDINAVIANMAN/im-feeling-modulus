@@ -39,6 +39,9 @@ func fire_grapple():
 	get_tree().current_scene.add_child(active_hook) 
 	active_hook.grapple_latched.connect(_on_hook_latched)
 	
+	$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+	$AudioStreamPlayer2D.play()
+	
 	can_fire = false
 	await get_tree().create_timer(0.5).timeout
 	can_fire = true
@@ -47,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	global_position.x = lerp(global_position.x, get_parent().global_position.x, 0.5)
 	global_position.y = lerp(global_position.y, get_parent().global_position.y + 10, 0.5)
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and !get_parent().dual_wielding or get_parent().dual_wielding:
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and get_parent().hasArm) or (!get_parent().hasArm and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)) or get_tree().current_scene.available_arms == 1:
 		var mouse_pos = get_global_mouse_position()
 		var direction = mouse_pos - global_position
 		var target_angle = direction.angle() + deg_to_rad(angle_offset_degrees)

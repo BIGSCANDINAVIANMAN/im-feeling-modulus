@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=0 format=3 uid="uid://crhal7oyhlhjy"]
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://crhal7oyhlhjy"]
 
 [ext_resource type="Script" uid="uid://yvfewopk7mmr" path="res://inventoryManagement/inventory_item.gd" id="1_gu1cw"]
-[ext_resource type="Texture2D" uid="uid://b135squ2v8x8p" path="res://icon.svg" id="2_qg481"]
+[ext_resource type="Texture2D" uid="uid://c5d0456gl63g0" path="res://assets/rocketLauncher + grapplingHook animations/grapplingGunInventory(square).png" id="2_gu1cw"]
 
 [resource]
 script = ExtResource("1_gu1cw")
 name = "grappling_hook"
-texture = ExtResource("2_qg481")
+texture = ExtResource("2_gu1cw")
 metadata/_custom_type_script = "uid://yvfewopk7mmr"

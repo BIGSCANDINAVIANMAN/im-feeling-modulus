@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bo6kbihknfrkd" path="res://inventory.gd" id="1_5tt2m"]
 [ext_resource type="Texture2D" uid="uid://g7yl8ph7k0g3" path="res://assets/menus/InventoryRect.png" id="1_pohso"]
 [ext_resource type="PackedScene" uid="uid://7q6p164w5j2s" path="res://slot.tscn" id="2_psafj"]
+[ext_resource type="Texture2D" uid="uid://1yp3kswrfskc" path="res://assets/menus/6f81a239-9a4f-456f-b45e-fc3289fcb34a.png" id="4_mrqgh"]
 
 [node name="Inventory" type="Control" unique_id=590551117]
 custom_minimum_size = Vector2(436, 174)
@@ -14,8 +15,8 @@ script = ExtResource("1_5tt2m")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=273444290]
 layout_mode = 0
-offset_right = 435.0
-offset_bottom = 173.0
+offset_right = 460.0
+offset_bottom = 251.0
 texture = ExtResource("1_pohso")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -35,6 +36,8 @@ offset_right = 70.0
 offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 63
 columns = 6
 
 [node name="slot" parent="NinePatchRect/GridContainer" unique_id=159222156 instance=ExtResource("2_psafj")]
@@ -72,3 +75,8 @@ layout_mode = 2
 
 [node name="slot12" parent="NinePatchRect/GridContainer" unique_id=1521517467 instance=ExtResource("2_psafj")]
 layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=640998966]
+position = Vector2(230, 122.99999)
+scale = Vector2(0.335, 0.4)
+texture = ExtResource("4_mrqgh")

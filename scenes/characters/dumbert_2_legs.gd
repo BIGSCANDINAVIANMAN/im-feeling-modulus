@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			if Input.is_action_just_pressed("space"):
 				apply_impulse(Vector2(0, -jump_speed))
+				$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+				$AudioStreamPlayer2D.play()
 		
 		global_position += player_velocity
 		

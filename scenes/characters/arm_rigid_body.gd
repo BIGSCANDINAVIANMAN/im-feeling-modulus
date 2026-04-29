@@ -1,5 +1,5 @@
 extends RigidBody2D
-@export var tracking_speed: float = 15.0
+@export var tracking_speed: float = 20.0
 
 func _integrate_forces(state):
 	var mouse_pos = get_global_mouse_position()

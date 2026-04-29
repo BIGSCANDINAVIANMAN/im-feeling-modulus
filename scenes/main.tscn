@@ -21,12 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://cpwaoe8x2hwy6" path="res://body_part_arm.tscn" id="13_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://b0xwei7bej1m1" path="res://assets/random_obstacles/shorts.png" id="14_vxglm"]
 [ext_resource type="PackedScene" uid="uid://bcwg3ephgnj4r" path="res://inventoryManagement/items/item_rocket_launcher.tscn" id="18_yc10j"]
+[ext_resource type="FontFile" uid="uid://61hl7kuqe4dw" path="res://assets/menus/Straw Milky.otf" id="19_2f3dj"]
 [ext_resource type="Resource" uid="uid://c3t200kllafhx" path="res://inventoryManagement/items/rocket_launcher.tres" id="19_jscy8"]
+[ext_resource type="Script" uid="uid://cry71uumx37sb" path="res://scenes/rich_text_label.gd" id="20_yq6so"]
+[ext_resource type="Script" uid="uid://cqqvk5nkpl8ch" path="res://scenes/rich_text_label_2.gd" id="21_fv21b"]
 [ext_resource type="PackedScene" uid="uid://cxn04h8uygwvu" path="res://scenes/characters/dumbert_head.tscn" id="22_jscy8"]
 [ext_resource type="Texture2D" uid="uid://dfmebqe61ixkt" path="res://assets/random_obstacles/Bigtree.png" id="23_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://cd2dvjkip34dk" path="res://inventoryManagement/items/item_grappling_hook.tscn" id="24_y6deb"]
 [ext_resource type="Resource" uid="uid://crhal7oyhlhjy" path="res://inventoryManagement/items/grappling_hook.tres" id="25_og1vs"]
 [ext_resource type="PackedScene" uid="uid://bapt8edq2kle3" path="res://scenes/characters/gremlin.tscn" id="26_2wyq8"]
+[ext_resource type="AudioStream" uid="uid://clnl7u31nrnad" path="res://sfx/backgroundMusic.mp3" id="31_tel4y"]
+[ext_resource type="AudioStream" uid="uid://d0176i1vb8n3n" path="res://sfx/rocketExplodeSfx.wav" id="32_qkpxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2f3dj"]
 size = Vector2(23885, 601)
@@ -37,12 +42,18 @@ size = Vector2(154.25, 131)
 [sub_resource type="CircleShape2D" id="CircleShape2D_pm3ni"]
 radius = 2627.2207
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q0nq"]
+size = Vector2(3112.1587, 476)
+
 [sub_resource type="GDScript" id="GDScript_o5qli"]
 resource_name = "camera"
 script/source = "
 extends Camera2D
 
 var active = false
+var zoomed = true
+@export var minZoom = 0.3
+@export var maxZoom = 0.6
 
 func _ready() -> void:
 	await get_tree().create_timer(4).timeout
@@ -53,7 +64,33 @@ func _process(_delta: float) -> void:
 		var player = get_parent().player
 		if player:
 			global_position = player.global_position
+
+		if zoomed:
+			if zoom.x < maxZoom or zoom.y < maxZoom:
+				zoom.x += _delta * 0.2
+				zoom.y += _delta * 0.2
+			if zoom.x > maxZoom:
+				zoom.x = maxZoom
+			if zoom.y > maxZoom:
+				zoom.y = maxZoom
+		else:
+			if zoom.x > minZoom or zoom.y > minZoom:
+				zoom.x -= _delta * 0.2
+				zoom.y -= _delta * 0.2
+			if zoom.x < minZoom:
+				zoom.x = minZoom
+			if zoom.y < minZoom:
+				zoom.y = minZoom
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv21b"]
+size = Vector2(166, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tel4y"]
+size = Vector2(2663, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkpxi"]
+size = Vector2(216, 965)
 
 [node name="main" type="Node2D" unique_id=1892436423]
 process_mode = 3
@@ -63,7 +100,7 @@ script = ExtResource("1_sugp2")
 position = Vector2(3234, -904)
 
 [node name="10" type="Sprite2D" parent="bg" unique_id=1782351088]
-position = Vector2(-1565, -2647)
+position = Vector2(-1495.0001, -2206)
 scale = Vector2(20, 20)
 texture = ExtResource("2_gqmmt")
 
@@ -759,6 +796,20 @@ rotation = -0.80983263
 scale = Vector2(2.2, -2.2)
 texture = ExtResource("12_og1vs")
 
+[node name="shoe16" type="CollisionPolygon2D" parent="floor3" unique_id=1274919880]
+z_index = 9
+position = Vector2(17395.838, 2056.9302)
+rotation = 10.379158
+scale = Vector2(-1, -1)
+polygon = PackedVector2Array(151.11304, -764.6835, -259.46094, -390.28296, -686.9978, 94.18286, -555.53906, 233.03784, -460.1123, 230.44751, -328.625, 155.71399, -259.30518, 227.89954, -48.96753, 170.70569, 148.1792, 161.86462, 192.37842, 215.45032, 228.44336, 179.37634, 293.354, 243.16199, 631.1846, -127.028076, 643.14746, -237.59424, 534.5676, -328.1007, 400.5791, -523.4852, 160.45703, -757.08826)
+
+[node name="Shoe" type="Sprite2D" parent="floor3/shoe16" unique_id=495002896]
+z_index = 1
+z_as_relative = false
+rotation = -0.80983263
+scale = Vector2(2.2, -2.2)
+texture = ExtResource("12_og1vs")
+
 [node name="floor4" type="StaticBody2D" parent="." unique_id=568078741 groups=["FLOOR"]]
 z_index = 20
 position = Vector2(-4319, -2771.9995)
@@ -766,6 +817,17 @@ rotation = -3.3291552
 scale = Vector2(-0.7, -0.7)
 collision_layer = 3
 collision_mask = 3
+
+[node name="RigidBody2D" type="RigidBody2D" parent="floor4" unique_id=146667620 groups=["FLOOR"]]
+position = Vector2(3223.926, 5147.1343)
+rotation = 0.18756254
+scale = Vector2(1.4285715, 1.4285715)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor4/RigidBody2D" unique_id=1993136427]
+position = Vector2(-2022, -6274.0005)
+scale = Vector2(1.0808977, 0.9936559)
+shape = SubResource("RectangleShape2D_5q0nq")
 
 [node name="shoe2" type="CollisionPolygon2D" parent="floor4" unique_id=189171695]
 z_index = 9
@@ -821,7 +883,7 @@ texture = ExtResource("14_vxglm")
 
 [node name="shoe5" type="CollisionPolygon2D" parent="floor4" unique_id=1084987083]
 z_index = 9
-position = Vector2(2820.2065, -1888.6848)
+position = Vector2(2799.5835, -1848.9767)
 rotation = 6.454709
 scale = Vector2(-1, 1)
 polygon = PackedVector2Array(151.11304, -764.6835, -259.46094, -390.28296, -686.9978, 94.18286, -555.53906, 233.03784, -460.1123, 230.44751, -328.625, 155.71399, -259.30518, 227.89954, -48.96753, 170.70569, 148.1792, 161.86462, 192.37842, 215.45032, 228.44336, 179.37634, 293.354, 243.16199, 631.1846, -127.028076, 643.14746, -237.59424, 534.5676, -328.1007, 400.5791, -523.4852, 160.45703, -757.08826)
@@ -920,9 +982,9 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("14_vxglm")
 
 [node name="short8" type="CollisionPolygon2D" parent="floor4" unique_id=1047198633]
-position = Vector2(7185.541, -1874.4536)
+position = Vector2(7269.743, -1973.3458)
 rotation = -0.43326187
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.9327009, 0.8797154)
 polygon = PackedVector2Array(201.33423, 171.87244, -214.58789, 254.70862, -229.31055, 226.9049, -251.12183, 57.079712, -231.06763, 46.02014, -63.285645, 29.915161, -58.23633, 3.826294, -258.51636, -42.133667, -245.92725, -149.21301, -214.20068, -225.83533, 152.33447, -155.75488, 197.39746, -170.73584, 202.4668, -53.041748)
 
 [node name="Pant" type="Sprite2D" parent="floor4/short8" unique_id=1371290989]
@@ -1131,6 +1193,18 @@ rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("14_vxglm")
 
+[node name="short21" type="CollisionPolygon2D" parent="floor4" unique_id=1648306880]
+position = Vector2(8236.134, -1939.6995)
+rotation = -4.291701
+scale = Vector2(0.7, 0.7)
+polygon = PackedVector2Array(201.33423, 171.87244, -214.58789, 254.70862, -229.31055, 226.9049, -251.12183, 57.079712, -231.06763, 46.02014, -63.285645, 29.915161, -58.23633, 3.826294, -258.51636, -42.133667, -245.92725, -149.21301, -214.20068, -225.83533, 152.33447, -155.75488, 197.39746, -170.73584, 202.4668, -53.041748)
+
+[node name="Pant" type="Sprite2D" parent="floor4/short21" unique_id=987214136]
+z_as_relative = false
+rotation = 1.6632938
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("14_vxglm")
+
 [node name="floor6" type="StaticBody2D" parent="." unique_id=247042329 groups=["FLOOR"]]
 z_index = 20
 position = Vector2(-9180, -5519)
@@ -1141,15 +1215,16 @@ collision_mask = 3
 
 [node name="shoe2" type="CollisionPolygon2D" parent="floor6" unique_id=317258293]
 z_index = 9
-position = Vector2(11036.516, 1278.9233)
-rotation = 5.7148676
+position = Vector2(11057.57, 1282.9186)
+rotation = 5.620228
 scale = Vector2(-0.75, 0.75)
 polygon = PackedVector2Array(151.11304, -764.6835, -259.46094, -390.28296, -686.9978, 94.18286, -555.53906, 233.03784, -460.1123, 230.44751, -328.625, 155.71399, -259.30518, 227.89954, -48.96753, 170.70569, 148.1792, 161.86462, 192.37842, 215.45032, 228.44336, 179.37634, 293.354, 243.16199, 631.1846, -127.028076, 643.14746, -237.59424, 534.5676, -328.1007, 400.5791, -523.4852, 160.45703, -757.08826)
 
 [node name="Shoe" type="Sprite2D" parent="floor6/shoe2" unique_id=961595334]
 z_index = 1
 z_as_relative = false
-rotation = -0.80983263
+position = Vector2(15.573936, 11.131531)
+rotation = -0.8046578
 scale = Vector2(2.2, -2.2)
 texture = ExtResource("12_og1vs")
 
@@ -1166,8 +1241,8 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("14_vxglm")
 
 [node name="pant2" type="CollisionPolygon2D" parent="floor6" unique_id=968479545]
-position = Vector2(9971.552, 1335.6248)
-rotation = 3.2824597
+position = Vector2(9964.359, 1373.5197)
+rotation = 3.3098812
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(398, -137, 359, 208, -254.90039, 199.46143, -264.14697, 24.777344, -212, 42, 172, 35, 172, 12, -214, -68, -257, -42, -296, -57, -304, -162, -273, -250, -236, -249, -212, -206)
 
@@ -1193,8 +1268,8 @@ scale = Vector2(2.2, -2.2)
 texture = ExtResource("12_og1vs")
 
 [node name="pant3" type="CollisionPolygon2D" parent="floor6" unique_id=1786078800]
-position = Vector2(8775.846, 1146.4935)
-rotation = 3.2824597
+position = Vector2(8780.591, 1144.4858)
+rotation = 3.322793
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(398, -137, 359, 208, -254.90039, 199.46143, -264.14697, 24.777344, -212, 42, 172, 35, 172, 12, -214, -68, -257, -42, -296, -57, -304, -162, -273, -250, -236, -249, -212, -206)
 
@@ -1206,8 +1281,8 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("13_2wyq8")
 
 [node name="pant4" type="CollisionPolygon2D" parent="floor6" unique_id=1839712918]
-position = Vector2(7623.3833, 967.0238)
-rotation = 3.2824597
+position = Vector2(7677.425, 935.1124)
+rotation = 3.3181036
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(398, -137, 359, 208, -254.90039, 199.46143, -264.14697, 24.777344, -212, 42, 172, 35, 172, 12, -214, -68, -257, -42, -296, -57, -304, -162, -273, -250, -236, -249, -212, -206)
 
@@ -1219,8 +1294,8 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("13_2wyq8")
 
 [node name="pant5" type="CollisionPolygon2D" parent="floor6" unique_id=1968763538]
-position = Vector2(6470.3887, 790.36115)
-rotation = 3.2824597
+position = Vector2(6521.2676, 721.4976)
+rotation = 3.3180947
 scale = Vector2(2, 2)
 polygon = PackedVector2Array(398, -137, 359, 208, -254.90039, 199.46143, -264.14697, 24.777344, -212, 42, 172, 35, 172, 12, -214, -68, -257, -42, -296, -57, -304, -162, -273, -250, -236, -249, -212, -206)
 
@@ -1231,6 +1306,48 @@ rotation = 1.6632938
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("13_2wyq8")
 
+[node name="shoe16" type="CollisionPolygon2D" parent="floor6" unique_id=2095281827]
+z_index = 9
+position = Vector2(5202.764, -1555.7249)
+rotation = 8.803359
+scale = Vector2(-1, -1)
+polygon = PackedVector2Array(151.11304, -764.6835, -259.46094, -390.28296, -686.9978, 94.18286, -555.53906, 233.03784, -460.1123, 230.44751, -328.625, 155.71399, -259.30518, 227.89954, -48.96753, 170.70569, 148.1792, 161.86462, 192.37842, 215.45032, 228.44336, 179.37634, 293.354, 243.16199, 631.1846, -127.028076, 643.14746, -237.59424, 534.5676, -328.1007, 400.5791, -523.4852, 160.45703, -757.08826)
+
+[node name="Shoe" type="Sprite2D" parent="floor6/shoe16" unique_id=988842661]
+z_index = 1
+z_as_relative = false
+rotation = -0.80983263
+scale = Vector2(2.2, -2.2)
+texture = ExtResource("12_og1vs")
+
+[node name="shoe17" type="CollisionPolygon2D" parent="floor6" unique_id=2025007028]
+z_index = 9
+position = Vector2(6979.657, -2069.1152)
+rotation = 8.803359
+scale = Vector2(-1, -1)
+polygon = PackedVector2Array(151.11304, -764.6835, -259.46094, -390.28296, -686.9978, 94.18286, -555.53906, 233.03784, -460.1123, 230.44751, -328.625, 155.71399, -259.30518, 227.89954, -48.96753, 170.70569, 148.1792, 161.86462, 192.37842, 215.45032, 228.44336, 179.37634, 293.354, 243.16199, 631.1846, -127.028076, 643.14746, -237.59424, 534.5676, -328.1007, 400.5791, -523.4852, 160.45703, -757.08826)
+
+[node name="Shoe" type="Sprite2D" parent="floor6/shoe17" unique_id=1093817891]
+z_index = 1
+z_as_relative = false
+rotation = -0.80983263
+scale = Vector2(2.2, -2.2)
+texture = ExtResource("12_og1vs")
+
+[node name="shoe18" type="CollisionPolygon2D" parent="floor6" unique_id=1041383597]
+z_index = 9
+position = Vector2(5263.6606, -3454.8196)
+rotation = 10.385391
+scale = Vector2(-1, -1)
+polygon = PackedVector2Array(151.11304, -764.6835, -259.46094, -390.28296, -686.9978, 94.18286, -555.53906, 233.03784, -460.1123, 230.44751, -328.625, 155.71399, -259.30518, 227.89954, -48.96753, 170.70569, 148.1792, 161.86462, 192.37842, 215.45032, 228.44336, 179.37634, 293.354, 243.16199, 631.1846, -127.028076, 643.14746, -237.59424, 534.5676, -328.1007, 400.5791, -523.4852, 160.45703, -757.08826)
+
+[node name="Shoe" type="Sprite2D" parent="floor6/shoe18" unique_id=954269942]
+z_index = 1
+z_as_relative = false
+rotation = -0.80983263
+scale = Vector2(2.2, -2.2)
+texture = ExtResource("12_og1vs")
+
 [node name="camera" type="Camera2D" parent="." unique_id=1522635686]
 position = Vector2(-972, 109)
 zoom = Vector2(0.3, 0.3)
@@ -1239,9 +1356,6 @@ limit_right = 10000
 limit_bottom = 1300
 position_smoothing_enabled = true
 script = SubResource("GDScript_o5qli")
-
-[node name="pauseMenu" parent="." unique_id=1350678274 instance=ExtResource("2_jyhfs")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1240431839]
 script = ExtResource("12_trceg")
@@ -1260,25 +1374,223 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Bigtree" type="Sprite2D" parent="." unique_id=2088573967]
-visible = false
 position = Vector2(-3178.0002, -1838.0001)
 scale = Vector2(3.6, 3.6)
 texture = ExtResource("23_pm3ni")
 
+[node name="detectors" type="Node2D" parent="." unique_id=756046083]
+
+[node name="firstLeg" type="Area2D" parent="detectors" unique_id=1293686076]
+
+[node name="firstLeg" type="CollisionShape2D" parent="detectors/firstLeg" unique_id=1903489672]
+position = Vector2(1005, 749)
+shape = SubResource("RectangleShape2D_fv21b")
+
+[node name="fell" type="Area2D" parent="detectors" unique_id=666538514]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectors/fell" unique_id=1405306210]
+position = Vector2(-946.5, -1720.5)
+shape = SubResource("RectangleShape2D_tel4y")
+
+[node name="gremlinThief" type="Area2D" parent="detectors" unique_id=883486658]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detectors/gremlinThief" unique_id=1284729845]
+position = Vector2(-1590, -6830.5)
+shape = SubResource("RectangleShape2D_qkpxi")
+
+[node name="Text" type="Node2D" parent="." unique_id=254903165]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Text" unique_id=1052578620]
+offset_left = -1941.0
+offset_top = 437.0
+offset_right = -1511.0
+offset_bottom = 553.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Welcome to Life!
+
+     Press A/D to roll..."
+script = ExtResource("20_yq6so")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Text" unique_id=213094863]
+offset_left = -448.0
+offset_top = 552.0
+offset_right = 489.0
+offset_bottom = 668.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Your goal is to get all your body parts back..."
+script = ExtResource("21_fv21b")
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Text" unique_id=813747175]
+offset_left = 878.0
+offset_top = 639.0
+offset_right = 1175.0
+offset_bottom = 691.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Like this one!"
+script = ExtResource("21_fv21b")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Text" unique_id=1042735474]
+visible = false
+offset_left = 1532.0
+offset_top = 448.0
+offset_right = 1886.0
+offset_bottom = 547.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Hold space to charge a jump."
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Text" unique_id=2090127497]
+offset_left = 4123.0
+offset_top = 323.0
+offset_right = 4644.0
+offset_bottom = 443.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0][rainbow freq=0.5 sat=1 val=1]HAVE FUN <3[/rainbow][/wave]"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Text" unique_id=1464480477]
+offset_left = 4491.0
+offset_top = -1361.0
+offset_right = 5004.0
+offset_bottom = -1192.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Hey here's another one!
+
+Your arm will follow your mouse cursor :]"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Text" unique_id=1848402410]
+offset_left = -62.0
+offset_top = -1983.0
+offset_right = 223.0
+offset_bottom = -1863.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Hope you don't fall..."
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Text" unique_id=607581715]
+offset_left = -3050.0
+offset_top = -2838.0
+offset_right = -2113.0
+offset_bottom = -2722.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "This is a bit trickier..."
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="Text" unique_id=432323070]
+offset_left = 1901.0
+offset_top = -1942.0
+offset_right = 2414.0
+offset_bottom = -1773.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Press e to edit your body parts! The top row contains all your active parts."
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="Text" unique_id=1903470527]
+offset_left = -2934.0
+offset_top = -4158.0
+offset_right = -1997.0
+offset_bottom = -4042.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "This gap seems a bit small...."
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="Text" unique_id=1923667909]
+offset_left = 648.0
+offset_top = -4966.0
+offset_right = 1585.0
+offset_bottom = -4850.0
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[pulse freq=3.0 color=#ffffff44 ease=-2.0][rainbow freq=0.5 sat=1 val=1]PANTS PANTS PANTS PANTS[/rainbow][/pulse]"
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="Text" unique_id=1409963553]
+offset_left = 4758.0
+offset_top = -8252.0
+offset_right = 5695.0
+offset_bottom = -8136.0
+theme_override_colors/default_color = Color(0.40784314, 0, 0.33333334, 1)
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "If you don't turn into a head to roll down the ramp are you even living life..."
+
+[node name="LIMB STOLEN" type="RichTextLabel" parent="Text" unique_id=1017982631]
+visible = false
+offset_left = -2249.0
+offset_top = -6641.0
+offset_right = -1789.0
+offset_bottom = -6496.0
+theme_override_colors/default_color = Color(0.7372549, 0.15294118, 0.18039216, 1)
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "THAT GREMLIN JUST STOLE YOUR LIMB!!!"
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="Text" unique_id=581312435]
+offset_left = -1681.0
+offset_top = -6908.0
+offset_right = -1180.0
+offset_bottom = -6792.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "Hold right click to aim."
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="Text" unique_id=696276654]
+offset_left = -1741.0
+offset_top = -6839.0
+offset_right = -1146.0
+offset_bottom = -6723.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[shake rate=20.0 level=20]YOU KNOW WHAT TO DO.[/shake]"
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="Text" unique_id=1683531940]
+offset_left = -6202.0
+offset_top = -9611.0
+offset_right = -5265.0
+offset_bottom = -9495.0
+theme_override_colors/default_color = Color(0.22745098, 0.60784316, 0.6509804, 1)
+theme_override_fonts/normal_font = ExtResource("19_2f3dj")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "GRAPPLING HOOK!
+F to fire
+R to reel in
+"
+
 [node name="dumbert_head" parent="." unique_id=15634831 instance=ExtResource("22_jscy8")]
-position = Vector2(-1388, -6474)
+position = Vector2(-75, -1554)
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = -34.906586
 
 [node name="bodyPartLeg" parent="." unique_id=1735589040 groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 z_index = 14
-position = Vector2(-1705, -6455)
+position = Vector2(5325, -9825)
 gravity_scale = 2.5
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = 0.87266463
 
 [node name="bodyPartArm" parent="." unique_id=315098062 groups=["bodyParts"] instance=ExtResource("13_jkv2x")]
-position = Vector2(-1591, -6484)
+position = Vector2(4386, -1172)
 
 [node name="Bigtree2" type="Sprite2D" parent="." unique_id=1618505354]
 z_index = 1
@@ -1288,20 +1600,38 @@ scale = Vector2(3.6, -3.6)
 texture = ExtResource("23_pm3ni")
 
 [node name="item_grappling_hook" parent="." unique_id=405860644 groups=["bodyParts"] instance=ExtResource("24_y6deb")]
-position = Vector2(-6363, -9456)
+position = Vector2(-6438, -9425)
 itemRes = ExtResource("25_og1vs")
 
 [node name="bodyPartLeg2" parent="." unique_id=1502370221 groups=["bodyParts"] instance=ExtResource("11_ya4ey")]
 z_index = 14
-position = Vector2(958, -1134)
+position = Vector2(1001.9999, 760)
+rotation = -1.5499523
 gravity_scale = 2.5
-linear_velocity = Vector2(-1000, 0)
 angular_velocity = 0.87266463
 
 [node name="item_rocket_launcher" parent="." unique_id=676976814 groups=["bodyParts"] instance=ExtResource("18_yc10j")]
-position = Vector2(-1554, -6578)
+position = Vector2(-1448, -8947)
+freeze = true
 itemType = "rocket"
 itemRes = ExtResource("19_jscy8")
 
 [node name="gremlin" parent="." unique_id=391099569 groups=["enemy"] instance=ExtResource("26_2wyq8")]
-position = Vector2(-2707, -6508)
+position = Vector2(-1701, -8783)
+freeze = true
+
+[node name="pauseMenu" parent="." unique_id=1350678274 instance=ExtResource("2_jyhfs")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=102791753]
+stream = ExtResource("31_tel4y")
+volume_db = -20.0
+autoplay = true
+
+[node name="explosion" type="AudioStreamPlayer" parent="." unique_id=1195917200]
+stream = ExtResource("32_qkpxi")
+volume_db = -5.0
+
+[connection signal="body_entered" from="detectors/firstLeg" to="." method="_on_first_leg_body_entered"]
+[connection signal="body_entered" from="detectors/fell" to="." method="_on_fell_body_entered"]
+[connection signal="body_entered" from="detectors/gremlinThief" to="." method="_on_gremlin_thief_body_entered"]

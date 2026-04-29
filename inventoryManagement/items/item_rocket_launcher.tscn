@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcwg3ephgnj4r"]
 
 [ext_resource type="Script" uid="uid://bg8hug0oau3er" path="res://inventoryManagement/items/item_rocket_launcher.gd" id="1_blnvm"]
+[ext_resource type="Texture2D" uid="uid://bmjf65rnfn0hm" path="res://assets/rocketLauncher + grapplingHook animations/rocketLauncher.png" id="2_c62hg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wldj"]
 radius = 16.0
@@ -11,3 +12,9 @@ script = ExtResource("1_blnvm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2109164850]
 shape = SubResource("CapsuleShape2D_8wldj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=467311930]
+position = Vector2(9.000004, -126.000015)
+rotation = 4.521639
+scale = Vector2(0.8689541, 0.7595986)
+texture = ExtResource("2_c62hg")

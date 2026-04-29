@@ -1,7 +1,8 @@
-[gd_scene load_steps=0 format=3 uid="uid://f3dcqo7ynevc"]
+[gd_scene format=3 uid="uid://f3dcqo7ynevc"]
 
 [ext_resource type="Script" uid="uid://go07u1na2753" path="res://grapple.gd" id="1_ore22"]
 [ext_resource type="Texture2D" uid="uid://b135squ2v8x8p" path="res://icon.svg" id="2_aq0wh"]
+[ext_resource type="AudioStream" uid="uid://kjw1n58ntwl6" path="res://sfx/grappleHitSfx.wav" id="3_aq0wh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
 size = Vector2(50, 38)
@@ -16,5 +17,8 @@ texture = ExtResource("2_aq0wh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1977210014]
 shape = SubResource("RectangleShape2D_2b2rl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=932089605]
+stream = ExtResource("3_aq0wh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

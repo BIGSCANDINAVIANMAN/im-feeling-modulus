@@ -35,3 +35,5 @@ func _on_body_entered(body: Node2D) -> void:
 		#play animation
 		is_latched = true
 		grapple_latched.emit(global_position)
+		$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+		$AudioStreamPlayer2D.play()

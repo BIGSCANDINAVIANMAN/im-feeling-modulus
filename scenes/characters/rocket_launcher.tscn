@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://do38esqua1a8n"]
 
-[ext_resource type="Texture2D" uid="uid://b1et6tot45nvu" path="res://assets/rocketlauncher_temp.png" id="1_tjdju"]
+[ext_resource type="Texture2D" uid="uid://bmjf65rnfn0hm" path="res://assets/rocketLauncher + grapplingHook animations/rocketLauncher.png" id="1_chxwg"]
 [ext_resource type="Script" uid="uid://dddfy10g5j8gc" path="res://scenes/characters/rocket_launcher.gd" id="2_chxwg"]
 
 [node name="rocket_launcher" type="Sprite2D" unique_id=1769990368]
-texture = ExtResource("1_tjdju")
 script = ExtResource("2_chxwg")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1512146625]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1587307502]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2025628967]
+position = Vector2(83.00001, 12)
+rotation = -0.16004154
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_chxwg")

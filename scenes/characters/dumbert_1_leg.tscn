@@ -133,6 +133,7 @@
 [ext_resource type="Texture2D" uid="uid://dfoci2m0k071u" path="res://assets/1_leg_squat/squatting-90deg/Untitled_Artwork-8.png" id="66_5uyj8"]
 [ext_resource type="Texture2D" uid="uid://vcg46vl58nsa" path="res://assets/squat_hold/hold-90deg/Untitled_Artwork-6.png" id="66_6ptto"]
 [ext_resource type="Texture2D" uid="uid://w6s0mg7ki6qo" path="res://assets/squat_hold/hold-90deg/Untitled_Artwork-7.png" id="67_duyqe"]
+[ext_resource type="AudioStream" uid="uid://drl2qjkqx81s1" path="res://sfx/jump_1.wav" id="134_xmmra"]
 
 [sub_resource type="GDScript" id="GDScript_5tckc"]
 resource_name = "dumbert"
@@ -141,6 +142,8 @@ script/source = "extends \"res://scenes/characters/dumbert.gd\"
 func _physics_process(delta: float) -> void:
 	if not get_tree().paused:
 		if Input.is_action_just_released(\"space\") and is_on_floor():
+			$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
+			$AudioStreamPlayer2D.play()
 			apply_impulse(Vector2(0, -1).rotated(rotation) * 2000 * charge_time)
 		
 		if Input.is_action_pressed(\"space\") and is_on_floor():
@@ -852,6 +855,10 @@ shape = SubResource("CircleShape2D_5tckc")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1677576193]
 position = Vector2(0, 200)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=883099057]
+stream = ExtResource("134_xmmra")
+volume_db = -4.052
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

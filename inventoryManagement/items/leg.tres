@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://cui8s37vat8g8"]
 
 [ext_resource type="Script" uid="uid://yvfewopk7mmr" path="res://inventoryManagement/inventory_item.gd" id="1_y4avy"]
-[ext_resource type="Texture2D" uid="uid://bed1v055jfikj" path="res://assets/menus/leg.png" id="2_ah73o"]
+[ext_resource type="Texture2D" uid="uid://bqm2duo3txdyc" path="res://assets/legegegeg (Small).png" id="2_5fw8i"]
 
 [resource]
 script = ExtResource("1_y4avy")
 name = "leg"
-texture = ExtResource("2_ah73o")
+texture = ExtResource("2_5fw8i")
 metadata/_custom_type_script = "uid://yvfewopk7mmr"

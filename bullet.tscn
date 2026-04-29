@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dks3iwdpx7cra" path="res://bullet.gd" id="1_v8qja"]
 [ext_resource type="Texture2D" uid="uid://b135squ2v8x8p" path="res://icon.svg" id="2_t4vbm"]
+[ext_resource type="AudioStream" uid="uid://d0176i1vb8n3n" path="res://sfx/rocketExplodeSfx.wav" id="3_t4vbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
 size = Vector2(32, 22)
@@ -28,6 +29,10 @@ rect = Rect2(-9, -11, 19, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius" unique_id=1930022260]
 shape = SubResource("CircleShape2D_v8qja")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1465895034]
+stream = ExtResource("3_t4vbm")
+volume_db = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

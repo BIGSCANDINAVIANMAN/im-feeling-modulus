@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dap1ss65e1t8o" path="res://assets/walking two legs no arms/Untitled_Artwork-8.png" id="9_4ciwp"]
 [ext_resource type="Texture2D" uid="uid://2tmwoleproih" path="res://assets/walking two legs no arms/Untitled_Artwork-9.png" id="10_h7wx3"]
 [ext_resource type="Texture2D" uid="uid://bybh0bs1untcw" path="res://assets/walking two legs no arms/Untitled_Artwork-10.png" id="11_3x8rx"]
+[ext_resource type="AudioStream" uid="uid://drl2qjkqx81s1" path="res://sfx/jump_1.wav" id="12_abkcl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5tjjc"]
 animations = [{
@@ -102,3 +103,7 @@ shape = SubResource("RectangleShape2D_cme88")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1911635960]
 position = Vector2(0, 142)
 shape = SubResource("RectangleShape2D_fnuj5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=256370097]
+stream = ExtResource("12_abkcl")
+volume_db = -4.0

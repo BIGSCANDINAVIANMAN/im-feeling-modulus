@@ -21,13 +21,16 @@ func _physics_process(delta: float) -> void:
 		var target_angle = direction.angle() + deg_to_rad(angle_offset_degrees)
 		rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 	
-	if Input.is_action_pressed("fire") && can_fire:
+	if Input.is_action_pressed("fire2") && can_fire && !get_tree().paused && !get_tree().current_scene.inInv():
 		var bullet_instance = bullet.instantiate()
 
 		bullet_instance.global_rotation = global_rotation - deg_to_rad(angle_offset_degrees)
 
 		bullet_instance.global_position = $Marker2D.global_position
 		get_parent().add_child(bullet_instance)
+		
+		$AudioStreamPlayer2D.pitch_scale = randf_range(0.9, 1.1)
+		$AudioStreamPlayer2D.play()
 
 		can_fire = false
 		await get_tree().create_timer(1).timeout

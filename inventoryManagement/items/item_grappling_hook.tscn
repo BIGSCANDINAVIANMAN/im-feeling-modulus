@@ -1,6 +1,7 @@
-[gd_scene load_steps=0 format=3 uid="uid://cd2dvjkip34dk"]
+[gd_scene format=3 uid="uid://cd2dvjkip34dk"]
 
 [ext_resource type="Script" uid="uid://ciqxkrblguoax" path="res://inventoryManagement/items/item_grappling_hook.gd" id="1_gh4g0"]
+[ext_resource type="Texture2D" uid="uid://wumolu06j6h4" path="res://assets/rocketLauncher + grapplingHook animations/grapplingGun.png" id="2_o25bv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wldj"]
 radius = 16.0
@@ -11,3 +12,9 @@ script = ExtResource("1_gh4g0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2109164850]
 shape = SubResource("CapsuleShape2D_8wldj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1802878878]
+position = Vector2(-8.000002, 107)
+rotation = 1.3439035
+scale = Vector2(0.8636837, 0.90193075)
+texture = ExtResource("2_o25bv")

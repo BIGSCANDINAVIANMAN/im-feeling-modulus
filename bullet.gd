@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 1000
+@export var speed = 2000
 @onready var explosion_hitbox = $explosionRadius
 @export var knockback: float = 67
 
@@ -32,13 +32,16 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		for target in explosion_hitbox.get_overlapping_bodies():
 			if target is RigidBody2D:
-				if (target.linear_velocity.y != 0):
+				if target.is_in_group("enemy") or "isDumbert" in target:
 					target.linear_velocity.y = 0
-				var direction = (target.global_position - explosion_hitbox.global_position)/(target.global_position - explosion_hitbox.global_position).length()
-				target.apply_central_impulse(30 * direction * knockback)
+					target.linear_velocity.x = 0
+					var direction = (target.global_position - explosion_hitbox.global_position)/(target.global_position - explosion_hitbox.global_position).length()
+					direction.y -= 0.5
+					target.apply_central_impulse(25 * direction * knockback)
 			if target.is_in_group("enemy"):
-				target.hit(35)
+				target.hit(50)
 			if "isDumbert" in target:
 				pass
-		
-		queue_free()
+
+			get_tree().current_scene.playBoom()
+			queue_free()

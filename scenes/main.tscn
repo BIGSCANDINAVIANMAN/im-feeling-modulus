@@ -146,7 +146,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cjqg0"]
-size = Vector2(60301, 2649)
+size = Vector2(103936, 29394)
 
 [node name="main" type="Node2D" unique_id=1892436423]
 process_mode = 3
@@ -1874,8 +1874,16 @@ polygon = PackedVector2Array(-2903.7153, -2842.7258, -2945.5996, -2514.7844, -31
 position = Vector2(-8250, 5666)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DEATHBAR" unique_id=1563076843]
-position = Vector2(8299.5, 1314.5)
+position = Vector2(6398, 14687)
 shape = SubResource("RectangleShape2D_cjqg0")
+
+[node name="clouds" type="Parallax2D" parent="." unique_id=1780882698]
+scale = Vector2(13.1, 13.1)
+scroll_offset = Vector2(812, -12038)
+
+[node name="Sprite2D" type="Sprite2D" parent="clouds" unique_id=274956552]
+position = Vector2(168.62595, 511.9084)
+texture = ExtResource("12_vxglm")
 
 [connection signal="body_entered" from="detectors/firstLeg" to="." method="_on_first_leg_body_entered"]
 [connection signal="body_entered" from="detectors/fell" to="." method="_on_fell_body_entered"]

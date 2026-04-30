@@ -22,6 +22,7 @@ var g_hook = preload("res://scenes/characters/grappling_hook.tscn")
 var available_arms = 2
 var has_rocket = false
 var has_grapple = false
+var shuffleSoundPlaying = false
 
 var limbs = []
 var dumbert_files = {
@@ -43,7 +44,7 @@ func _ready():
 	inventory.limb_addition.connect(add_limb)
 	inventory.limb_removal.connect(remove_limb)
 	
-func _process(delta):		
+func _process(delta):
 	if Input.is_action_just_pressed("esc"):
 		pause()
 		
@@ -62,12 +63,14 @@ func remove_limb(limb_name):
 			player.get_node("rocket_launcher").queue_free()
 			has_rocket = false
 			updateArmCount(limb_name, false)
+			playShuffle()
 		return
 	if (limb_name == "grappling_hook"):
 		if player.has_node("grappling_hook"):
 			player.get_node("grappling_hook").queue_free()
 			has_grapple = false
 			updateArmCount(limb_name, false)
+			playShuffle()
 		return
 		
 	
@@ -75,6 +78,7 @@ func remove_limb(limb_name):
 		updateArmCount(limb_name, false)
 		limbs.erase(limb_name)
 		limbs.sort()
+		playShuffle()
 	else:
 		return
 	if !dumbert_files.keys().has(limbs):
@@ -106,16 +110,17 @@ func add_limb(limb_name):
 			has_rocket = true
 			player.add_child(r_launcher.instantiate())
 			updateArmCount(limb_name, true)
+			playShuffle()
 		return
 	if (limb_name == "grappling_hook"):
 		if !player.has_node("grappling_hook") && available_arms > 0:
 			has_grapple = true
 			player.add_child(g_hook.instantiate())
 			updateArmCount(limb_name, true)
+			playShuffle()
 		return
 		
 	if available_arms == 0 and limb_name == "arm":
-		print("no arms")
 		return
 	updateArmCount(limb_name, true)
 		
@@ -125,6 +130,7 @@ func add_limb(limb_name):
 		limbs.erase(limb_name)
 		limbs.sort()
 		return
+	playShuffle()
 	var player_pos = player.global_position
 	player.queue_free()
 	player = load(dumbert_files[limbs]).instantiate()
@@ -222,3 +228,16 @@ func playBoom():
 func inInv():
 	print(invMenu.visible)
 	return invMenu.visible
+	
+@onready var dustCloud = $dustCloud
+@onready var shuffle = $shuffle
+	
+func playShuffle():
+	dustCloud.global_position = player.global_position
+	dustCloud.visible = true
+	dustCloud.play()
+	if !shuffle.playing:
+		shuffle.play()
+	await dustCloud.animation_finished
+	print("hide")
+	dustCloud.visible = false

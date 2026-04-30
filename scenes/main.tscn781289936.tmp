@@ -33,7 +33,6 @@
 [ext_resource type="AudioStream" uid="uid://clnl7u31nrnad" path="res://sfx/backgroundMusic.mp3" id="31_tel4y"]
 [ext_resource type="AudioStream" uid="uid://d0176i1vb8n3n" path="res://sfx/rocketExplodeSfx.wav" id="32_qkpxi"]
 [ext_resource type="Texture2D" uid="uid://1dusow17v82g" path="res://assets/dustCloud/Untitled_Artwork-1.png" id="33_chjal"]
-[ext_resource type="AudioStream" uid="uid://bsenitu67nj8w" path="res://sfx/shuffle.mp3" id="33_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://cmu05q7n3ljye" path="res://assets/dustCloud/Untitled_Artwork-2.png" id="34_cjqg0"]
 [ext_resource type="Texture2D" uid="uid://bqjqri842r4uv" path="res://assets/dustCloud/Untitled_Artwork-3.png" id="35_vchkt"]
 [ext_resource type="Texture2D" uid="uid://qw0jof3us5wq" path="res://assets/dustCloud/Untitled_Artwork-4.png" id="36_txyw0"]
@@ -140,9 +139,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("43_o7ddy")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
-"speed": 24.0
+"speed": 5.0
 }]
 
 [node name="main" type="Node2D" unique_id=1892436423]
@@ -1631,7 +1630,7 @@ R to reel in
 "
 
 [node name="dumbert_head" parent="." unique_id=15634831 instance=ExtResource("22_jscy8")]
-position = Vector2(140, -1524)
+position = Vector2(-75, -1554)
 linear_velocity = Vector2(-1000, 0)
 angular_velocity = -34.906586
 
@@ -1686,15 +1685,13 @@ stream = ExtResource("32_qkpxi")
 volume_db = -5.0
 
 [node name="shuffle" type="AudioStreamPlayer" parent="." unique_id=169623064]
-stream = ExtResource("33_cjqg0")
 
 [node name="dustCloud" type="AnimatedSprite2D" parent="." unique_id=50813846]
 visible = false
-position = Vector2(-57, -48.74998)
-scale = Vector2(1.1258278, 1.1251605)
+position = Vector2(-222, -99.25)
+scale = Vector2(1.4900662, 1.2548139)
 sprite_frames = SubResource("SpriteFrames_0loja")
-frame = 10
-frame_progress = 1.0
+frame_progress = 0.39257026
 speed_scale = 1.2
 
 [connection signal="body_entered" from="detectors/firstLeg" to="." method="_on_first_leg_body_entered"]

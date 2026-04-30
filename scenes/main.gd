@@ -241,3 +241,7 @@ func playShuffle():
 	await dustCloud.animation_finished
 	print("hide")
 	dustCloud.visible = false
+
+
+func _on_deathbar_body_entered(body: Node2D) -> void:
+	player.global_position = Vector2(-1600, 400)

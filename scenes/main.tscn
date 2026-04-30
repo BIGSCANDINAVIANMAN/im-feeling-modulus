@@ -1598,6 +1598,7 @@ bbcode_enabled = true
 text = "THAT GREMLIN JUST STOLE YOUR LIMB!!!"
 
 [node name="RichTextLabel15" type="RichTextLabel" parent="Text" unique_id=581312435]
+visible = false
 offset_left = -1681.0
 offset_top = -6908.0
 offset_right = -1180.0
@@ -1609,6 +1610,7 @@ bbcode_enabled = true
 text = "Hold right click to aim."
 
 [node name="RichTextLabel13" type="RichTextLabel" parent="Text" unique_id=696276654]
+visible = false
 offset_left = -1741.0
 offset_top = -6839.0
 offset_right = -1146.0

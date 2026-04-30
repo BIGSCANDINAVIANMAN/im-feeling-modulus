@@ -37,6 +37,7 @@ func fire_grapple():
 	active_hook.global_position = $Marker2D.global_position
 	
 	get_tree().current_scene.add_child(active_hook) 
+	$Sprite2D.texture = load("res://assets/rocketLauncher + grapplingHook animations/grapplingGun_without_hook.png")
 	active_hook.grapple_latched.connect(_on_hook_latched)
 	
 	$AudioStreamPlayer2D.pitch_scale = randf_range(0.8, 1.2)
@@ -118,3 +119,4 @@ func break_grapple():
 	is_swinging = false
 	if is_instance_valid(active_hook):
 		active_hook.queue_free()
+		$Sprite2D.texture = load("res://assets/rocketLauncher + grapplingHook animations/grapplingGun.png")

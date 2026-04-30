@@ -1,8 +1,27 @@
-[gd_scene format=3 uid="uid://ds3blmlwredk4"]
+[gd_scene load_steps=9 format=3 uid="uid://ds3blmlwredk4"]
 
 [ext_resource type="Script" uid="uid://dks3iwdpx7cra" path="res://bullet.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://b135squ2v8x8p" path="res://icon.svg" id="2_t4vbm"]
+[ext_resource type="Texture2D" uid="uid://cdvd11par0b3n" path="res://assets/rocketLauncher + grapplingHook animations/rocket(frame1).png" id="2_b7duk"]
+[ext_resource type="Texture2D" uid="uid://bugmac0btlhqa" path="res://assets/rocketLauncher + grapplingHook animations/rocket(frame2).png" id="3_t2bd8"]
 [ext_resource type="AudioStream" uid="uid://d0176i1vb8n3n" path="res://sfx/rocketExplodeSfx.wav" id="3_t4vbm"]
+[ext_resource type="Texture2D" uid="uid://8udh3mq5pod2" path="res://assets/rocketLauncher + grapplingHook animations/rocket(frame3).png" id="4_h0pa3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ol1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b7duk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t2bd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h0pa3")
+}],
+"loop": true,
+"name": &"pew",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
 size = Vector2(32, 22)
@@ -10,27 +29,32 @@ size = Vector2(32, 22)
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8qja"]
 radius = 215.02094
 
-[node name="Bullet" type="Area2D" unique_id=1614028915]
+[node name="Bullet" type="Area2D"]
 script = ExtResource("1_v8qja")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1058388083]
-position = Vector2(0, 2.2737368e-13)
-scale = Vector2(0.24218746, 0.171875)
-texture = ExtResource("2_t4vbm")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(-153.00003, 9.999996)
+rotation = -0.19373155
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_6ol1o")
+animation = &"pew"
+autoplay = "pew"
+frame_progress = 0.6681222
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1977210014]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2b2rl")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1085975002]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-1, 1)
 rect = Rect2(-9, -11, 19, 20)
 
-[node name="explosionRadius" type="Area2D" parent="." unique_id=1119423798]
+[node name="explosionRadius" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius" unique_id=1930022260]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosionRadius"]
 shape = SubResource("CircleShape2D_v8qja")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1465895034]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_t4vbm")
 volume_db = 10.0
 

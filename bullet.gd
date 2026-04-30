@@ -4,6 +4,8 @@ extends Area2D
 @onready var explosion_hitbox = $explosionRadius
 @export var knockback: float = 67
 
+var boom = preload("res://boom.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_as_top_level(true)
@@ -29,7 +31,7 @@ func _on_body_entered(body: Node2D) -> void:
 	#make sure to add groups as needed, ex: enemy
 	if body.is_in_group("FLOOR") or body.is_in_group("enemy"):
 		#play animation
-		
+		speed = 0
 		for target in explosion_hitbox.get_overlapping_bodies():
 			if target is RigidBody2D:
 				if target.is_in_group("enemy") or "isDumbert" in target:
@@ -44,4 +46,7 @@ func _on_body_entered(body: Node2D) -> void:
 				pass
 
 			get_tree().current_scene.playBoom()
+			var boom = boom.instantiate()
+			get_tree().current_scene.add_child(boom)
+			boom.global_position = global_position
 			queue_free()

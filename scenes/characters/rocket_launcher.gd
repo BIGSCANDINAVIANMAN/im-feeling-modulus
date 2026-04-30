@@ -15,7 +15,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	position.x = lerp(position.x, get_parent().position.x, 0.5)
 	position.y = lerp(position.y, get_parent().position.y + 10, 0.5)
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT) and get_parent().hasArm) or (!get_parent().hasArm and !Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT)) or get_tree().current_scene.available_arms == 1:
 		var mouse_pos = get_global_mouse_position()
 		var direction = mouse_pos - global_position
 		var target_angle = direction.angle() + deg_to_rad(angle_offset_degrees)
@@ -23,6 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("fire2") && can_fire && !get_tree().paused && !get_tree().current_scene.inInv():
 		var bullet_instance = bullet.instantiate()
+		$Sprite2D.texture = load("res://assets/rocketLauncher + grapplingHook animations/rocketLauncher_without_rocket.png")
 
 		bullet_instance.global_rotation = global_rotation - deg_to_rad(angle_offset_degrees)
 
@@ -34,5 +35,6 @@ func _physics_process(delta: float) -> void:
 
 		can_fire = false
 		await get_tree().create_timer(1).timeout
+		$Sprite2D.texture = load("res://assets/rocketLauncher + grapplingHook animations/rocketLauncher.png")
 		can_fire = true
 		

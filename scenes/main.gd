@@ -2,7 +2,7 @@ extends Node2D
 @onready var main = $"."
 @onready var pauseMenu = $pauseMenu
 @onready var player = $dumbert_head
-
+#dumbert
 @export var inventory: InventoryClass = preload("res://inventoryManagement/playerInventory.tres")
 @onready var invMenu = $CanvasLayer/inventory
 @onready var legText1 = $Text/RichTextLabel4

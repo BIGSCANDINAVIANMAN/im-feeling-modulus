@@ -2,7 +2,7 @@ extends Node2D
 @onready var main = $"."
 @onready var pauseMenu = $pauseMenu
 @onready var player = $dumbert_head
-#dumbert
+#dumbert!
 @export var inventory: InventoryClass = preload("res://inventoryManagement/playerInventory.tres")
 @onready var invMenu = $CanvasLayer/inventory
 @onready var legText1 = $Text/RichTextLabel4
@@ -14,6 +14,7 @@ extends Node2D
 @onready var camera = $camera
 var gremCutsceneHappened = false
 @onready var urRocket = $item_rocket_launcher
+@onready var initialText = $Text/RichTextLabel
 
 signal steal_limb(ind)
 
@@ -244,4 +245,7 @@ func playShuffle():
 
 
 func _on_deathbar_body_entered(body: Node2D) -> void:
+	initialText.text = "there was no cookie\n
+	:c"
 	player.global_position = Vector2(-1600, 400)
+	

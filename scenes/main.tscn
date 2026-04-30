@@ -1570,7 +1570,7 @@ offset_top = -4966.0
 offset_right = 1585.0
 offset_bottom = -4850.0
 theme_override_fonts/normal_font = ExtResource("19_2f3dj")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "[pulse freq=3.0 color=#ffffff44 ease=-2.0][rainbow freq=0.5 sat=1 val=1]PANTS PANTS PANTS PANTS[/rainbow][/pulse]"
 
